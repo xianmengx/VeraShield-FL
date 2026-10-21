@@ -1,0 +1,566 @@
+{
+  "audit_status": "PASS_WITH_LIMITATIONS",
+  "results": [
+    {
+      "method": "verashield_fl",
+      "final_accuracy": 0.4558,
+      "nonfinite_loss_rounds": [],
+      "diagnostic_missing_rounds": [],
+      "explicit_aggregation_failure_rounds": [],
+      "first_nonfinite_loss_round": null,
+      "run_outcome": "finite_evaluation_trajectory",
+      "scheduled_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "stage_accuracy": {
+        "1-20": {
+          "start_accuracy": 0.1,
+          "end_accuracy": 0.1411,
+          "minimum_accuracy": 0.1
+        },
+        "21-40": {
+          "start_accuracy": 0.3313,
+          "end_accuracy": 0.3541,
+          "minimum_accuracy": 0.3313
+        },
+        "41-60": {
+          "start_accuracy": 0.4368,
+          "end_accuracy": 0.4558,
+          "minimum_accuracy": 0.4368
+        }
+      },
+      "capabilities": {
+        "recovery": true,
+        "server_verification": true
+      },
+      "threshold_mode_counts": {
+        "normal": 40,
+        "emergency": 20
+      },
+      "applied_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "client_rejection_and_rollback_rounds": [
+        21,
+        41,
+        60
+      ],
+      "recovery_successes": 220,
+      "recovery_attempts": 220,
+      "empty_accepted_rounds": [
+        21,
+        41,
+        60
+      ],
+      "unexpected_empty_rounds": [],
+      "skipped_screening_and_recovery_rounds": [
+        21,
+        41,
+        60
+      ],
+      "active_detection": {
+        "attack_mode": "persistent",
+        "burst_round": 3,
+        "n_detection_instances": 1080,
+        "server_model": "logical_dual_server_in_single_simulation",
+        "timing_mode": "sequential_logical_roles",
+        "TP": 216,
+        "TN": 863,
+        "FP": 1,
+        "FN": 0,
+        "precision": 0.9953917050691244,
+        "recall": 1.0,
+        "f1": 0.997690531177829,
+        "detection_accuracy": 0.9990740740740741,
+        "fpr": 0.0011574074074074073,
+        "fnr": 0.0
+      },
+      "recovery_success_rate": 1.0,
+      "recovery_failure_count": 0,
+      "tamper_detection_success_rate": 1.0,
+      "rollback_success_rate": 1.0,
+      "screening_round_count": 57,
+      "active_screening_round_count": 54,
+      "threshold_switch_rounds": [
+        41
+      ],
+      "tamper_events": [
+        {
+          "round": 20,
+          "status": "applied",
+          "evidence": "vl_verification_results.csv",
+          "aggregation_status": "ok"
+        },
+        {
+          "round": 40,
+          "status": "applied",
+          "evidence": "vl_verification_results.csv",
+          "aggregation_status": "ok"
+        },
+        {
+          "round": 59,
+          "status": "applied",
+          "evidence": "vl_verification_results.csv",
+          "aggregation_status": "ok"
+        }
+      ]
+    },
+    {
+      "method": "fedavg",
+      "final_accuracy": 0.1,
+      "nonfinite_loss_rounds": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+      ],
+      "diagnostic_missing_rounds": [
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+      ],
+      "explicit_aggregation_failure_rounds": [],
+      "first_nonfinite_loss_round": 8,
+      "run_outcome": "numerical_instability",
+      "scheduled_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "stage_accuracy": {
+        "1-20": {
+          "start_accuracy": 0.1,
+          "end_accuracy": 0.1,
+          "minimum_accuracy": 0.1
+        },
+        "21-40": {
+          "start_accuracy": 0.1,
+          "end_accuracy": 0.1,
+          "minimum_accuracy": 0.1
+        },
+        "41-60": {
+          "start_accuracy": 0.1,
+          "end_accuracy": 0.1,
+          "minimum_accuracy": 0.1
+        }
+      },
+      "capabilities": {
+        "recovery": false,
+        "server_verification": false
+      },
+      "applied_tamper_rounds": [],
+      "unconfirmed_scheduled_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "recovery_success_rate": null,
+      "recovery_failure_count": null,
+      "tamper_detection_success_rate": null,
+      "rollback_success_rate": null,
+      "active_detection": null,
+      "threshold_mode_counts": null,
+      "tamper_events": [
+        {
+          "round": 20,
+          "status": "unconfirmed",
+          "evidence": "aggregation_diagnostics.csv",
+          "aggregation_status": null
+        },
+        {
+          "round": 40,
+          "status": "unconfirmed",
+          "evidence": "aggregation_diagnostics.csv",
+          "aggregation_status": null
+        },
+        {
+          "round": 59,
+          "status": "unconfirmed",
+          "evidence": "aggregation_diagnostics.csv",
+          "aggregation_status": null
+        }
+      ]
+    },
+    {
+      "method": "krum",
+      "final_accuracy": 0.1,
+      "nonfinite_loss_rounds": [],
+      "diagnostic_missing_rounds": [],
+      "explicit_aggregation_failure_rounds": [
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "first_nonfinite_loss_round": null,
+      "run_outcome": "finite_evaluation_trajectory",
+      "scheduled_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "stage_accuracy": {
+        "1-20": {
+          "start_accuracy": 0.1,
+          "end_accuracy": 0.1025,
+          "minimum_accuracy": 0.1
+        },
+        "21-40": {
+          "start_accuracy": 0.1025,
+          "end_accuracy": 0.1,
+          "minimum_accuracy": 0.1
+        },
+        "41-60": {
+          "start_accuracy": 0.1,
+          "end_accuracy": 0.1,
+          "minimum_accuracy": 0.1
+        }
+      },
+      "capabilities": {
+        "recovery": false,
+        "server_verification": false
+      },
+      "applied_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "unconfirmed_scheduled_tamper_rounds": [],
+      "recovery_success_rate": null,
+      "recovery_failure_count": null,
+      "tamper_detection_success_rate": null,
+      "rollback_success_rate": null,
+      "active_detection": null,
+      "threshold_mode_counts": null,
+      "tamper_events": [
+        {
+          "round": 20,
+          "status": "applied",
+          "evidence": "aggregation_diagnostics.csv",
+          "aggregation_status": "ok"
+        },
+        {
+          "round": 40,
+          "status": "applied",
+          "evidence": "aggregation_diagnostics.csv",
+          "aggregation_status": "ok"
+        },
+        {
+          "round": 59,
+          "status": "applied",
+          "evidence": "aggregation_diagnostics.csv",
+          "aggregation_status": "ok"
+        }
+      ]
+    },
+    {
+      "method": "trimmed_mean",
+      "final_accuracy": 0.1,
+      "nonfinite_loss_rounds": [],
+      "diagnostic_missing_rounds": [],
+      "explicit_aggregation_failure_rounds": [],
+      "first_nonfinite_loss_round": null,
+      "run_outcome": "finite_evaluation_trajectory",
+      "scheduled_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "stage_accuracy": {
+        "1-20": {
+          "start_accuracy": 0.1004,
+          "end_accuracy": 0.1008,
+          "minimum_accuracy": 0.1
+        },
+        "21-40": {
+          "start_accuracy": 0.1,
+          "end_accuracy": 0.1,
+          "minimum_accuracy": 0.1
+        },
+        "41-60": {
+          "start_accuracy": 0.1,
+          "end_accuracy": 0.1,
+          "minimum_accuracy": 0.1
+        }
+      },
+      "capabilities": {
+        "recovery": false,
+        "server_verification": false
+      },
+      "applied_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "unconfirmed_scheduled_tamper_rounds": [],
+      "recovery_success_rate": null,
+      "recovery_failure_count": null,
+      "tamper_detection_success_rate": null,
+      "rollback_success_rate": null,
+      "active_detection": null,
+      "threshold_mode_counts": null,
+      "tamper_events": [
+        {
+          "round": 20,
+          "status": "applied",
+          "evidence": "aggregation_diagnostics.csv",
+          "aggregation_status": "ok"
+        },
+        {
+          "round": 40,
+          "status": "applied",
+          "evidence": "aggregation_diagnostics.csv",
+          "aggregation_status": "ok"
+        },
+        {
+          "round": 59,
+          "status": "applied",
+          "evidence": "aggregation_diagnostics.csv",
+          "aggregation_status": "ok"
+        }
+      ]
+    },
+    {
+      "method": "feddmc",
+      "final_accuracy": 0.1,
+      "nonfinite_loss_rounds": [],
+      "diagnostic_missing_rounds": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        59,
+        60
+      ],
+      "explicit_aggregation_failure_rounds": [
+        58
+      ],
+      "first_nonfinite_loss_round": null,
+      "run_outcome": "finite_evaluation_trajectory",
+      "scheduled_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "stage_accuracy": {
+        "1-20": {
+          "start_accuracy": 0.1,
+          "end_accuracy": 0.1,
+          "minimum_accuracy": 0.1
+        },
+        "21-40": {
+          "start_accuracy": 0.1,
+          "end_accuracy": 0.1,
+          "minimum_accuracy": 0.1
+        },
+        "41-60": {
+          "start_accuracy": 0.1,
+          "end_accuracy": 0.1,
+          "minimum_accuracy": 0.1
+        }
+      },
+      "capabilities": {
+        "recovery": false,
+        "server_verification": false
+      },
+      "applied_tamper_rounds": [],
+      "unconfirmed_scheduled_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "recovery_success_rate": null,
+      "recovery_failure_count": null,
+      "tamper_detection_success_rate": null,
+      "rollback_success_rate": null,
+      "active_detection": null,
+      "threshold_mode_counts": null,
+      "tamper_events": [
+        {
+          "round": 20,
+          "status": "unconfirmed",
+          "evidence": "aggregation_diagnostics.csv",
+          "aggregation_status": null
+        },
+        {
+          "round": 40,
+          "status": "unconfirmed",
+          "evidence": "aggregation_diagnostics.csv",
+          "aggregation_status": null
+        },
+        {
+          "round": 59,
+          "status": "unconfirmed",
+          "evidence": "aggregation_diagnostics.csv",
+          "aggregation_status": null
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Single development seed, not multi-seed evidence.",
+    "FedAvg/FedDMC have no evidence of scheduled tamper execution after early instability.",
+    "Three rollback rounds skip recovery and statistical screening; 220 attempts, not 240.",
+    "Logical post-share simulation: fresh updates/shares are available each affected round.",
+    "Runtime thresholds are share availability, not a guarantee against Byzantine share holders.",
+    "Fixed nested dropout IDs 16-19 then 12-19; plan updated to match actual execution.",
+    "Online malicious counts are 4/20, 4/16 and 2/12. Recovered candidates still include malicious updates.",
+    "System comparison cannot isolate benefits of individual modules."
+  ]
+}

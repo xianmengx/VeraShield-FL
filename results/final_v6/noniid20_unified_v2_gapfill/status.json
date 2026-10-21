@@ -1,0 +1,11 @@
+{
+  "status": "COMPLETED",
+  "pid": 1433150,
+  "started_utc": "2026-10-12T03:58:37.551849+00:00",
+  "new_jobs_total": 8,
+  "new_jobs_completed": 8,
+  "reused_jobs": 1,
+  "current": null,
+  "completed_utc": "2026-10-12T08:37:58.850266+00:00",
+  "all_main_gates_pass": true
+}

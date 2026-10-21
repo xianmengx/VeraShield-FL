@@ -1,0 +1,27 @@
+DONE seed=7 method=verashield_fl final=0.5157
+DONE seed=7 method=fedavg final=0.3676
+Traceback (most recent call last):
+  File "<PROJECT_ROOT>/scripts/run_server_tamper_5methods_multiseed.py", line 176, in <module>
+    main()
+  File "<PROJECT_ROOT>/scripts/run_server_tamper_5methods_multiseed.py", line 156, in main
+    report = audit(out, method)
+             ^^^^^^^^^^^^^^^^^^
+  File "<PROJECT_ROOT>/scripts/run_server_tamper_5methods_multiseed.py", line 96, in audit
+    assert [int(r['round']) for r in diag
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+DONE seed=7 method=verashield_fl final=0.5157
+DONE seed=7 method=fedavg final=0.3676
+DONE seed=7 method=krum final=0.1
+DONE seed=7 method=trimmed_mean final=0.432
+DONE seed=7 method=feddmc final=0.4079
+DONE seed=21 method=verashield_fl final=0.5279
+DONE seed=21 method=fedavg final=0.4338
+DONE seed=21 method=krum final=0.0999
+DONE seed=21 method=trimmed_mean final=0.4484
+DONE seed=21 method=feddmc final=0.4044
+DONE seed=42 method=verashield_fl final=0.513
+DONE seed=42 method=fedavg final=0.414
+DONE seed=42 method=krum final=0.1
+DONE seed=42 method=trimmed_mean final=0.4195
+DONE seed=42 method=feddmc final=0.4065

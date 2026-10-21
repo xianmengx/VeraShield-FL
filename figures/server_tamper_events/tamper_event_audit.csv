@@ -1,0 +1,10 @@
+seed,tamper_round,candidate_rejected_precommit,precommit_verification_success,model_committed,state_committed,candidate_digest_matches_committed,accuracy_previous_round_pct,accuracy_rejection_round_pct,accuracy_retained,detection_location
+7,20,1,0,0,0,0,37.44,37.44,1,precommit
+7,40,1,0,0,0,0,48.68,48.68,1,precommit
+7,59,1,0,0,0,0,51.62,51.62,1,precommit
+21,20,1,0,0,0,0,39.56,39.56,1,precommit
+21,40,1,0,0,0,0,50.470000000000006,50.470000000000006,1,precommit
+21,59,1,0,0,0,0,53.080000000000005,53.080000000000005,1,precommit
+42,20,1,0,0,0,0,40.48,40.48,1,precommit
+42,40,1,0,0,0,0,49.35,49.35,1,precommit
+42,59,1,0,0,0,0,51.580000000000005,51.580000000000005,1,precommit

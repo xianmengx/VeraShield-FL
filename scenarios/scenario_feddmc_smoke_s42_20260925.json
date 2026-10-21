@@ -1,0 +1,130 @@
+{
+  "scenario_id": "feddmc_smoke_s42_20260925",
+  "seed": 42,
+  "num_clients": 20,
+  "num_rounds": 3,
+  "dataset": "CIFAR-10",
+  "partition_seed": 42,
+  "model_seed": 42,
+  "attack_type": "sign_flip",
+  "attack_ratio": 0.2,
+  "malicious_selection_seed": 42,
+  "malicious_ids": [
+    1,
+    8,
+    12,
+    13
+  ],
+  "dropout_ratio": 0.0,
+  "dropout_seed": 99,
+  "fraction_fit": 1.0,
+  "per_round": [
+    {
+      "round": 1,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [],
+      "dropped_clients": [],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 2,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [],
+      "dropped_clients": [],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 3,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [],
+      "dropped_clients": [],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    }
+  ],
+  "training_config": {
+    "local_epochs": 1,
+    "learning_rate": 0.1,
+    "batch_size": 32,
+    "optimizer": "SGD",
+    "model": "Net",
+    "partitioner": "iid"
+  }
+}

@@ -1,0 +1,4 @@
+# Keep evidence bytes stable across Windows/Linux checkouts.
+* -text
+# Historical proof/receipt traces are large: install Git LFS before git add.
+results/**/vl_verification_results.csv filter=lfs diff=lfs merge=lfs -text

@@ -1,0 +1,181 @@
+% =========================================================================
+% VL-SSDF-UAVFL -- Experimental Evaluation section (IEEE-style tables)
+% Compile with pdflatex (booktabs, geometry, siunitx optional).
+% All numbers are taken verbatim from results/*.csv and results/*.json.
+% =========================================================================
+\documentclass[10pt,conference]{IEEEtran}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{geometry}
+
+\title{VL-SSDF-UAVFL: Experimental Evaluation}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Experimental Evaluation}
+
+\subsection{Experimental Setup}
+
+We evaluate the proposed \textbf{VL-SSDF-UAVFL} scheme (SSDF + Dynamic Threshold D2 + Dynamic Weight + VL lightweight verification) on \textbf{CIFAR-10} (50{,}000 train / 10{,}000 test, IID partition) within the \textbf{Flower 1.31.0} framework (PyTorch 2.10.0, Ray 2.55.1 simulation, \texttt{flwr-datasets 0.6.0}). The task is image classification with the standard Flower PyTorch quickstart CNN. Unless stated otherwise we use \textbf{10 clients}, \textbf{FL rounds = 10--20}, and \textbf{seed = 42} (multi-seed uses 42/7/21).
+
+\textbf{Attack model.} Update-level point attack with \textbf{sign-flip} ($\Delta_{mal}=-\Delta_{clean}$), malicious ratio $\in \{0,10,20,30,40\}\%$, \emph{persistent} across rounds, malicious client IDs fixed per run.
+
+\textbf{Dropout model.} Simulated client unavailability using \emph{pre-share} (client returns a Flower Error reply and is excluded) or \emph{post-share} (the client's shares are generated/distributed and later recovered). Dropout rate $\in \{0,20,30,40\}\%$.
+
+\textbf{Evaluation metrics.} Test accuracy/loss from the Flower \emph{ServerApp-side Evaluate Metrics}, recovery success rate (from \texttt{recovery\_statistics.csv}), removed clients, and communication/computation overhead.
+
+\subsection{Effectiveness of Dynamic Threshold}
+
+We compare \textbf{Static Shamir $t=8$} against \textbf{Dynamic D2} (normal $A=\mathrm{Shamir}(10,8)$, emergency $B=\mathrm{Shamir}(10,6)$). The decisive metric is the \emph{recovery success rate} when the number of available shares drops below 8.
+
+\begin{table}[t]
+\caption{Recovery success and final test accuracy vs. available shares (CIFAR-10, 10 clients, seed 42). Dynamic D2 recovers when available $<8$, whereas Static $t=8$ cannot.}
+\label{tab:rec_threshold}
+\centering
+\small
+\begin{tabular}{cc|cc|cc}
+\toprule
+Avail. & Dropout & \multicolumn{2}{c}{Static $t{=}8$} & \multicolumn{2}{c}{Dynamic D2}\\
+\cmidrule(lr){3-4}\cmidrule(lr){5-6}
+ & & Recov. & Acc. & Recov. & Acc.\\
+\midrule
+10 & 0.0 & 1 & 0.2878 & 1 & 0.2564\\
+9  & 0.1 & 1 & 0.2601 & 1 & 0.2755\\
+8  & 0.2 & 1 & 0.2539 & 1 & 0.2755\\
+7  & 0.3 & \textbf{0} & 0.2524 & \textbf{1} & 0.2713\\
+6  & 0.4 & \textbf{0} & 0.1897 & \textbf{1} & 0.2763\\
+5  & 0.5 & 0 & 0.2656 & 0 & 0.2670\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Security--availability discussion.} In the \emph{normal} state the scheme uses $A=\mathrm{Shamir}(10,8)$ (\texttt{threshold}=8, $B$ not distributed): a secret is reconstructible only from $\ge 8$ shares, giving a high security level but a low dropout tolerance (recovery fails for available $\in\{6,7\}$). In the \emph{emergency} state it activates $B=\mathrm{Shamir}(10,6)$ (\texttt{threshold}=6, \texttt{B\_distributed}=true): recovery now needs only $\ge 6$ shares, so availability rises (recovered at available $\in\{6,7\}$) at the cost of lowering the reconstruction threshold to 6. \textbf{This is a security--availability trade-off, not an increase in security} --- dynamic D2 switches between two independent share sets (A and B encode the same secret, \texttt{same\_secret}=1, max decoding error $\approx 7.6\times10^{-6}\le$ SCALE-bound $7.63\times10^{-6}$); it never makes the system require fewer shares than the configured threshold \emph{without} accepting that lower security level.
+
+\subsection{Robustness Against Poisoning Attacks}
+
+Under sign-flip attacks (dropout = 0.3, seed = 42) we compare FedAvg, FedAvg+SSDF, FedAvg+SSDF+DynThr+DW, and the full VL-SSDF-UAVFL.
+
+\begin{table}[t]
+\caption{Final test accuracy vs. sign-flip attack ratio. SSDF-only collapses at 40\% due to benign false positives; the robust schemes (Dynamic+DW, VL-SSDF-UAVFL) retain accuracy.}
+\label{tab:attack_curve}
+\centering
+\small
+\begin{tabular}{lccccc}
+\toprule
+Scheme & 0\% & 10\% & 20\% & 30\% & 40\%\\
+\midrule
+FedAvg & 0.2852 & 0.2796 & 0.2651 & 0.2720 & 0.2065\\
+FedAvg+SSDF & 0.3097 & 0.2647 & 0.2447 & 0.2814 & \textbf{0.1000}\\
++Static $t{=}8$ & 0.3014 & 0.2933 & 0.2718 & 0.2282 & \textbf{0.1000}\\
++DynamicThreshold & 0.2963 & 0.2786 & 0.2487 & 0.2528 & 0.2077\\
++DynamicWeight & 0.3101 & 0.2973 & 0.2773 & 0.2859 & 0.2383\\
+\textbf{VL-SSDF-UAVFL} & 0.3074 & 0.2792 & 0.2921 & 0.2555 & 0.2341\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+At 40\% attack, SSDF-only and Static $t{=}8$ collapse to 0.10 because SSDF, under this attack+dropout regime, removes many benign clients (benign false positives) so the aggregate is dominated by few/poisoned updates. The robust modules recover accuracy ($\approx$0.21--0.24). \textbf{Single-seed note:} at 0.1/0.3 ratios the single-seed curve is non-monotonic (run-to-run noise), so the 0/0.2/0.4 trend (and the 0.2 data point) is the more reliable indicator; multi-seed statistics below corroborate the ranking.
+
+\begin{table}[t]
+\caption{Mean $\pm$ std.\ final accuracy over seeds \{42,7,21\} at dropout 0.3.}
+\label{tab:multiseed}
+\centering
+\small
+\begin{tabular}{lcc}
+\toprule
+Scheme & 20\% attack & 40\% attack\\
+\midrule
+FedAvg & 0.2752$\pm$0.0139 & 0.2102$\pm$0.0219\\
+FedAvg+SSDF+DynThr+DW & \textbf{0.2842$\pm$0.0159} & \textbf{0.2532$\pm$0.0129}\\
+VL-SSDF-UAVFL & 0.2790$\pm$0.0316 & 0.2386$\pm$0.0209\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The robust schemes keep a higher mean accuracy under attack than FedAvg. The VL scheme and the DW scheme differ by $\le 0.02$ (VL is observational); the VL scheme has a slightly larger std (run-to-run noise of a single seed set).
+
+\subsection{Ablation Study}
+
+Single-seed ablation (10 clients, 10 rounds, seed 42, dropout 0.3, 20\% sign-flip).
+
+\begin{table}[t]
+\caption{Ablation: contribution of each module. C/D recover all dropped clients (recovery = 1.0); D achieves the lowest loss.}
+\label{tab:ablation}
+\centering
+\small
+\begin{tabular}{llcccc}
+\toprule
+ & Scheme & Acc. & Loss & Recov. & Removed\\
+\midrule
+A & FedAvg & 0.2698 & 1.988 & -- & --\\
+B & FedAvg+SSDF & 0.1882 & 2.081 & -- & --\\
+C & +DynamicThreshold & 0.2439 & 2.050 & 1.0 & 9\\
+D & \textbf{+DynamicWeight} & \textbf{0.2580} & \textbf{1.973} & 1.0 & 17\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Module contributions. \textbf{SSDF} (A$\to$B) filters outliers but, in this high-FPR regime, also removes benign clients, causing a drop in accuracy; it alone does not improve robustness. \textbf{Dynamic Threshold} (B$\to$C) recovers the dropped clients (recovery 0$\to$1.0), restoring accuracy (0.188$\to$0.244). \textbf{Dynamic Weight} (C$\to$D) re-weights the SSDF-passing set by cosine similarity, further lowering loss (2.050$\to$1.973) and keeping accuracy high. \textbf{Caveat:} scheme A uses \emph{pre-share} dropout (dropped clients excluded, none recovered/removed), so its high accuracy reflects ``no defense, no removal'', not superiority --- this is the known exact cost of the defensive modules.
+
+\subsection{Verification and Overhead Evaluation}
+
+\begin{table}[t]
+\caption{VL lightweight aggregation verification. Honest aggregation passes; server tampering is detected. Lightweight accumulator H(v) = v$\cdot$g, deterministic random vector g; pass iff hash-error $<10^{-3}$.}
+\label{tab:vl}
+\centering
+\small
+\begin{tabular}{lllll}
+\toprule
+Scenario & Det.\ rounds & Success rate & Hash error & Ver.\ time (s)\\
+\midrule
+Normal aggregation & 10 & 1.0 & $2.79\times10^{-7}$ & $2.0\times10^{-4}$\\
+Server tampering & 10 & \textbf{0.0} & 102.79 & $1.3\times10^{-4}$\\
+Full chain (dropout 0.3) & 10 & 1.0 & $1.30\times10^{-4}$ & $1.8\times10^{-4}$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\caption{Communication overhead (logical payload, per round, at attack 20\%, dropout 0.3). Dynamic schemes add the Shamir B share-set budget; VL adds a per-client float64 commitment.}
+\label{tab:comm}
+\centering
+\small
+\begin{tabular}{lrrr}
+\toprule
+Scheme & Share & B-distrib. & VL-commit & Total\\
+\midrule
+FedAvg / SSDF / Static8 & 0 & 0 & 0 & 0\\
++DynThreshold & 4{,}960{,}560 & 4{,}960{,}560 & 0 & 9{,}921{,}120\\
++DynamicWeight & 4{,}960{,}560 & 4{,}960{,}560 & 0 & 9{,}921{,}120\\
+\textbf{VL-SSDF-UAVFL} & 4{,}960{,}560 & 4{,}960{,}560 & 70.4 & 9{,}921{,}190.4\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\caption{Computation overhead (seconds, per round, at attack 20\%, dropout 0.3). VL verification is $\approx 1.7\times10^{-4}$s; Dynamic Weight $\approx 1.3\times10^{-2}$s; Shamir share generation $\approx 14$s.}
+\label{tab:comp}
+\centering
+\small
+\begin{tabular}{lrrr}
+\toprule
+Scheme & Sharing & Recon. & DW & VL-verif.\\
+\midrule
+FedAvg & 0 & 0 & 0 & 0\\
+FedAvg+SSDF & 0 & 0 & 0 & 0\\
++DynThreshold & 14.08 & $9\times10^{-4}$ & 0 & 0\\
++DynamicWeight & 14.10 & $9\times10^{-4}$ & $1.3\times10^{-2}$ & 0\\
+\textbf{VL-SSDF-UAVFL} & 14.02 & $9\times10^{-4}$ & $1.2\times10^{-2}$ & $1.7\times10^{-4}$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Notes and caveats.} (i) The overhead table reports \emph{logical} payload (Shamir shares); \texttt{tls\_wire\_bytes} is \texttt{unavailable} and not estimated. (ii) \texttt{SSDF\_time}=0 for recovery schemes because the recorder's per-detection timing path is not populated for the recovery strategy; the plain-SSDF value is $1.09\times10^{-3}$s. (iii) The VL scheme uses a \textbf{lightweight additive-group accumulator} (H(v)=v$\cdot$g, deterministic random vector g) --- it is \textbf{not a zero-knowledge proof} and does not protect against a server that also controls the verification vector; it verifies aggregation \emph{consistency} (honest vs tampered aggregate). (iv) Verification is server-side in a single simulation (logical dual-server role), not a multi-server deployment.
+
+\paragraph{Limitations.} \textbf{Single/multi seed:} primary results use seed 42 (single run, 10--20 rounds); multi-seed (42/7/21) is available only for the three core schemes, and the std shows run-to-run noise. The full 6-scheme $\times$ 5-attack $\times$ 4-dropout matrix was not run (a reduced representative matrix was). \textbf{CIFAR-10 only:} results are on a single small benchmark; generalization to other datasets/Non-IID settings is not evaluated here. \textbf{VL is not cryptographic:} it is a lightweight accumulator, not a zk proof; ``verification success'' means aggregation consistency, not cryptographic integrity. \textbf{No physical TLS / multi-server / real wire bytes} were measured in this work.
+
+\end{document}

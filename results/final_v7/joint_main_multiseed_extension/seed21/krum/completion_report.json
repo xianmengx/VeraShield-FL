@@ -1,0 +1,6 @@
+{
+  "seed": 21,
+  "method": "krum",
+  "final_accuracy": 0.1003,
+  "nonfinite_loss_rounds": []
+}

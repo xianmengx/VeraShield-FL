@@ -1,0 +1,549 @@
+{
+  "status": "COMPLETED",
+  "started_utc": "2026-10-12T10:10:11.458923+00:00",
+  "total": 15,
+  "completed": 15,
+  "current": null,
+  "results": [
+    {
+      "seed": 7,
+      "method": "verashield_fl",
+      "final_accuracy": 0.5157,
+      "rounds": 60,
+      "tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "detection_rounds": [
+        21,
+        41,
+        60
+      ],
+      "tamper_verification_success": [
+        0,
+        0,
+        0
+      ],
+      "tamper_rollback_applied": [
+        1,
+        1,
+        1
+      ],
+      "tamper_detected": true,
+      "unexpected_verification_failures": [],
+      "crypto_failures": 3,
+      "scheduled_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "applied_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "skipped_tamper_rounds": [],
+      "scheduled_tamper_count": 3,
+      "applied_tamper_count": 3,
+      "all_scheduled_tampers_applied": true,
+      "config_tamper_rounds": "20,40,59"
+    },
+    {
+      "seed": 7,
+      "method": "fedavg",
+      "final_accuracy": 0.3676,
+      "rounds": 60,
+      "tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "missing_aggregation_diagnostic_rounds": [],
+      "tamper_verification_success": null,
+      "tamper_detected": false,
+      "aggregation_failure_rounds": [],
+      "scheduled_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "applied_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "skipped_tamper_rounds": [],
+      "scheduled_tamper_count": 3,
+      "applied_tamper_count": 3,
+      "all_scheduled_tampers_applied": true,
+      "config_tamper_rounds": "20,40,59"
+    },
+    {
+      "seed": 7,
+      "method": "krum",
+      "final_accuracy": 0.1,
+      "rounds": 60,
+      "tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "missing_aggregation_diagnostic_rounds": [
+        22,
+        24,
+        25,
+        27,
+        30,
+        31,
+        32
+      ],
+      "tamper_verification_success": null,
+      "tamper_detected": false,
+      "aggregation_failure_rounds": [
+        21,
+        23,
+        26,
+        28,
+        29,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "scheduled_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "applied_tamper_rounds": [
+        20,
+        59
+      ],
+      "skipped_tamper_rounds": [
+        {
+          "round": 40,
+          "reason": "aggregation_failed_due_to_insufficient_clients",
+          "effective_clients": "6",
+          "available_clients": "6"
+        }
+      ],
+      "scheduled_tamper_count": 3,
+      "applied_tamper_count": 2,
+      "all_scheduled_tampers_applied": false,
+      "config_tamper_rounds": "20,40,59"
+    },
+    {
+      "seed": 7,
+      "method": "trimmed_mean",
+      "final_accuracy": 0.432,
+      "rounds": 60,
+      "tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "missing_aggregation_diagnostic_rounds": [],
+      "tamper_verification_success": null,
+      "tamper_detected": false,
+      "aggregation_failure_rounds": [],
+      "scheduled_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "applied_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "skipped_tamper_rounds": [],
+      "scheduled_tamper_count": 3,
+      "applied_tamper_count": 3,
+      "all_scheduled_tampers_applied": true,
+      "config_tamper_rounds": "20,40,59"
+    },
+    {
+      "seed": 7,
+      "method": "feddmc",
+      "final_accuracy": 0.4079,
+      "rounds": 60,
+      "tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "missing_aggregation_diagnostic_rounds": [],
+      "tamper_verification_success": null,
+      "tamper_detected": false,
+      "aggregation_failure_rounds": [],
+      "scheduled_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "applied_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "skipped_tamper_rounds": [],
+      "scheduled_tamper_count": 3,
+      "applied_tamper_count": 3,
+      "all_scheduled_tampers_applied": true,
+      "config_tamper_rounds": "20,40,59"
+    },
+    {
+      "seed": 21,
+      "method": "verashield_fl",
+      "final_accuracy": 0.5279,
+      "rounds": 60,
+      "tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "detection_rounds": [
+        21,
+        41,
+        60
+      ],
+      "tamper_verification_success": [
+        0,
+        0,
+        0
+      ],
+      "tamper_rollback_applied": [
+        1,
+        1,
+        1
+      ],
+      "tamper_detected": true,
+      "unexpected_verification_failures": [],
+      "crypto_failures": 3,
+      "scheduled_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "applied_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "skipped_tamper_rounds": [],
+      "scheduled_tamper_count": 3,
+      "applied_tamper_count": 3,
+      "all_scheduled_tampers_applied": true,
+      "config_tamper_rounds": "20,40,59"
+    },
+    {
+      "seed": 21,
+      "method": "fedavg",
+      "final_accuracy": 0.4338,
+      "rounds": 60,
+      "tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "missing_aggregation_diagnostic_rounds": [],
+      "tamper_verification_success": null,
+      "tamper_detected": false,
+      "aggregation_failure_rounds": [],
+      "scheduled_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "applied_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "skipped_tamper_rounds": [],
+      "scheduled_tamper_count": 3,
+      "applied_tamper_count": 3,
+      "all_scheduled_tampers_applied": true,
+      "config_tamper_rounds": "20,40,59"
+    },
+    {
+      "seed": 21,
+      "method": "krum",
+      "final_accuracy": 0.0999,
+      "rounds": 60,
+      "tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "missing_aggregation_diagnostic_rounds": [],
+      "tamper_verification_success": null,
+      "tamper_detected": false,
+      "aggregation_failure_rounds": [
+        21
+      ],
+      "scheduled_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "applied_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "skipped_tamper_rounds": [],
+      "scheduled_tamper_count": 3,
+      "applied_tamper_count": 3,
+      "all_scheduled_tampers_applied": true,
+      "config_tamper_rounds": "20,40,59"
+    },
+    {
+      "seed": 21,
+      "method": "trimmed_mean",
+      "final_accuracy": 0.4484,
+      "rounds": 60,
+      "tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "missing_aggregation_diagnostic_rounds": [],
+      "tamper_verification_success": null,
+      "tamper_detected": false,
+      "aggregation_failure_rounds": [],
+      "scheduled_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "applied_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "skipped_tamper_rounds": [],
+      "scheduled_tamper_count": 3,
+      "applied_tamper_count": 3,
+      "all_scheduled_tampers_applied": true,
+      "config_tamper_rounds": "20,40,59"
+    },
+    {
+      "seed": 21,
+      "method": "feddmc",
+      "final_accuracy": 0.4044,
+      "rounds": 60,
+      "tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "missing_aggregation_diagnostic_rounds": [],
+      "tamper_verification_success": null,
+      "tamper_detected": false,
+      "aggregation_failure_rounds": [],
+      "scheduled_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "applied_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "skipped_tamper_rounds": [],
+      "scheduled_tamper_count": 3,
+      "applied_tamper_count": 3,
+      "all_scheduled_tampers_applied": true,
+      "config_tamper_rounds": "20,40,59"
+    },
+    {
+      "seed": 42,
+      "method": "verashield_fl",
+      "final_accuracy": 0.513,
+      "rounds": 60,
+      "tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "detection_rounds": [
+        21,
+        41,
+        60
+      ],
+      "tamper_verification_success": [
+        0,
+        0,
+        0
+      ],
+      "tamper_rollback_applied": [
+        1,
+        1,
+        1
+      ],
+      "tamper_detected": true,
+      "unexpected_verification_failures": [],
+      "crypto_failures": 3,
+      "scheduled_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "applied_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "skipped_tamper_rounds": [],
+      "scheduled_tamper_count": 3,
+      "applied_tamper_count": 3,
+      "all_scheduled_tampers_applied": true,
+      "config_tamper_rounds": "20,40,59"
+    },
+    {
+      "seed": 42,
+      "method": "fedavg",
+      "final_accuracy": 0.414,
+      "rounds": 60,
+      "tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "missing_aggregation_diagnostic_rounds": [],
+      "tamper_verification_success": null,
+      "tamper_detected": false,
+      "aggregation_failure_rounds": [],
+      "scheduled_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "applied_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "skipped_tamper_rounds": [],
+      "scheduled_tamper_count": 3,
+      "applied_tamper_count": 3,
+      "all_scheduled_tampers_applied": true,
+      "config_tamper_rounds": "20,40,59"
+    },
+    {
+      "seed": 42,
+      "method": "krum",
+      "final_accuracy": 0.1,
+      "rounds": 60,
+      "tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "missing_aggregation_diagnostic_rounds": [
+        22
+      ],
+      "tamper_verification_success": null,
+      "tamper_detected": false,
+      "aggregation_failure_rounds": [
+        21,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "scheduled_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "applied_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "skipped_tamper_rounds": [],
+      "scheduled_tamper_count": 3,
+      "applied_tamper_count": 3,
+      "all_scheduled_tampers_applied": true,
+      "config_tamper_rounds": "20,40,59"
+    },
+    {
+      "seed": 42,
+      "method": "trimmed_mean",
+      "final_accuracy": 0.4195,
+      "rounds": 60,
+      "tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "missing_aggregation_diagnostic_rounds": [],
+      "tamper_verification_success": null,
+      "tamper_detected": false,
+      "aggregation_failure_rounds": [],
+      "scheduled_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "applied_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "skipped_tamper_rounds": [],
+      "scheduled_tamper_count": 3,
+      "applied_tamper_count": 3,
+      "all_scheduled_tampers_applied": true,
+      "config_tamper_rounds": "20,40,59"
+    },
+    {
+      "seed": 42,
+      "method": "feddmc",
+      "final_accuracy": 0.4065,
+      "rounds": 60,
+      "tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "missing_aggregation_diagnostic_rounds": [],
+      "tamper_verification_success": null,
+      "tamper_detected": false,
+      "aggregation_failure_rounds": [],
+      "scheduled_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "applied_tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "skipped_tamper_rounds": [],
+      "scheduled_tamper_count": 3,
+      "applied_tamper_count": 3,
+      "all_scheduled_tampers_applied": true,
+      "config_tamper_rounds": "20,40,59"
+    }
+  ],
+  "completed_utc": "2026-10-12T13:02:26.757698+00:00"
+}

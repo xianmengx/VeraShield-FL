@@ -1,0 +1,46 @@
+method,seed,round,tamper_applied,verification_outcome,aggregation_status,candidate_rejected
+VeraShield-FL,7,20,1,precommit rejection,,1
+VeraShield-FL,7,40,1,precommit rejection,,1
+VeraShield-FL,7,59,1,precommit rejection,,1
+VeraShield-FL,21,20,1,precommit rejection,,1
+VeraShield-FL,21,40,1,precommit rejection,,1
+VeraShield-FL,21,59,1,precommit rejection,,1
+VeraShield-FL,42,20,1,precommit rejection,,1
+VeraShield-FL,42,40,1,precommit rejection,,1
+VeraShield-FL,42,59,1,precommit rejection,,1
+FedAvg,7,20,1,verification not enabled,ok,not measured
+FedAvg,7,40,1,verification not enabled,ok,not measured
+FedAvg,7,59,1,verification not enabled,ok,not measured
+FedAvg,21,20,1,verification not enabled,ok,not measured
+FedAvg,21,40,1,verification not enabled,ok,not measured
+FedAvg,21,59,1,verification not enabled,ok,not measured
+FedAvg,42,20,1,verification not enabled,ok,not measured
+FedAvg,42,40,1,verification not enabled,ok,not measured
+FedAvg,42,59,1,verification not enabled,ok,not measured
+Krum,7,20,1,verification not enabled,ok,not measured
+Krum,7,40,0,tamper skipped; see aggregation status,aggregation_failed_due_to_insufficient_clients,not measured
+Krum,7,59,1,verification not enabled,ok,not measured
+Krum,21,20,1,verification not enabled,ok,not measured
+Krum,21,40,1,verification not enabled,ok,not measured
+Krum,21,59,1,verification not enabled,ok,not measured
+Krum,42,20,1,verification not enabled,ok,not measured
+Krum,42,40,1,verification not enabled,ok,not measured
+Krum,42,59,1,verification not enabled,ok,not measured
+Trimmed Mean,7,20,1,verification not enabled,ok,not measured
+Trimmed Mean,7,40,1,verification not enabled,ok,not measured
+Trimmed Mean,7,59,1,verification not enabled,ok,not measured
+Trimmed Mean,21,20,1,verification not enabled,ok,not measured
+Trimmed Mean,21,40,1,verification not enabled,ok,not measured
+Trimmed Mean,21,59,1,verification not enabled,ok,not measured
+Trimmed Mean,42,20,1,verification not enabled,ok,not measured
+Trimmed Mean,42,40,1,verification not enabled,ok,not measured
+Trimmed Mean,42,59,1,verification not enabled,ok,not measured
+FedDMC,7,20,1,verification not enabled,ok,not measured
+FedDMC,7,40,1,verification not enabled,ok,not measured
+FedDMC,7,59,1,verification not enabled,ok,not measured
+FedDMC,21,20,1,verification not enabled,ok,not measured
+FedDMC,21,40,1,verification not enabled,ok,not measured
+FedDMC,21,59,1,verification not enabled,ok,not measured
+FedDMC,42,20,1,verification not enabled,ok,not measured
+FedDMC,42,40,1,verification not enabled,ok,not measured
+FedDMC,42,59,1,verification not enabled,ok,not measured

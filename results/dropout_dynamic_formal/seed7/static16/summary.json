@@ -1,0 +1,23 @@
+{
+  "run_id": "run_1790238716_8a9ef7ab",
+  "seed": 7,
+  "client_seed_scheme": "global_seed + partition_id",
+  "number_of_rounds": 4,
+  "number_of_clients": 20,
+  "final_accuracy": 0.2286,
+  "final_loss": 2.0749678309959703,
+  "best_accuracy": 0.2286,
+  "best_round": 4,
+  "mean_train_loss": 2.140815781483577,
+  "total_time": 289.6584611830185,
+  "env_versions": {
+    "python": "3.11.9",
+    "flwr": "1.31.0",
+    "torch": "2.5.1+cu121",
+    "torchvision": "0.20.1+cu121",
+    "ray": "2.55.1",
+    "flwr-datasets": "0.6.0",
+    "datasets": "4.8.5",
+    "numpy": "2.4.6"
+  }
+}

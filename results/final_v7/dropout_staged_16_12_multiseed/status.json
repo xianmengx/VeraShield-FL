@@ -1,0 +1,102 @@
+{
+  "status": "COMPLETED",
+  "total": 6,
+  "completed": 6,
+  "current": null,
+  "started_utc": "2026-10-12T15:10:08.679133+00:00",
+  "results": [
+    {
+      "seed": 7,
+      "method": "verashield_fl",
+      "final_accuracy": 0.5128,
+      "rounds": 60,
+      "normal_threshold": 16,
+      "emergency_threshold": 12,
+      "share_n": 20,
+      "share_t": 16,
+      "threshold_mode_counts": {
+        "normal": 40,
+        "emergency": 20,
+        "failure": 0
+      },
+      "threshold_switch_rounds": [
+        41
+      ],
+      "recovery_attempted_rows": 240,
+      "recovery_successful_rows": 240,
+      "recovery_success_rate": 1.0,
+      "recovery_max_abs_error": 7.62939453125e-06,
+      "recovery_failed_rows": 0,
+      "empty_accepted_rounds": 0
+    },
+    {
+      "seed": 7,
+      "method": "without_recovery",
+      "final_accuracy": 0.5138,
+      "rounds": 60
+    },
+    {
+      "seed": 21,
+      "method": "verashield_fl",
+      "final_accuracy": 0.5037,
+      "rounds": 60,
+      "normal_threshold": 16,
+      "emergency_threshold": 12,
+      "share_n": 20,
+      "share_t": 16,
+      "threshold_mode_counts": {
+        "normal": 40,
+        "emergency": 20,
+        "failure": 0
+      },
+      "threshold_switch_rounds": [
+        41
+      ],
+      "recovery_attempted_rows": 240,
+      "recovery_successful_rows": 240,
+      "recovery_success_rate": 1.0,
+      "recovery_max_abs_error": 7.62939453125e-06,
+      "recovery_failed_rows": 0,
+      "empty_accepted_rounds": 0
+    },
+    {
+      "seed": 21,
+      "method": "without_recovery",
+      "final_accuracy": 0.5025,
+      "rounds": 60
+    },
+    {
+      "seed": 42,
+      "method": "verashield_fl",
+      "final_accuracy": 0.5135,
+      "rounds": 60,
+      "normal_threshold": 16,
+      "emergency_threshold": 12,
+      "share_n": 20,
+      "share_t": 16,
+      "threshold_mode_counts": {
+        "normal": 40,
+        "emergency": 20,
+        "failure": 0
+      },
+      "threshold_switch_rounds": [
+        41
+      ],
+      "recovery_attempted_rows": 240,
+      "recovery_successful_rows": 240,
+      "recovery_success_rate": 1.0,
+      "recovery_max_abs_error": 7.62939453125e-06,
+      "recovery_failed_rows": 0,
+      "empty_accepted_rounds": 0
+    },
+    {
+      "seed": 42,
+      "method": "without_recovery",
+      "final_accuracy": 0.5111,
+      "rounds": 60
+    }
+  ],
+  "completed_utc": "2026-10-12T19:08:53.011748+00:00",
+  "statistics_updated_utc": "2026-10-13T02:59:29.763974+00:00",
+  "statistics_schema": "round_threshold_modes_and_client_round_recovery_v2"
+}

@@ -1,0 +1,132 @@
+{
+  "status": "COMPLETED",
+  "pid": 12195,
+  "total": 5,
+  "completed": 5,
+  "current": null,
+  "started_utc": "2026-10-14T08:24:43.824159+00:00",
+  "results": [
+    {
+      "method": "verashield_fl",
+      "final_accuracy": 0.9865,
+      "tamper_applied": [
+        20,
+        40,
+        59
+      ],
+      "tamper_detected": true,
+      "verification_failure_rounds": [
+        21,
+        41,
+        60
+      ],
+      "recovery_attempts": 220,
+      "recovery_successes": 220,
+      "threshold_modes": {
+        "normal": 39,
+        "emergency": 18,
+        "failure": 0
+      },
+      "nonfinite_loss_rounds": []
+    },
+    {
+      "method": "fedavg",
+      "final_accuracy": 0.098,
+      "nonfinite_loss_rounds": [
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+      ]
+    },
+    {
+      "method": "krum",
+      "final_accuracy": 0.1009,
+      "nonfinite_loss_rounds": []
+    },
+    {
+      "method": "trimmed_mean",
+      "final_accuracy": 0.098,
+      "nonfinite_loss_rounds": [
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+      ]
+    },
+    {
+      "method": "feddmc",
+      "final_accuracy": 0.1135,
+      "nonfinite_loss_rounds": []
+    }
+  ],
+  "completed_utc": "2026-10-14T11:15:37.075070+00:00"
+}

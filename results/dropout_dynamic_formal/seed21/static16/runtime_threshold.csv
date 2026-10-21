@@ -1,0 +1,5 @@
+round,available_clients,available_shares,threshold_mode,active_share_set,active_threshold,switch_event,recovery_attempted,recovery_success,recovery_time,B_distribution_bytes,A_pre_distribution_payload,B_pre_distribution_payload,setup_share_payload_total,b_redistributed,decision_equal,accuracy,loss
+1,20,20,normal,A,16,0,0,1,0.0,0,0,0,0,0,1,0.1527,2.250602616539484
+2,16,16,normal,A,16,0,1,1,51.78913334701792,0,9921120,9921120,19842240,0,1,0.1043,2.3047472736503503
+3,14,14,normal,A,16,0,1,0,78.02785688603763,0,9921120,9921120,19842240,0,1,0.2003,2.075793595253667
+4,12,12,normal,A,16,0,1,0,104.79147859397926,0,9921120,9921120,19842240,0,0,0.2089,2.1013573815550983

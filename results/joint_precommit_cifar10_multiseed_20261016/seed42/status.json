@@ -1,0 +1,17 @@
+{
+  "status": "COMPLETED",
+  "seed": 42,
+  "started_utc": "2026-10-16T03:14:38.494134+00:00",
+  "completed_utc": "2026-10-16T04:43:52.946550+00:00",
+  "report": {
+    "status": "PASS",
+    "seed": 42,
+    "final_accuracy": 0.4779,
+    "rejected_rounds": [
+      20,
+      40,
+      59
+    ],
+    "scope": "automatic completion checks; full mechanism audit required"
+  }
+}

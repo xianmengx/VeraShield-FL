@@ -1,0 +1,3 @@
+method,seeds,recovery_attempts,recovery_successes,recovery_success_rate,emergency_zone_attempts,emergency_zone_successes,emergency_zone_success_rate,max_reconstruction_error,normal_to_emergency_switches,b_redistribution_events
+dynamic,3,54,54,1.0,42,42,1.0,7.62939453125e-06,3,0
+static16,3,54,12,0.2222222222222222,42,0,0.0,7.62939453125e-06,0,0

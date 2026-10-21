@@ -1,0 +1,21 @@
+{
+  "scenario_id": "DYNAMIC_DROPOUT_FAILURE_BOUNDARY_S42",
+  "seed": 42,
+  "num_clients": 20,
+  "num_rounds": 1,
+  "dataset": "CIFAR-10",
+  "attack_type": "none",
+  "attack_ratio": 0.0,
+  "malicious_selection_seed": 42,
+  "malicious_ids": [],
+  "dropout_timing": "post_share",
+  "fraction_fit": 1.0,
+  "per_round": [
+    {
+      "round": 1,
+      "selected_clients": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+      "unavailable_ids": [0, 1, 2, 3, 4, 5, 6, 7, 8],
+      "malicious_clients": []
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "status": "COMPLETED",
+  "started_utc": "2026-10-15T13:36:33.537071+00:00",
+  "pid": 1780,
+  "total": 1,
+  "completed": 1,
+  "current": null,
+  "report": {
+    "status": "PASS",
+    "final_accuracy": 0.4607,
+    "rejected_rounds": [
+      20,
+      40,
+      59
+    ],
+    "scope": "automatic completion checks; full mechanism audit still required"
+  },
+  "completed_utc": "2026-10-15T15:27:54.516251+00:00"
+}

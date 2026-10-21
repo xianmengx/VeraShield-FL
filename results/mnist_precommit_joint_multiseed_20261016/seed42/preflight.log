@@ -1,0 +1,61 @@
+== env_check ==
+{
+  "venv_scripts": "<LOCAL_VENV>/bin",
+  "python": {
+    "expected": "<LOCAL_VENV>/bin/python",
+    "resolved": "<LOCAL_VENV>/bin/python",
+    "ok": true
+  },
+  "executables": {
+    "flwr": {
+      "expected": "<LOCAL_VENV>/bin/flwr",
+      "resolved": "<LOCAL_VENV>/bin/flwr",
+      "source": "FLOWER_VENV",
+      "ok": true
+    },
+    "flower-superlink": {
+      "expected": "<LOCAL_VENV>/bin/flower-superlink",
+      "resolved": "<LOCAL_VENV>/bin/flower-superlink",
+      "source": "FLOWER_VENV",
+      "ok": true
+    },
+    "flower-superexec": {
+      "expected": "<LOCAL_VENV>/bin/flower-superexec",
+      "resolved": "<LOCAL_VENV>/bin/flower-superexec",
+      "source": "FLOWER_VENV",
+      "ok": true
+    },
+    "flwr-simulation": {
+      "expected": "<LOCAL_VENV>/bin/flwr-simulation",
+      "resolved": "<LOCAL_VENV>/bin/flwr-simulation",
+      "source": "FLOWER_VENV",
+      "ok": true
+    }
+  },
+  "versions": {
+    "flwr": "1.31.0",
+    "python": "3.11.9"
+  },
+  "all_ok": true
+}
+== scenario manifest == <PROJECT_ROOT>/results/mnist_precommit_joint_multiseed_20261016/seed42/scenario.json
+== output dir == <PROJECT_ROOT>/results/mnist_precommit_joint_multiseed_20261016/seed42/verashield_fl
+== flwr command ==
+  <LOCAL_VENV>/bin/flwr run /tmp/quickstart-flower-app-k3d6l8uc --stream --run-config num-server-rounds=60 num-clients=20 dataset="mnist" local-epochs=1 learning-rate=0.1 lr-schedule="cosine" lr-min=0.001 seed=42 fraction-train=1.0 dropout-rate=0.0 partitioner="dirichlet" alpha=0.5 compute-fast-factor=1.0 compute-medium-factor=1.0 compute-slow-factor=1.0 work-units=0 attack-enabled=1 attack-type="sign_flip" attack-ratio=0.2 attack-strength=5.0 attack-sigma=0.05 backdoor-poison-rate=0.3 backdoor-target-label=0 backdoor-trigger-size=3 malicious-selection-seed=42 attack-mode="persistent" attack-start-round=4 burst-round=3 ssdf-enabled=1 ssdf-backend="logical_dual_server" ssdf-detector-mode="v2_full" ssdf-reference-k=2.5 ssdf-reference-floor=-0.25 ssdf-norm-k=2.7 ssdf-evidence-policy="unified_v2_candidate" ssdf-history-limit=20 ema-beta=0.9 threshold-k=2.0 warmup-rounds=2 norm-tol=0.001 dropout-timing="post_share" share-n=20 share-t=16 holder-outage="full" threshold-controller-enabled=1 secret-recovery-enabled=1 normal-threshold=16 emergency-threshold=12 runtime-available-schedule="" static-threshold=0 dynamic-weight=1 dynamic-weight-blend=0.25 vl-verification=1 vl-enforce=1 vl-commit-mode="precommit" vl-backend="crypto" vl-update-scale=65536 vl-tamper=0 vl-tamper-rounds="20,40,59" vl-client-tamper-rounds="" control-run-id="" paired-run-id="" aggregation-method="fedavg" krum-f=2 trim-ratio=0.2 scenario-id="mnist_precommit_joint_s42_noniid20_signflip_tamper_drop" output-dir="<PROJECT_ROOT>/results/mnist_precommit_joint_multiseed_20261016/seed42/verashield_fl" experiment="mnist_precommit_joint_verashield_fl_s42" vl-key-dir="<LOCAL_KEY_DIR>" scenario-manifest="<PROJECT_ROOT>/results/mnist_precommit_joint_multiseed_20261016/seed42/scenario.json" --federation-config num-supernodes=20 client-resources-num-cpus=2 client-resources-num-gpus=0.0 init-args-num-gpus=0
+{
+  "command_construction": "PASS",
+  "argv": [
+    "<LOCAL_VENV>/bin/flwr",
+    "run",
+    "/tmp/quickstart-flower-app-k3d6l8uc",
+    "--stream",
+    "--run-config",
+    "num-server-rounds=60 num-clients=20 dataset=\"mnist\" local-epochs=1 learning-rate=0.1 lr-schedule=\"cosine\" lr-min=0.001 seed=42 fraction-train=1.0 dropout-rate=0.0 partitioner=\"dirichlet\" alpha=0.5 compute-fast-factor=1.0 compute-medium-factor=1.0 compute-slow-factor=1.0 work-units=0 attack-enabled=1 attack-type=\"sign_flip\" attack-ratio=0.2 attack-strength=5.0 attack-sigma=0.05 backdoor-poison-rate=0.3 backdoor-target-label=0 backdoor-trigger-size=3 malicious-selection-seed=42 attack-mode=\"persistent\" attack-start-round=4 burst-round=3 ssdf-enabled=1 ssdf-backend=\"logical_dual_server\" ssdf-detector-mode=\"v2_full\" ssdf-reference-k=2.5 ssdf-reference-floor=-0.25 ssdf-norm-k=2.7 ssdf-evidence-policy=\"unified_v2_candidate\" ssdf-history-limit=20 ema-beta=0.9 threshold-k=2.0 warmup-rounds=2 norm-tol=0.001 dropout-timing=\"post_share\" share-n=20 share-t=16 holder-outage=\"full\" threshold-controller-enabled=1 secret-recovery-enabled=1 normal-threshold=16 emergency-threshold=12 runtime-available-schedule=\"\" static-threshold=0 dynamic-weight=1 dynamic-weight-blend=0.25 vl-verification=1 vl-enforce=1 vl-commit-mode=\"precommit\" vl-backend=\"crypto\" vl-update-scale=65536 vl-tamper=0 vl-tamper-rounds=\"20,40,59\" vl-client-tamper-rounds=\"\" control-run-id=\"\" paired-run-id=\"\" aggregation-method=\"fedavg\" krum-f=2 trim-ratio=0.2 scenario-id=\"mnist_precommit_joint_s42_noniid20_signflip_tamper_drop\" output-dir=\"<PROJECT_ROOT>/results/mnist_precommit_joint_multiseed_20261016/seed42/verashield_fl\" experiment=\"mnist_precommit_joint_verashield_fl_s42\" vl-key-dir=\"<LOCAL_KEY_DIR>" scenario-manifest=\"<PROJECT_ROOT>/results/mnist_precommit_joint_multiseed_20261016/seed42/scenario.json\"",
+    "--federation-config",
+    "num-supernodes=20 client-resources-num-cpus=2 client-resources-num-gpus=0.0 init-args-num-gpus=0"
+  ],
+  "resolved_rounds": 60,
+  "resolved_num_supernodes": 20,
+  "run_config_is_single_argv": true,
+  "training_started": false
+}

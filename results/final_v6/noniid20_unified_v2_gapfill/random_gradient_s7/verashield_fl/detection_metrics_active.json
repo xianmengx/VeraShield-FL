@@ -1,0 +1,17 @@
+{
+  "attack_mode": "persistent",
+  "burst_round": 3,
+  "n_detection_instances": 1140,
+  "server_model": "logical_dual_server_in_single_simulation",
+  "timing_mode": "sequential_logical_roles",
+  "TP": 228,
+  "TN": 909,
+  "FP": 3,
+  "FN": 0,
+  "precision": 0.987012987012987,
+  "recall": 1.0,
+  "f1": 0.9934640522875817,
+  "detection_accuracy": 0.9973684210526316,
+  "fpr": 0.003289473684210526,
+  "fnr": 0.0
+}

@@ -1,0 +1,110 @@
+{
+  "status": "COMPLETED",
+  "settings": {
+    "clients": 20,
+    "rounds": 60,
+    "partitioner": "dirichlet",
+    "alpha": 0.5,
+    "stages": {
+      "1-20": "0%",
+      "21-40": "20%",
+      "41-60": "40%"
+    },
+    "dropout_timing": "post_share",
+    "normal_threshold": 16,
+    "emergency_threshold": 12
+  },
+  "results": [
+    {
+      "seed": 7,
+      "method": "verashield_fl",
+      "final_accuracy": 0.487,
+      "rounds": 60,
+      "normal_threshold": 16,
+      "emergency_threshold": 12,
+      "share_n": 20,
+      "share_t": 16,
+      "threshold_mode_counts": {
+        "normal": 40,
+        "emergency": 20,
+        "failure": 0
+      },
+      "threshold_switch_rounds": [
+        41
+      ],
+      "recovery_attempted_rows": 240,
+      "recovery_successful_rows": 240,
+      "recovery_success_rate": 1.0,
+      "recovery_max_abs_error": 7.62939453125e-06,
+      "recovery_failed_rows": 0,
+      "empty_accepted_rounds": 0
+    },
+    {
+      "seed": 7,
+      "method": "without_recovery",
+      "final_accuracy": 0.4683,
+      "rounds": 60
+    },
+    {
+      "seed": 21,
+      "method": "verashield_fl",
+      "final_accuracy": 0.4948,
+      "rounds": 60,
+      "normal_threshold": 16,
+      "emergency_threshold": 12,
+      "share_n": 20,
+      "share_t": 16,
+      "threshold_mode_counts": {
+        "normal": 40,
+        "emergency": 20,
+        "failure": 0
+      },
+      "threshold_switch_rounds": [
+        41
+      ],
+      "recovery_attempted_rows": 240,
+      "recovery_successful_rows": 240,
+      "recovery_success_rate": 1.0,
+      "recovery_max_abs_error": 7.62939453125e-06,
+      "recovery_failed_rows": 0,
+      "empty_accepted_rounds": 0
+    },
+    {
+      "seed": 21,
+      "method": "without_recovery",
+      "final_accuracy": 0.4637,
+      "rounds": 60
+    },
+    {
+      "seed": 42,
+      "method": "verashield_fl",
+      "final_accuracy": 0.496,
+      "rounds": 60,
+      "normal_threshold": 16,
+      "emergency_threshold": 12,
+      "share_n": 20,
+      "share_t": 16,
+      "threshold_mode_counts": {
+        "normal": 40,
+        "emergency": 20,
+        "failure": 0
+      },
+      "threshold_switch_rounds": [
+        41
+      ],
+      "recovery_attempted_rows": 240,
+      "recovery_successful_rows": 240,
+      "recovery_success_rate": 1.0,
+      "recovery_max_abs_error": 7.62939453125e-06,
+      "recovery_failed_rows": 0,
+      "empty_accepted_rounds": 0
+    },
+    {
+      "seed": 42,
+      "method": "without_recovery",
+      "final_accuracy": 0.4525,
+      "rounds": 60
+    }
+  ],
+  "statistics_updated_utc": "2026-10-13T03:00:24.961490+00:00"
+}

@@ -1,0 +1,30 @@
+{
+  "seed": 21,
+  "method": "feddmc",
+  "final_accuracy": 0.4044,
+  "rounds": 60,
+  "tamper_rounds": [
+    20,
+    40,
+    59
+  ],
+  "missing_aggregation_diagnostic_rounds": [],
+  "tamper_verification_success": null,
+  "tamper_detected": false,
+  "aggregation_failure_rounds": [],
+  "scheduled_tamper_rounds": [
+    20,
+    40,
+    59
+  ],
+  "applied_tamper_rounds": [
+    20,
+    40,
+    59
+  ],
+  "skipped_tamper_rounds": [],
+  "scheduled_tamper_count": 3,
+  "applied_tamper_count": 3,
+  "all_scheduled_tampers_applied": true,
+  "config_tamper_rounds": "20,40,59"
+}

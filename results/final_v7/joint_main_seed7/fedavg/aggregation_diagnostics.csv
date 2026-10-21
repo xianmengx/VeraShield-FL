@@ -1,0 +1,8 @@
+round,method,num_clients,krum_f,krum_valid,krum_selected_client,krum_score,krum_validity_warning,trim_ratio,num_removed_low,num_removed_high,client_ids,total_clients,available_clients,dropped_clients,unavailable_ids,aggregation_status,effective_clients,weights_source,recovery_status,verification_status,verification_policy,rollback_applied,verification_failure_reason,tamper_scheduled,tamper_applied,detector,clustering_status,pca_components,min_cluster_size,benign_cluster_label,raw_suspect_ids,suspected_client_ids,cluster_labels,history_vote_counts,history_observation_counts,retained_client_ids,fallback_all_updates
+1,fedavg,20,,,,,,,,,"[0, 3, 2, 1, 5, 4, 6, 7, 8, 10, 9, 11, 12, 14, 13, 15, 16, 18, 17, 19]",20,20,0,[],ok,20,num-example,,,,,,0,0,,,,,,,,,,,,
+2,fedavg,20,,,,,,,,,"[0, 3, 2, 1, 6, 4, 5, 7, 8, 10, 9, 11, 12, 13, 14, 15, 16, 18, 17, 19]",20,20,0,[],ok,20,num-example,,,,,,0,0,,,,,,,,,,,,
+3,fedavg,20,,,,,,,,,"[0, 2, 3, 1, 5, 4, 6, 7, 8, 10, 11, 9, 12, 13, 14, 15, 16, 18, 17, 19]",20,20,0,[],ok,20,num-example,,,,,,0,0,,,,,,,,,,,,
+4,fedavg,20,,,,,,,,,"[0, 3, 1, 2, 4, 5, 6, 7, 8, 10, 9, 11, 12, 13, 14, 15, 16, 18, 17, 19]",20,20,0,[],ok,20,num-example,,,,,,0,0,,,,,,,,,,,,
+5,fedavg,20,,,,,,,,,"[0, 3, 2, 1, 5, 4, 6, 7, 8, 10, 9, 11, 12, 13, 14, 15, 16, 18, 17, 19]",20,20,0,[],ok,20,num-example,,,,,,0,0,,,,,,,,,,,,
+6,fedavg,20,,,,,,,,,"[2, 0, 3, 1, 5, 6, 4, 7, 8, 10, 9, 11, 12, 13, 14, 15, 16, 18, 17, 19]",20,20,0,[],ok,20,num-example,,,,,,0,0,,,,,,,,,,,,
+8,fedavg,1,,,,,,,,,[8],1,1,0,[],ok,1,num-example,,,,,,0,0,,,,,,,,,,,,

@@ -1,0 +1,5 @@
+round,method,num_clients,krum_f,krum_valid,krum_selected_client,krum_score,krum_validity_warning,trim_ratio,num_removed_low,num_removed_high,client_ids,total_clients,available_clients,dropped_clients,unavailable_ids,aggregation_status,effective_clients,weights_source,recovery_status,verification_status,verification_policy,rollback_applied,verification_failure_reason
+1,fedavg,18,,,,,,,,,"[5, 3, 0, 2, 1, 6, 7, 8, 10, 9, 11, 12, 15, 13, 14, 16, 19, 18]",20,20,0,[],ok,18,uniform,success,not_enabled,observe,0,
+2,fedavg,19,,,,,,,,,"[3, 0, 1, 2, 5, 6, 10, 8, 7, 9, 11, 14, 12, 13, 15, 16, 17, 18, 19]",20,16,4,"[2, 6, 11, 17]",ok,19,uniform,success,not_enabled,observe,0,
+3,fedavg,14,,,,,,,,,"[1, 5, 3, 4, 7, 9, 10, 8, 12, 15, 16, 13, 19, 18]",20,14,6,"[0, 2, 6, 11, 14, 17]",ok,14,uniform,failed,not_enabled,observe,0,
+4,fedavg,12,,,,,,,,,"[1, 4, 3, 8, 9, 10, 7, 12, 15, 13, 16, 18]",20,12,8,"[0, 2, 5, 6, 11, 14, 17, 19]",ok,12,uniform,failed,not_enabled,observe,0,

@@ -1,0 +1,319 @@
+{
+  "status": "PASS_WITH_LIMITATIONS",
+  "records": [
+    {
+      "dataset": "CIFAR-10",
+      "seed": 7,
+      "final_accuracy": 0.4607,
+      "final_loss": 1.6517367679861528,
+      "best_accuracy": 0.4626,
+      "best_round": 59,
+      "rounds": 60,
+      "tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "rejected_rounds": [
+        20,
+        40,
+        59
+      ],
+      "precommit_pass": true,
+      "recovery_attempts": 240,
+      "recovery_successes": 240,
+      "recovery_rate": 1.0,
+      "threshold_normal_rounds": 40,
+      "threshold_emergency_rounds": 20,
+      "detection_instances": 1140,
+      "TP": 228,
+      "TN": 908,
+      "FP": 4,
+      "FN": 0,
+      "recall": 1.0,
+      "fpr": 0.0043859649122807015,
+      "precision": 0.9827586206896551,
+      "weight_sum_min": 1.0,
+      "weight_sum_max": 1.0,
+      "finite_loss": true,
+      "config_sha256": "09a7386463cafd7671cb48a08634e06d2fcce0a5b959aa79ff3b4167df01aeb2",
+      "scenario_sha256": "840a2aa3ea7f6f4be20cd0996f01f0fa5ab39eb118466e4f3ff70c3f4f2458e5"
+    },
+    {
+      "dataset": "CIFAR-10",
+      "seed": 21,
+      "final_accuracy": 0.4807,
+      "final_loss": 1.5950552300561833,
+      "best_accuracy": 0.4879,
+      "best_round": 59,
+      "rounds": 60,
+      "tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "rejected_rounds": [
+        20,
+        40,
+        59
+      ],
+      "precommit_pass": true,
+      "recovery_attempts": 240,
+      "recovery_successes": 240,
+      "recovery_rate": 1.0,
+      "threshold_normal_rounds": 40,
+      "threshold_emergency_rounds": 20,
+      "detection_instances": 1140,
+      "TP": 214,
+      "TN": 912,
+      "FP": 0,
+      "FN": 14,
+      "recall": 0.9385964912280702,
+      "fpr": 0.0,
+      "precision": 1.0,
+      "weight_sum_min": 1.0,
+      "weight_sum_max": 1.0,
+      "finite_loss": true,
+      "config_sha256": "b9046213f3ad13d764466786bc0e1d828d1e2290a15056f60e1189b47ea4d3f5",
+      "scenario_sha256": "29af9b3a986ea1c5610f00eccc30f0aedc5850ab908ddf6c0f29198b1e9402e7"
+    },
+    {
+      "dataset": "CIFAR-10",
+      "seed": 42,
+      "final_accuracy": 0.4779,
+      "final_loss": 1.6093047781835628,
+      "best_accuracy": 0.4788,
+      "best_round": 57,
+      "rounds": 60,
+      "tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "rejected_rounds": [
+        20,
+        40,
+        59
+      ],
+      "precommit_pass": true,
+      "recovery_attempts": 240,
+      "recovery_successes": 240,
+      "recovery_rate": 1.0,
+      "threshold_normal_rounds": 40,
+      "threshold_emergency_rounds": 20,
+      "detection_instances": 1140,
+      "TP": 228,
+      "TN": 876,
+      "FP": 36,
+      "FN": 0,
+      "recall": 1.0,
+      "fpr": 0.039473684210526314,
+      "precision": 0.8636363636363636,
+      "weight_sum_min": 1.0,
+      "weight_sum_max": 1.0,
+      "finite_loss": true,
+      "config_sha256": "c41a76bd418ec930b5610f2db5333efda7fb9ba5873686e563f440962108ea33",
+      "scenario_sha256": "03687316cf5fb71ac4856c891a476f047216cf213f0ebc79f584d804921cfd85"
+    },
+    {
+      "dataset": "MNIST",
+      "seed": 7,
+      "final_accuracy": 0.9865,
+      "final_loss": 0.060602358756352136,
+      "best_accuracy": 0.9868,
+      "best_round": 56,
+      "rounds": 60,
+      "tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "rejected_rounds": [
+        20,
+        40,
+        59
+      ],
+      "precommit_pass": true,
+      "recovery_attempts": 240,
+      "recovery_successes": 240,
+      "recovery_rate": 1.0,
+      "threshold_normal_rounds": 40,
+      "threshold_emergency_rounds": 20,
+      "detection_instances": 1140,
+      "TP": 227,
+      "TN": 856,
+      "FP": 56,
+      "FN": 1,
+      "recall": 0.9956140350877193,
+      "fpr": 0.06140350877192982,
+      "precision": 0.8021201413427562,
+      "weight_sum_min": 1.0,
+      "weight_sum_max": 1.0,
+      "finite_loss": true,
+      "config_sha256": "6c9508ea7394808eb70f3cdffc054a651e518643edb590dc0efe55d807336fb0",
+      "scenario_sha256": "07f11c468519ee4e244b61120b2d8dd53a3eb5a4243a8ef8fa82f3875243d0ed"
+    },
+    {
+      "dataset": "MNIST",
+      "seed": 21,
+      "final_accuracy": 0.986,
+      "final_loss": 0.06495596400987157,
+      "best_accuracy": 0.9861,
+      "best_round": 59,
+      "rounds": 60,
+      "tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "rejected_rounds": [
+        20,
+        40,
+        59
+      ],
+      "precommit_pass": true,
+      "recovery_attempts": 240,
+      "recovery_successes": 240,
+      "recovery_rate": 1.0,
+      "threshold_normal_rounds": 40,
+      "threshold_emergency_rounds": 20,
+      "detection_instances": 1140,
+      "TP": 218,
+      "TN": 868,
+      "FP": 44,
+      "FN": 10,
+      "recall": 0.956140350877193,
+      "fpr": 0.04824561403508772,
+      "precision": 0.8320610687022901,
+      "weight_sum_min": 1.0,
+      "weight_sum_max": 1.0,
+      "finite_loss": true,
+      "config_sha256": "e1354425045bbf5b4ca4367827b212d8044208fffa136d90110f9478ad4da040",
+      "scenario_sha256": "b0ada6aeffd0eca477454207e5acc1f8da648ca2b83662c45985c167e7a5ab46"
+    },
+    {
+      "dataset": "MNIST",
+      "seed": 42,
+      "final_accuracy": 0.9852,
+      "final_loss": 0.07046567199044107,
+      "best_accuracy": 0.9854,
+      "best_round": 54,
+      "rounds": 60,
+      "tamper_rounds": [
+        20,
+        40,
+        59
+      ],
+      "rejected_rounds": [
+        20,
+        40,
+        59
+      ],
+      "precommit_pass": true,
+      "recovery_attempts": 240,
+      "recovery_successes": 240,
+      "recovery_rate": 1.0,
+      "threshold_normal_rounds": 40,
+      "threshold_emergency_rounds": 20,
+      "detection_instances": 1140,
+      "TP": 203,
+      "TN": 891,
+      "FP": 21,
+      "FN": 25,
+      "recall": 0.8903508771929824,
+      "fpr": 0.023026315789473683,
+      "precision": 0.90625,
+      "weight_sum_min": 1.0,
+      "weight_sum_max": 1.0,
+      "finite_loss": true,
+      "config_sha256": "6bc52dd053a6d52fda6bf17aa585b462f8310ef4740099dceacbdcd324ef97b8",
+      "scenario_sha256": "1eb37c74060d887c02a16ef7ddf1e2177d4cb2bec3b6c17470f1e87721931cfe"
+    }
+  ],
+  "aggregates": [
+    {
+      "dataset": "CIFAR-10",
+      "metric": "final_accuracy",
+      "n_seeds": 3,
+      "mean": 0.4731,
+      "sample_sd": 0.010829589096544712
+    },
+    {
+      "dataset": "CIFAR-10",
+      "metric": "best_accuracy",
+      "n_seeds": 3,
+      "mean": 0.4764333333333333,
+      "sample_sd": 0.012814965209993088
+    },
+    {
+      "dataset": "CIFAR-10",
+      "metric": "recall",
+      "n_seeds": 3,
+      "mean": 0.97953216374269,
+      "sample_sd": 0.03545133231866121
+    },
+    {
+      "dataset": "CIFAR-10",
+      "metric": "fpr",
+      "n_seeds": 3,
+      "mean": 0.014619883040935672,
+      "sample_sd": 0.021635451150509855
+    },
+    {
+      "dataset": "CIFAR-10",
+      "metric": "precision",
+      "n_seeds": 3,
+      "mean": 0.9487983281086729,
+      "sample_sd": 0.07425453814224386
+    },
+    {
+      "dataset": "CIFAR-10",
+      "metric": "recovery_rate",
+      "n_seeds": 3,
+      "mean": 1.0,
+      "sample_sd": 0.0
+    },
+    {
+      "dataset": "MNIST",
+      "metric": "final_accuracy",
+      "n_seeds": 3,
+      "mean": 0.9859,
+      "sample_sd": 0.0006557438524302379
+    },
+    {
+      "dataset": "MNIST",
+      "metric": "best_accuracy",
+      "n_seeds": 3,
+      "mean": 0.9861,
+      "sample_sd": 0.0006999999999999784
+    },
+    {
+      "dataset": "MNIST",
+      "metric": "recall",
+      "n_seeds": 3,
+      "mean": 0.9473684210526315,
+      "sample_sd": 0.053176998477991844
+    },
+    {
+      "dataset": "MNIST",
+      "metric": "fpr",
+      "n_seeds": 3,
+      "mean": 0.0442251461988304,
+      "sample_sd": 0.01950193212273991
+    },
+    {
+      "dataset": "MNIST",
+      "metric": "precision",
+      "n_seeds": 3,
+      "mean": 0.8468104033483488,
+      "sample_sd": 0.05360889870507005
+    },
+    {
+      "dataset": "MNIST",
+      "metric": "recovery_rate",
+      "n_seeds": 3,
+      "mean": 1.0,
+      "sample_sd": 0.0
+    }
+  ]
+}

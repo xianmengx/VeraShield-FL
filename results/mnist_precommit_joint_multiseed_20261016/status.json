@@ -1,0 +1,44 @@
+{
+  "status": "COMPLETED",
+  "pid": 54554,
+  "total": 3,
+  "completed": 3,
+  "current": null,
+  "started_utc": "2026-10-16T04:43:59.940335+00:00",
+  "results": [
+    {
+      "status": "PASS",
+      "final_accuracy": 0.9865,
+      "rejected_rounds": [
+        20,
+        40,
+        59
+      ],
+      "scope": "automatic completion checks; full mechanism audit required",
+      "seed": 7
+    },
+    {
+      "status": "PASS",
+      "final_accuracy": 0.986,
+      "rejected_rounds": [
+        20,
+        40,
+        59
+      ],
+      "scope": "automatic completion checks; full mechanism audit required",
+      "seed": 21
+    },
+    {
+      "status": "PASS",
+      "final_accuracy": 0.9852,
+      "rejected_rounds": [
+        20,
+        40,
+        59
+      ],
+      "scope": "automatic completion checks; full mechanism audit required",
+      "seed": 42
+    }
+  ],
+  "completed_utc": "2026-10-16T08:25:47.779759+00:00"
+}

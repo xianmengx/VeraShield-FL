@@ -1,0 +1,132 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "verashield-fl"
+version = "1.1.6"
+description = "VeraShield-FL logical two-server federated learning prototype"
+requires-python = ">=3.11,<3.13"
+license = {file = "LICENSE"}
+dependencies = [
+    "flwr[simulation]==1.31.0",
+    "flwr-datasets[vision]==0.6.0",
+    "torch==2.5.1",
+    "torchvision==0.20.1",
+    "scikit-learn>=1.3",
+    "cryptography>=46",
+    "numpy==2.4.6",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["pytorchexample"]
+
+[tool.flwr.app]
+publisher = "research-prototype"
+fab-format-version = 1
+flwr-version-target = "1.31.0"
+# Keep local Flower runs independent of the large cached wheels, historical
+# result tree, and paper artifacts in this workspace. pyproject.toml is always
+# included by the FAB builder; application sources are the only other inputs.
+fab-include = ["LICENSE", "pytorchexample/**/*.py"]
+
+[tool.flwr.app.components]
+serverapp = "pytorchexample.server_app:app"
+clientapp = "pytorchexample.client_app:app"
+
+[tool.flwr.app.config]
+dataset = "cifar10"
+num-server-rounds = 60
+num-clients = 10
+fraction-evaluate = 1.0
+fraction-train = 1.0
+local-epochs = 1
+learning-rate = 0.1
+lr-schedule = "cosine"
+lr-min = 0.001
+batch-size = 32
+save-model = false
+seed = 42
+output-dir = "results/baseline"
+experiment = "baseline"
+dropout-rate = 0.0
+partitioner = "iid"
+alpha = 1.0
+compute-fast-factor = 1.0
+compute-medium-factor = 1.0
+compute-slow-factor = 1.0
+work-units = 0
+attack-enabled = 0
+attack-type = "none"
+attack-ratio = 0.0
+attack-strength = 1.0
+attack-sigma = 0.05
+backdoor-poison-rate = 0.3
+backdoor-target-label = 0
+backdoor-trigger-size = 3
+malicious-selection-seed = 42
+attack-mode = "persistent"
+attack-start-round = 1
+burst-round = 3
+ssdf-enabled = 0
+ssdf-version = "v2"
+ssdf-backend = "plaintext"
+ssdf-detector-mode = "v2_full"
+ssdf-reference-k = 2.5
+ssdf-reference-floor = -0.25
+ssdf-norm-k = 2.70
+ssdf-evidence-policy = "legacy"
+ssdf-history-limit = 20
+ema-beta = 0.9
+threshold-k = 2.0
+warmup-rounds = 2
+norm-tol = 0.001
+dropout-timing = "pre_share"
+share-n = 10
+share-t = 6
+holder-outage = "full"
+threshold-controller-enabled = 0
+secret-recovery-enabled = 0
+normal-threshold = 8
+emergency-threshold = 6
+runtime-available-schedule = ""
+static-threshold = 0
+dynamic-weight = 0
+dynamic-weight-blend = 0.25
+vl-verification = 0
+vl-enforce = 0
+vl-commit-mode = "next_round"
+vl-backend = "linear"
+vl-update-scale = 65536
+vl-key-dir = ""
+vl-tamper = 0
+vl-tamper-rounds = ""
+vl-client-tamper-rounds = ""
+control-run-id = ""
+paired-run-id = ""
+aggregation-method = "fedavg"
+krum-f = 2
+trim-ratio = 0.2
+scenario-id = ""
+scenario-manifest = ""
+
+#######################################################################
+# CONFIGURATION MIGRATION NOTICE:
+#
+# What was previously called "federation config" for SuperLink
+# connections in pyproject.toml has been renamed and moved.
+#
+# These settings are now **SuperLink connection configuration**
+# and are defined in the Flower configuration file.
+#
+# The entries below are commented out intentionally and are kept
+# only as a migration reference.
+#
+# Docs: https://flower.ai/docs/framework/ref-flower-configuration.html
+#######################################################################
+
+# [tool.flwr.federations.local]
+# address = ":local:"
+
+# [tool.flwr.federations]
+# default = "local"

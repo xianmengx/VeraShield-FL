@@ -1,0 +1,39 @@
+{
+  "scenario_id": "DYNAMIC_DROPOUT_SMOKE_S7",
+  "seed": 7,
+  "num_clients": 20,
+  "num_rounds": 4,
+  "dataset": "CIFAR-10",
+  "attack_type": "none",
+  "attack_ratio": 0.0,
+  "malicious_selection_seed": 7,
+  "malicious_ids": [],
+  "dropout_timing": "post_share",
+  "fraction_fit": 1.0,
+  "per_round": [
+    {
+      "round": 1,
+      "selected_clients": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+      "unavailable_ids": [],
+      "malicious_clients": []
+    },
+    {
+      "round": 2,
+      "selected_clients": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+      "unavailable_ids": [2, 6, 11, 17],
+      "malicious_clients": []
+    },
+    {
+      "round": 3,
+      "selected_clients": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+      "unavailable_ids": [0, 2, 6, 11, 14, 17],
+      "malicious_clients": []
+    },
+    {
+      "round": 4,
+      "selected_clients": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+      "unavailable_ids": [0, 2, 5, 6, 11, 14, 17, 19],
+      "malicious_clients": []
+    }
+  ]
+}

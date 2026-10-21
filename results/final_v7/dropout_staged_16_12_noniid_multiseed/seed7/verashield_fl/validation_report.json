@@ -1,0 +1,24 @@
+{
+  "seed": 7,
+  "method": "verashield_fl",
+  "final_accuracy": 0.487,
+  "rounds": 60,
+  "normal_threshold": 16,
+  "emergency_threshold": 12,
+  "share_n": 20,
+  "share_t": 16,
+  "threshold_mode_counts": {
+    "normal": 40,
+    "emergency": 20,
+    "failure": 0
+  },
+  "threshold_switch_rounds": [
+    41
+  ],
+  "recovery_attempted_rows": 240,
+  "recovery_successful_rows": 240,
+  "recovery_success_rate": 1.0,
+  "recovery_max_abs_error": 7.62939453125e-06,
+  "recovery_failed_rows": 0,
+  "empty_accepted_rounds": 0
+}

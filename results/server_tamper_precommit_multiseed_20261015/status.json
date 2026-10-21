@@ -1,0 +1,48 @@
+{
+  "status": "COMPLETED",
+  "started_utc": "2026-10-15T11:06:55.380655+00:00",
+  "pid": 160413,
+  "total": 2,
+  "completed": 2,
+  "current": null,
+  "results": [
+    {
+      "status": "PASS",
+      "seed": 21,
+      "dataset": "cifar10",
+      "final_accuracy": 0.5309,
+      "committed_rounds": 57,
+      "tamper_applied_rounds": [
+        20,
+        40,
+        59
+      ],
+      "precommit_rejection_rounds": [
+        20,
+        40,
+        59
+      ],
+      "boundary": "logical prototype; no remote client confirmation certificate"
+    },
+    {
+      "status": "PASS",
+      "seed": 42,
+      "dataset": "cifar10",
+      "final_accuracy": 0.516,
+      "committed_rounds": 57,
+      "tamper_applied_rounds": [
+        20,
+        40,
+        59
+      ],
+      "precommit_rejection_rounds": [
+        20,
+        40,
+        59
+      ],
+      "boundary": "logical prototype; no remote client confirmation certificate"
+    }
+  ],
+  "current_started_utc": "2026-10-15T11:28:53.957004+00:00",
+  "completed_utc": "2026-10-15T11:50:04.250763+00:00"
+}

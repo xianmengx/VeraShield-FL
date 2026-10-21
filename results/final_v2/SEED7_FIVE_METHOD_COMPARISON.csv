@@ -1,0 +1,16 @@
+attack,method,seed,final_accuracy,best_accuracy,best_round,final_loss,total_time_s,result_dir,recall,fpr,precision,tp,fp,fn
+sign_flip,VeraShield-FL,7,0.503,0.5049,54,1.5675390460823155,1141.0772646369987,results/final_v2/runs/signflip_s7/verashield_fl,1.0,0.00102880658436214,0.9956331877729258,228,1,0
+sign_flip,FedAvg,7,0.1,0.1791,4,50.375187306464476,1068.772547804001,results/final_v2/baseline_runs_s7/signflip_s7/fedavg,N/A,N/A,N/A,N/A,N/A,N/A
+sign_flip,Krum,7,0.3854,0.3888,58,1.8426199879827379,763.7606601879997,results/final_v2/baseline_runs_s7_corrected/signflip_s7/krum,N/A,N/A,N/A,N/A,N/A,N/A
+sign_flip,Trimmed Mean,7,0.4537,0.4545,56,1.8344151415402377,761.9418704150012,results/final_v2/baseline_runs_s7_corrected/signflip_s7/trimmed_mean,N/A,N/A,N/A,N/A,N/A,N/A
+sign_flip,FedDMC,7,0.1,0.231,3,,657.7937785359973,results/final_v2/baseline_runs_s7/signflip_s7/feddmc,N/A,N/A,N/A,N/A,N/A,N/A
+random_gradient,VeraShield-FL,7,0.5001,0.5009,58,1.558067729201498,1153.0144579280004,results/final_v2/runs/random_gradient_s7/verashield_fl,1.0,0.0,1.0,228,0,0
+random_gradient,FedAvg,7,0.3649,0.3649,60,1.7038902300822585,755.031314453001,results/final_v2/baseline_runs_s7/random_gradient_s7/fedavg,N/A,N/A,N/A,N/A,N/A,N/A
+random_gradient,Krum,7,0.3854,0.3888,58,1.8426199879827379,775.4917915080041,results/final_v2/baseline_runs_s7_corrected/random_gradient_s7/krum,N/A,N/A,N/A,N/A,N/A,N/A
+random_gradient,Trimmed Mean,7,0.5065,0.507,59,1.4816593535338776,787.115733998995,results/final_v2/baseline_runs_s7_corrected/random_gradient_s7/trimmed_mean,N/A,N/A,N/A,N/A,N/A,N/A
+random_gradient,FedDMC,7,0.5008,0.5029,50,1.5271469264090816,794.0612164539998,results/final_v2/baseline_runs_s7/random_gradient_s7/feddmc,N/A,N/A,N/A,N/A,N/A,N/A
+scaling,VeraShield-FL,7,0.4929,0.4929,60,1.6015264897406856,1151.9020077429996,results/final_v2/runs/scaling_s7/verashield_fl,1.0,0.00102880658436214,0.9956331877729258,228,1,0
+scaling,FedAvg,7,0.1,0.2284,4,2.302861705611024,766.7687197839987,results/final_v2/baseline_runs_s7/scaling_s7/fedavg,N/A,N/A,N/A,N/A,N/A,N/A
+scaling,Krum,7,0.3854,0.3888,58,1.8426199879827379,789.4773614399965,results/final_v2/baseline_runs_s7_corrected/scaling_s7/krum,N/A,N/A,N/A,N/A,N/A,N/A
+scaling,Trimmed Mean,7,0.5233,0.5233,60,1.422470527359202,792.7565066680036,results/final_v2/baseline_runs_s7_corrected/scaling_s7/trimmed_mean,N/A,N/A,N/A,N/A,N/A,N/A
+scaling,FedDMC,7,0.1,0.1998,4,2.302861841419075,792.9101835729998,results/final_v2/baseline_runs_s7/scaling_s7/feddmc,N/A,N/A,N/A,N/A,N/A,N/A

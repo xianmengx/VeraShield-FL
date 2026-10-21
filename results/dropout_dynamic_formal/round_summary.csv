@@ -1,0 +1,25 @@
+seed,method,round,available_clients,dropout_clients,threshold_mode,active_share_set,active_threshold,switch_event,recovery_attempted_clients,recovery_success_clients,recovery_failed_clients,recovery_success_rate,max_reconstruction_error,recovery_time_seconds,b_redistributed,final_accuracy,failure_reason
+7,dynamic,1,20,0,normal,A,16,0,0,0,0,1.0,0.0,0.0,0,0.204,
+7,dynamic,2,16,4,normal,A,16,0,4,4,0,1.0,7.62939453125e-06,52.57154616099433,0,0.204,
+7,dynamic,3,14,6,emergency,B,12,1,6,6,0,1.0,7.62939453125e-06,82.08771745892591,0,0.204,
+7,dynamic,4,12,8,emergency,B,12,0,8,8,0,1.0,7.62939453125e-06,111.56129976001102,0,0.204,
+7,static16,1,20,0,normal,A,16,0,0,0,0,1.0,0.0,0.0,0,0.2286,
+7,static16,2,16,4,normal,A,16,0,4,4,0,1.0,7.62939453125e-06,51.37942227302119,0,0.2286,
+7,static16,3,14,6,normal,A,16,0,6,0,6,0.0,nan,77.73737542895833,0,0.2286,insufficient shares (< active threshold)
+7,static16,4,12,8,normal,A,16,0,8,0,8,0.0,nan,106.99433816003148,0,0.2286,insufficient shares (< active threshold)
+21,dynamic,1,20,0,normal,A,16,0,0,0,0,1.0,0.0,0.0,0,0.1852,
+21,dynamic,2,16,4,normal,A,16,0,4,4,0,1.0,7.62939453125e-06,51.80904872700921,0,0.1852,
+21,dynamic,3,14,6,emergency,B,12,1,6,6,0,1.0,7.62939453125e-06,78.4338964530034,0,0.1852,
+21,dynamic,4,12,8,emergency,B,12,0,8,8,0,1.0,7.62939453125e-06,106.82521889006603,0,0.1852,
+21,static16,1,20,0,normal,A,16,0,0,0,0,1.0,0.0,0.0,0,0.2089,
+21,static16,2,16,4,normal,A,16,0,4,4,0,1.0,7.62939453125e-06,51.78913334701792,0,0.2089,
+21,static16,3,14,6,normal,A,16,0,6,0,6,0.0,nan,78.02785688603763,0,0.2089,insufficient shares (< active threshold)
+21,static16,4,12,8,normal,A,16,0,8,0,8,0.0,nan,104.79147859397926,0,0.2089,insufficient shares (< active threshold)
+42,dynamic,1,20,0,normal,A,16,0,0,0,0,1.0,0.0,0.0,0,0.1929,
+42,dynamic,2,16,4,normal,A,16,0,4,4,0,1.0,7.62939453125e-06,51.108822926995344,0,0.1929,
+42,dynamic,3,14,6,emergency,B,12,1,6,6,0,1.0,7.62939453125e-06,82.4690673709556,0,0.1929,
+42,dynamic,4,12,8,emergency,B,12,0,8,8,0,1.0,7.62939453125e-06,117.57067464807187,0,0.1929,
+42,static16,1,20,0,normal,A,16,0,0,0,0,1.0,0.0,0.0,0,0.1873,
+42,static16,2,16,4,normal,A,16,0,4,4,0,1.0,7.62939453125e-06,51.441069424996385,0,0.1873,
+42,static16,3,14,6,normal,A,16,0,6,0,6,0.0,nan,81.3715623789758,0,0.1873,insufficient shares (< active threshold)
+42,static16,4,12,8,normal,A,16,0,8,0,8,0.0,nan,110.73535037599504,0,0.1873,insufficient shares (< active threshold)

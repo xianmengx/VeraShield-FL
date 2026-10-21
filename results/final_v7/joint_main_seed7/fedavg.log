@@ -1,0 +1,1398 @@
+== env_check ==
+{
+  "venv_scripts": "<LOCAL_VENV>/bin",
+  "python": {
+    "expected": "<LOCAL_VENV>/bin/python",
+    "resolved": "<LOCAL_VENV>/bin/python",
+    "ok": true
+  },
+  "executables": {
+    "flwr": {
+      "expected": "<LOCAL_VENV>/bin/flwr",
+      "resolved": "<LOCAL_VENV>/bin/flwr",
+      "source": "FLOWER_VENV",
+      "ok": true
+    },
+    "flower-superlink": {
+      "expected": "<LOCAL_VENV>/bin/flower-superlink",
+      "resolved": "<LOCAL_VENV>/bin/flower-superlink",
+      "source": "FLOWER_VENV",
+      "ok": true
+    },
+    "flower-superexec": {
+      "expected": "<LOCAL_VENV>/bin/flower-superexec",
+      "resolved": "<LOCAL_VENV>/bin/flower-superexec",
+      "source": "FLOWER_VENV",
+      "ok": true
+    },
+    "flwr-simulation": {
+      "expected": "<LOCAL_VENV>/bin/flwr-simulation",
+      "resolved": "<LOCAL_VENV>/bin/flwr-simulation",
+      "source": "FLOWER_VENV",
+      "ok": true
+    }
+  },
+  "versions": {
+    "flwr": "1.31.0",
+    "python": "3.11.9"
+  },
+  "all_ok": true
+}
+== scenario manifest == <PROJECT_ROOT>/results/final_v7/joint_main_seed7/scenario.json
+== output dir == <PROJECT_ROOT>/results/final_v7/joint_main_seed7/fedavg
+== flwr command ==
+  <LOCAL_VENV>/bin/flwr run /tmp/quickstart-flower-app-anzd0mdl --stream --run-config num-server-rounds=60 num-clients=20 local-epochs=1 learning-rate=0.1 lr-schedule="cosine" lr-min=0.001 seed=7 fraction-train=1.0 dropout-rate=0.0 partitioner="dirichlet" alpha=0.5 compute-fast-factor=1.0 compute-medium-factor=1.0 compute-slow-factor=1.0 work-units=0 attack-enabled=1 attack-type="sign_flip" attack-ratio=0.2 attack-strength=5.0 attack-sigma=0.05 backdoor-poison-rate=0.3 backdoor-target-label=0 backdoor-trigger-size=3 malicious-selection-seed=42 attack-mode="persistent" attack-start-round=4 burst-round=3 ssdf-enabled=0 ssdf-backend="plaintext" ssdf-detector-mode="v2_full" ssdf-reference-k=2.5 ssdf-reference-floor=-0.25 ssdf-norm-k=2.7 ssdf-evidence-policy="legacy" ssdf-history-limit=20 ema-beta=0.9 threshold-k=2.0 warmup-rounds=2 norm-tol=0.001 dropout-timing="post_share" share-n=10 share-t=6 holder-outage="full" threshold-controller-enabled=0 secret-recovery-enabled=0 normal-threshold=8 emergency-threshold=6 runtime-available-schedule="" static-threshold=0 dynamic-weight=0 dynamic-weight-blend=0.25 vl-verification=0 vl-enforce=0 vl-backend="linear" vl-update-scale=65536 vl-tamper=0 vl-tamper-rounds="20,40,59" vl-client-tamper-rounds="" control-run-id="" paired-run-id="" aggregation-method="fedavg" krum-f=2 trim-ratio=0.2 scenario-id="joint_main_seed7_noniid20_signflip_tamper_drop" output-dir="<PROJECT_ROOT>/results/final_v7/joint_main_seed7/fedavg" experiment="joint_main_fedavg_s7" scenario-manifest="<PROJECT_ROOT>/results/final_v7/joint_main_seed7/scenario.json" --federation-config num-supernodes=20 client-resources-num-cpus=2 client-resources-num-gpus=0.0 init-args-num-gpus=0
+╭────────────────── Update available ───────────────────╮
+│ A newer Flower version is available: 1.31.0 -> 1.39.0 │
+│ Upgrade: python -m pip install -U flwr                │
+╰───────────────────────────────────────────────────────╯
+🎊 Successfully started run 1315859685310641615
+[92mINFO [0m:      Starting logstream for run_id `1315859685310641615`
+[92mINFO [0m:      Starting Flower Simulation
+[92mINFO [0m:      Starting AggregationStrategy strategy:
+[92mINFO [0m:      	├── Number of rounds: 60
+[92mINFO [0m:      	├── ArrayRecord (0.24 MB)
+[92mINFO [0m:      	├── ConfigRecord (train): {'lr': 0.1}
+[92mINFO [0m:      	├── ConfigRecord (evaluate): (empty!)
+[92mINFO [0m:      	├──> Sampling:
+[92mINFO [0m:      	│	├──Fraction: train (1.00) | evaluate ( 1.00)
+[92mINFO [0m:      	│	├──Minimum nodes: train (2) | evaluate (2)
+[92mINFO [0m:      	│	└──Minimum available nodes: 2
+[92mINFO [0m:      	└──> Keys in records:
+[92mINFO [0m:      		├── Weighted by: 'num-examples'
+[92mINFO [0m:      		├── ArrayRecord key: 'arrays'
+[92mINFO [0m:      		└── ConfigRecord key: 'config'
+[92mINFO [0m:      
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+<LOCAL_VENV>/lib/python3.11/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+[92mINFO [0m:      Initial global evaluation results: {'accuracy': 0.0999, 'loss': 2.303637112243266}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 1/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753114)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+[36m(ClientAppActor pid=1753114)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[36m(ClientAppActor pid=1753114)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(ClientAppActor pid=1753114)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=1753114)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=1753114)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.7392127123400685, 'client_train_time': 0.9421933717457126, 'client_compute_time': 0.9421979354578374, 'client_partition_id': 10.308386677335466, 'is_malicious': 0.18283656731346268, 'attack_active': 0.0, 'attack_type_code': 1.0, 'attack_strength': 5.000000000000001, 'update_norm_before': 4.967523535855705, 'update_norm_after': 4.967523535855705, 'update_cosine_to_original': 1.0, 'update_norm_ratio': 1.0, 'noise_l2_norm': 0.0, 'noise_mean': 0.0, 'noise_std_observed': 0.0, 'update_noise_ratio': 0.0, 'backdoor_poisoned_examples': 0.0, 'backdoor_poison_rate_observed': 0.0, 'invalid_update': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.3121739290340977, 'eval_acc': 0.10081934452438052}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': 2.3115184518355356}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 2/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.7176759563172037, 'client_train_time': 0.9362591677757615, 'client_compute_time': 0.9362610473941887, 'client_partition_id': 10.308386677335466, 'is_malicious': 0.18283656731346268, 'attack_active': 0.0, 'attack_type_code': 1.0, 'attack_strength': 5.000000000000001, 'update_norm_before': 4.739202370564403, 'update_norm_after': 4.739202370564403, 'update_cosine_to_original': 1.0, 'update_norm_ratio': 1.0, 'noise_l2_norm': 0.0, 'noise_mean': 0.0, 'noise_std_observed': 0.0, 'update_noise_ratio': 0.0, 'backdoor_poisoned_examples': 0.0, 'backdoor_poison_rate_observed': 0.0, 'invalid_update': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.305960364756439, 'eval_acc': 0.1001199040767386}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1003, 'loss': 2.3046006190625925}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 3/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 9x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 9x across cluster][0m
+[36m(ClientAppActor pid=1753114)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 7x across cluster][0m
+[36m(ClientAppActor pid=1753114)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 7x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.637580950213176, 'client_train_time': 0.897745894865229, 'client_compute_time': 0.8977471597636997, 'client_partition_id': 10.308386677335466, 'is_malicious': 0.18283656731346268, 'attack_active': 0.0, 'attack_type_code': 1.0, 'attack_strength': 5.000000000000001, 'update_norm_before': 5.753793586052239, 'update_norm_after': 5.753793586052239, 'update_cosine_to_original': 1.0, 'update_norm_ratio': 1.0, 'noise_l2_norm': 0.0, 'noise_mean': 0.0, 'noise_std_observed': 0.0, 'update_noise_ratio': 0.0, 'backdoor_poisoned_examples': 0.0, 'backdoor_poison_rate_observed': 0.0, 'invalid_update': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.2542765483200506, 'eval_acc': 0.13958832933653076}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1369, 'loss': 2.2541062499903424}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 4/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 9x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 9x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.5800833393767681, 'client_train_time': 0.8828999026158126, 'client_compute_time': 0.8829012114375788, 'client_partition_id': 10.308386677335466, 'is_malicious': 0.18283656731346268, 'attack_active': 0.18283656731346268, 'attack_type_code': 1.0, 'attack_strength': 5.000000000000001, 'update_norm_before': 5.322672321607496, 'update_norm_after': 8.85561813249433, 'update_cosine_to_original': 0.634326868945278, 'update_norm_ratio': 1.7313462559092416, 'noise_l2_norm': 5.299418743453934, 'noise_mean': 0.0007483415363787201, 'noise_std_observed': 0.02126882874424945, 'update_noise_ratio': 1.0970193883816906, 'backdoor_poisoned_examples': 0.0, 'backdoor_poison_rate_observed': 0.0, 'invalid_update': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753113)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 7x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 7x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.682091426314948, 'eval_acc': 0.10081934452438052}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': 2.6774621764315834}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 5/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 9x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 9x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.6534048400608603, 'client_train_time': 0.8860090966166049, 'client_compute_time': 0.8860102485445175, 'client_partition_id': 10.308386677335466, 'is_malicious': 0.18283656731346268, 'attack_active': 0.18283656731346268, 'attack_type_code': 1.0, 'attack_strength': 5.000000000000001, 'update_norm_before': 6.481572451454278, 'update_norm_after': 11.276285068117753, 'update_cosine_to_original': 0.6343268713129502, 'update_norm_ratio': 1.7313462714373051, 'noise_l2_norm': 7.192068825706512, 'noise_mean': 0.002118212858375753, 'noise_std_observed': 0.02880362292614179, 'update_noise_ratio': 1.0970193922306295, 'backdoor_poisoned_examples': 0.0, 'backdoor_poison_rate_observed': 0.0, 'invalid_update': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753114)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 7x across cluster][0m
+[36m(ClientAppActor pid=1753114)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 7x across cluster][0m
+[36m(ClientAppActor pid=1753114)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753114)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 4.802918840059256, 'eval_acc': 0.10081934452438049}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': 4.780754783485509}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 6/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753114)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 9x across cluster][0m
+[36m(ClientAppActor pid=1753114)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 9x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.9187816155862187, 'client_train_time': 0.8897360314538839, 'client_compute_time': 0.8897372916815072, 'client_partition_id': 10.308386677335466, 'is_malicious': 0.18283656731346268, 'attack_active': 0.18283656731346268, 'attack_type_code': 1.0, 'attack_strength': 5.000000000000001, 'update_norm_before': 27.38198522602075, 'update_norm_after': 48.9258007748612, 'update_cosine_to_original': 0.6343268677425853, 'update_norm_ratio': 1.7313462542155624, 'noise_l2_norm': 32.31572404556074, 'noise_mean': 0.01145266842079904, 'noise_std_observed': 0.12921224763886313, 'update_noise_ratio': 1.0970193921722007, 'backdoor_poisoned_examples': 0.0, 'backdoor_poison_rate_observed': 0.0, 'invalid_update': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753114)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 7x across cluster][0m
+[36m(ClientAppActor pid=1753114)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 7x across cluster][0m
+[36m(ClientAppActor pid=1753114)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753114)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 22040.533226399853, 'eval_acc': 0.0969224620303757}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': 22433.758727254746}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 7/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 22040.533226399853, 'eval_acc': 0.0969224620303757}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': 22433.758727254746}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 8/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 7.518351732701646e+21, 'client_train_time': 0.5859933730098419, 'client_compute_time': 0.5859943350078538, 'client_partition_id': 8.0, 'is_malicious': 1.0, 'attack_active': 1.0, 'attack_type_code': 1.0, 'attack_strength': 5.0, 'update_norm_before': inf, 'update_norm_after': inf, 'update_cosine_to_original': nan, 'update_norm_ratio': nan, 'noise_l2_norm': inf, 'noise_mean': 4.06199753244672e+16, 'noise_std_observed': 6.209614513411457e+18, 'update_noise_ratio': nan, 'backdoor_poisoned_examples': 0.0, 'backdoor_poison_rate_observed': 0.0, 'invalid_update': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 9/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753114)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753114)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 10/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753113)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 11/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.1015187849720224}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 12/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753113)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 13/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 14/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 15/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 16/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 17/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 18/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 19/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753114)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753114)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 20/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 21/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 22/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 23/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.1015187849720224}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 24/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 25/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 26/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753114)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753114)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 27/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 28/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 13x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 29/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 30/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.1015187849720224}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 31/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 32/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 33/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 34/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 35/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 36/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 37/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753114)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753114)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 38/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 39/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753112)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 40/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753114)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753114)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 41/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.1015187849720224}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 42/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 43/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 44/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 45/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 46/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753113)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 47/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753114)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753114)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 48/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753114)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=1753114)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 49/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 50/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 51/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 52/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 53/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753114)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753114)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 54/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 55/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.1015187849720224}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 56/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753114)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753114)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 57/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 58/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 59/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753113)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753113)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 60/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=1753115)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753115)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.10151878497202238}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      Strategy execution finished in 1180.92s
+[92mINFO [0m:      
+[92mINFO [0m:      Final results:
+[92mINFO [0m:      
+[92mINFO [0m:      	Global Arrays:
+[92mINFO [0m:      		ArrayRecord (0.238 MB)
+[92mINFO [0m:      	
+[92mINFO [0m:      	Aggregated ClientApp-side Train Metrics:
+[92mINFO [0m:      	{ 1: { 'attack_active': '0.0000e+00',
+[92mINFO [0m:      	       'attack_strength': '5.0000e+00',
+[92mINFO [0m:      	       'attack_type_code': '1.0000e+00',
+[92mINFO [0m:      	       'backdoor_poison_rate_observed': '0.0000e+00',
+[92mINFO [0m:      	       'backdoor_poisoned_examples': '0.0000e+00',
+[92mINFO [0m:      	       'client_compute_time': '9.4220e-01',
+[92mINFO [0m:      	       'client_partition_id': '1.0308e+01',
+[92mINFO [0m:      	       'client_train_time': '9.4219e-01',
+[92mINFO [0m:      	       'invalid_update': '0.0000e+00',
+[92mINFO [0m:      	       'is_malicious': '1.8284e-01',
+[92mINFO [0m:      	       'noise_l2_norm': '0.0000e+00',
+[92mINFO [0m:      	       'noise_mean': '0.0000e+00',
+[92mINFO [0m:      	       'noise_std_observed': '0.0000e+00',
+[92mINFO [0m:      	       'train_loss': '1.7392e+00',
+[92mINFO [0m:      	       'update_cosine_to_original': '1.0000e+00',
+[92mINFO [0m:      	       'update_noise_ratio': '0.0000e+00',
+[92mINFO [0m:      	       'update_norm_after': '4.9675e+00',
+[92mINFO [0m:      	       'update_norm_before': '4.9675e+00',
+[92mINFO [0m:      	       'update_norm_ratio': '1.0000e+00'},
+[92mINFO [0m:      	  2: { 'attack_active': '0.0000e+00',
+[92mINFO [0m:      	       'attack_strength': '5.0000e+00',
+[92mINFO [0m:      	       'attack_type_code': '1.0000e+00',
+[92mINFO [0m:      	       'backdoor_poison_rate_observed': '0.0000e+00',
+[92mINFO [0m:      	       'backdoor_poisoned_examples': '0.0000e+00',
+[92mINFO [0m:      	       'client_compute_time': '9.3626e-01',
+[92mINFO [0m:      	       'client_partition_id': '1.0308e+01',
+[92mINFO [0m:      	       'client_train_time': '9.3626e-01',
+[92mINFO [0m:      	       'invalid_update': '0.0000e+00',
+[92mINFO [0m:      	       'is_malicious': '1.8284e-01',
+[92mINFO [0m:      	       'noise_l2_norm': '0.0000e+00',
+[92mINFO [0m:      	       'noise_mean': '0.0000e+00',
+[92mINFO [0m:      	       'noise_std_observed': '0.0000e+00',
+[92mINFO [0m:      	       'train_loss': '1.7177e+00',
+[92mINFO [0m:      	       'update_cosine_to_original': '1.0000e+00',
+[92mINFO [0m:      	       'update_noise_ratio': '0.0000e+00',
+[92mINFO [0m:      	       'update_norm_after': '4.7392e+00',
+[92mINFO [0m:      	       'update_norm_before': '4.7392e+00',
+[92mINFO [0m:      	       'update_norm_ratio': '1.0000e+00'},
+[92mINFO [0m:      	  3: { 'attack_active': '0.0000e+00',
+[92mINFO [0m:      	       'attack_strength': '5.0000e+00',
+[92mINFO [0m:      	       'attack_type_code': '1.0000e+00',
+[92mINFO [0m:      	       'backdoor_poison_rate_observed': '0.0000e+00',
+[92mINFO [0m:      	       'backdoor_poisoned_examples': '0.0000e+00',
+[92mINFO [0m:      	       'client_compute_time': '8.9775e-01',
+[92mINFO [0m:      	       'client_partition_id': '1.0308e+01',
+[92mINFO [0m:      	       'client_train_time': '8.9775e-01',
+[92mINFO [0m:      	       'invalid_update': '0.0000e+00',
+[92mINFO [0m:      	       'is_malicious': '1.8284e-01',
+[92mINFO [0m:      	       'noise_l2_norm': '0.0000e+00',
+[92mINFO [0m:      	       'noise_mean': '0.0000e+00',
+[92mINFO [0m:      	       'noise_std_observed': '0.0000e+00',
+[92mINFO [0m:      	       'train_loss': '1.6376e+00',
+[92mINFO [0m:      	       'update_cosine_to_original': '1.0000e+00',
+[92mINFO [0m:      	       'update_noise_ratio': '0.0000e+00',
+[92mINFO [0m:      	       'update_norm_after': '5.7538e+00',
+[92mINFO [0m:      	       'update_norm_before': '5.7538e+00',
+[92mINFO [0m:      	       'update_norm_ratio': '1.0000e+00'},
+[92mINFO [0m:      	  4: { 'attack_active': '1.8284e-01',
+[92mINFO [0m:      	       'attack_strength': '5.0000e+00',
+[92mINFO [0m:      	       'attack_type_code': '1.0000e+00',
+[92mINFO [0m:      	       'backdoor_poison_rate_observed': '0.0000e+00',
+[92mINFO [0m:      	       'backdoor_poisoned_examples': '0.0000e+00',
+[92mINFO [0m:      	       'client_compute_time': '8.8290e-01',
+[92mINFO [0m:      	       'client_partition_id': '1.0308e+01',
+[92mINFO [0m:      	       'client_train_time': '8.8290e-01',
+[92mINFO [0m:      	       'invalid_update': '0.0000e+00',
+[92mINFO [0m:      	       'is_malicious': '1.8284e-01',
+[92mINFO [0m:      	       'noise_l2_norm': '5.2994e+00',
+[92mINFO [0m:      	       'noise_mean': '7.4834e-04',
+[92mINFO [0m:      	       'noise_std_observed': '2.1269e-02',
+[92mINFO [0m:      	       'train_loss': '1.5801e+00',
+[92mINFO [0m:      	       'update_cosine_to_original': '6.3433e-01',
+[92mINFO [0m:      	       'update_noise_ratio': '1.0970e+00',
+[92mINFO [0m:      	       'update_norm_after': '8.8556e+00',
+[92mINFO [0m:      	       'update_norm_before': '5.3227e+00',
+[92mINFO [0m:      	       'update_norm_ratio': '1.7313e+00'},
+[92mINFO [0m:      	  5: { 'attack_active': '1.8284e-01',
+[92mINFO [0m:      	       'attack_strength': '5.0000e+00',
+[92mINFO [0m:      	       'attack_type_code': '1.0000e+00',
+[92mINFO [0m:      	       'backdoor_poison_rate_observed': '0.0000e+00',
+[92mINFO [0m:      	       'backdoor_poisoned_examples': '0.0000e+00',
+[92mINFO [0m:      	       'client_compute_time': '8.8601e-01',
+[92mINFO [0m:      	       'client_partition_id': '1.0308e+01',
+[92mINFO [0m:      	       'client_train_time': '8.8601e-01',
+[92mINFO [0m:      	       'invalid_update': '0.0000e+00',
+[92mINFO [0m:      	       'is_malicious': '1.8284e-01',
+[92mINFO [0m:      	       'noise_l2_norm': '7.1921e+00',
+[92mINFO [0m:      	       'noise_mean': '2.1182e-03',
+[92mINFO [0m:      	       'noise_std_observed': '2.8804e-02',
+[92mINFO [0m:      	       'train_loss': '1.6534e+00',
+[92mINFO [0m:      	       'update_cosine_to_original': '6.3433e-01',
+[92mINFO [0m:      	       'update_noise_ratio': '1.0970e+00',
+[92mINFO [0m:      	       'update_norm_after': '1.1276e+01',
+[92mINFO [0m:      	       'update_norm_before': '6.4816e+00',
+[92mINFO [0m:      	       'update_norm_ratio': '1.7313e+00'},
+[92mINFO [0m:      	  6: { 'attack_active': '1.8284e-01',
+[92mINFO [0m:      	       'attack_strength': '5.0000e+00',
+[92mINFO [0m:      	       'attack_type_code': '1.0000e+00',
+[92mINFO [0m:      	       'backdoor_poison_rate_observed': '0.0000e+00',
+[92mINFO [0m:      	       'backdoor_poisoned_examples': '0.0000e+00',
+[92mINFO [0m:      	       'client_compute_time': '8.8974e-01',
+[92mINFO [0m:      	       'client_partition_id': '1.0308e+01',
+[92mINFO [0m:      	       'client_train_time': '8.8974e-01',
+[92mINFO [0m:      	       'invalid_update': '0.0000e+00',
+[92mINFO [0m:      	       'is_malicious': '1.8284e-01',
+[92mINFO [0m:      	       'noise_l2_norm': '3.2316e+01',
+[92mINFO [0m:      	       'noise_mean': '1.1453e-02',
+[92mINFO [0m:      	       'noise_std_observed': '1.2921e-01',
+[92mINFO [0m:      	       'train_loss': '1.9188e+00',
+[92mINFO [0m:      	       'update_cosine_to_original': '6.3433e-01',
+[92mINFO [0m:      	       'update_noise_ratio': '1.0970e+00',
+[92mINFO [0m:      	       'update_norm_after': '4.8926e+01',
+[92mINFO [0m:      	       'update_norm_before': '2.7382e+01',
+[92mINFO [0m:      	       'update_norm_ratio': '1.7313e+00'},
+[92mINFO [0m:      	  8: { 'attack_active': '1.0000e+00',
+[92mINFO [0m:      	       'attack_strength': '5.0000e+00',
+[92mINFO [0m:      	       'attack_type_code': '1.0000e+00',
+[92mINFO [0m:      	       'backdoor_poison_rate_observed': '0.0000e+00',
+[92mINFO [0m:      	       'backdoor_poisoned_examples': '0.0000e+00',
+[92mINFO [0m:      	       'client_compute_time': '5.8599e-01',
+[92mINFO [0m:      	       'client_partition_id': '8.0000e+00',
+[92mINFO [0m:      	       'client_train_time': '5.8599e-01',
+[92mINFO [0m:      	       'invalid_update': '0.0000e+00',
+[92mINFO [0m:      	       'is_malicious': '1.0000e+00',
+[92mINFO [0m:      	       'noise_l2_norm': 'inf',
+[92mINFO [0m:      	       'noise_mean': '4.0620e+16',
+[92mINFO [0m:      	       'noise_std_observed': '6.2096e+18',
+[92mINFO [0m:      	       'train_loss': '7.5184e+21',
+[92mINFO [0m:      	       'update_cosine_to_original': 'nan',
+[92mINFO [0m:      	       'update_noise_ratio': 'nan',
+[92mINFO [0m:      	       'update_norm_after': 'inf',
+[92mINFO [0m:      	       'update_norm_before': 'inf',
+[92mINFO [0m:      	       'update_norm_ratio': 'nan'}}
+[92mINFO [0m:      	
+[92mINFO [0m:      	Aggregated ClientApp-side Evaluate Metrics:
+[92mINFO [0m:      	{ 1: {'eval_acc': '1.0082e-01', 'eval_loss': '2.3122e+00'},
+[92mINFO [0m:      	  2: {'eval_acc': '1.0012e-01', 'eval_loss': '2.3060e+00'},
+[92mINFO [0m:      	  3: {'eval_acc': '1.3959e-01', 'eval_loss': '2.2543e+00'},
+[92mINFO [0m:      	  4: {'eval_acc': '1.0082e-01', 'eval_loss': '2.6821e+00'},
+[92mINFO [0m:      	  5: {'eval_acc': '1.0082e-01', 'eval_loss': '4.8029e+00'},
+[92mINFO [0m:      	  6: {'eval_acc': '9.6922e-02', 'eval_loss': '2.2041e+04'},
+[92mINFO [0m:      	  7: {'eval_acc': '9.6922e-02', 'eval_loss': '2.2041e+04'},
+[92mINFO [0m:      	  8: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  9: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  10: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  11: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  12: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  13: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  14: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  15: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  16: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  17: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  18: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  19: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  20: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  21: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  22: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  23: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  24: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  25: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  26: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  27: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  28: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  29: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  30: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  31: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  32: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  33: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  34: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  35: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  36: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  37: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  38: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  39: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  40: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  41: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  42: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  43: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  44: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  45: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  46: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  47: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  48: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  49: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  50: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  51: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  52: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  53: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  54: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  55: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  56: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  57: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  58: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  59: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  60: {'eval_acc': '1.0152e-01', 'eval_loss': 'nan'}}
+[92mINFO [0m:      	
+[92mINFO [0m:      	ServerApp-side Evaluate Metrics:
+[92mINFO [0m:      	{ 0: {'accuracy': '9.9900e-02', 'loss': '2.3036e+00'},
+[92mINFO [0m:      	  1: {'accuracy': '1.0000e-01', 'loss': '2.3115e+00'},
+[92mINFO [0m:      	  2: {'accuracy': '1.0030e-01', 'loss': '2.3046e+00'},
+[92mINFO [0m:      	  3: {'accuracy': '1.3690e-01', 'loss': '2.2541e+00'},
+[92mINFO [0m:      	  4: {'accuracy': '1.0000e-01', 'loss': '2.6775e+00'},
+[92mINFO [0m:      	  5: {'accuracy': '1.0000e-01', 'loss': '4.7808e+00'},
+[92mINFO [0m:      	  6: {'accuracy': '1.0000e-01', 'loss': '2.2434e+04'},
+[92mINFO [0m:      	  7: {'accuracy': '1.0000e-01', 'loss': '2.2434e+04'},
+[92mINFO [0m:      	  8: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  9: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  10: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  11: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  12: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  13: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  14: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  15: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  16: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  17: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  18: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  19: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  20: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  21: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  22: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  23: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  24: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  25: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  26: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  27: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  28: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  29: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  30: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  31: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  32: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  33: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  34: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  35: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  36: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  37: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  38: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  39: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  40: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  41: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  42: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  43: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  44: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  45: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  46: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  47: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  48: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  49: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  50: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  51: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  52: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  53: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  54: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  55: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  56: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  57: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  58: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  59: {'accuracy': '1.0000e-01', 'loss': 'nan'},
+[92mINFO [0m:      	  60: {'accuracy': '1.0000e-01', 'loss': 'nan'}}
+[92mINFO [0m:      
+[36m(ClientAppActor pid=1753115)[0m [93mWARNING [0m:   Manually terminating ClientAppActor
+[36m(ClientAppActor pid=1753114)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=1753114)[0m Found the latest cached dataset configuration 'plain_text' at /root/.cache/huggingface/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Mon Sep 28 01:19:07 2026).[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=1753112)[0m [93mWARNING [0m:   Manually terminating ClientAppActor[32m [repeated 2x across cluster][0m
+could not read summary.json: must be real number, not NoneType
+== result files ==
+  <PROJECT_ROOT>/results/final_v7/joint_main_seed7/fedavg/config.json
+  <PROJECT_ROOT>/results/final_v7/joint_main_seed7/fedavg/results.csv
+  <PROJECT_ROOT>/results/final_v7/joint_main_seed7/fedavg/summary.json
+  <PROJECT_ROOT>/results/final_v7/joint_main_seed7/fedavg/scenario.json
+  <PROJECT_ROOT>/results/final_v7/joint_main_seed7/fedavg/scenario.sha256

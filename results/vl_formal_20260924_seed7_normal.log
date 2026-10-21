@@ -1,0 +1,735 @@
+== env_check ==
+{
+  "venv_scripts": "<LOCAL_VENV>/bin",
+  "python": {
+    "expected": "<LOCAL_VENV>/bin/python",
+    "resolved": "<LOCAL_VENV>/bin/python",
+    "ok": true
+  },
+  "executables": {
+    "flwr": {
+      "expected": "<LOCAL_VENV>/bin/flwr",
+      "resolved": "<LOCAL_VENV>/bin/flwr",
+      "source": "FLOWER_VENV",
+      "ok": true
+    },
+    "flower-superlink": {
+      "expected": "<LOCAL_VENV>/bin/flower-superlink",
+      "resolved": "<LOCAL_VENV>/bin/flower-superlink",
+      "source": "FLOWER_VENV",
+      "ok": true
+    },
+    "flower-superexec": {
+      "expected": "<LOCAL_VENV>/bin/flower-superexec",
+      "resolved": "<LOCAL_VENV>/bin/flower-superexec",
+      "source": "FLOWER_VENV",
+      "ok": true
+    },
+    "flwr-simulation": {
+      "expected": "<LOCAL_VENV>/bin/flwr-simulation",
+      "resolved": "<LOCAL_VENV>/bin/flwr-simulation",
+      "source": "FLOWER_VENV",
+      "ok": true
+    }
+  },
+  "versions": {
+    "flwr": "1.31.0",
+    "python": "3.11.9"
+  },
+  "all_ok": true
+}
+== output dir == <PROJECT_ROOT>/results/vl_formal_20260924/seed7_normal
+== flwr command ==
+  <LOCAL_VENV>/bin/flwr run /tmp/quickstart-flower-app-kdhch07v --stream --run-config num-server-rounds=30 local-epochs=1 seed=7 fraction-train=1.0 dropout-rate=0.0 partitioner="iid" alpha=1.0 compute-fast-factor=1.0 compute-medium-factor=1.0 compute-slow-factor=1.0 work-units=0 attack-enabled=0 attack-type="none" attack-ratio=0.0 attack-strength=1.0 attack-sigma=0.05 malicious-selection-seed=7 attack-mode="persistent" burst-round=3 ssdf-enabled=1 ssdf-detector-mode="v2_full" ssdf-reference-k=2.5 ssdf-reference-floor=-0.25 ssdf-norm-k=3.5 ssdf-history-limit=20 ema-beta=0.9 threshold-k=2.0 warmup-rounds=2 norm-tol=0.001 dropout-timing="post_share" share-n=20 share-t=12 holder-outage="full" threshold-controller-enabled=0 normal-threshold=8 emergency-threshold=6 runtime-available-schedule="" static-threshold=0 dynamic-weight=1 vl-verification=1 vl-enforce=1 vl-tamper=0 vl-tamper-rounds="" vl-client-tamper-rounds="" control-run-id="" paired-run-id="" aggregation-method="fedavg" krum-f=2 trim-ratio=0.2 scenario-id="" output-dir="<PROJECT_ROOT>/results/vl_formal_20260924/seed7_normal" experiment="vl_formal_normal_seed7" --federation-config num-supernodes=20 client-resources-num-gpus=0.0 init-args-num-gpus=0
+🎊 Successfully started run 8999403759583068878
+[92mINFO [0m:      Starting Flower Simulation
+[92mINFO [0m:      Starting SSDFRecoveryStrategy strategy:
+[92mINFO [0m:      	├── Number of rounds: 30
+[92mINFO [0m:      	├── ArrayRecord (0.24 MB)
+[92mINFO [0m:      	├── ConfigRecord (train): {'lr': 0.1}
+[92mINFO [0m:      	├── ConfigRecord (evaluate): (empty!)
+[92mINFO [0m:      	├──> Sampling:
+[92mINFO [0m:      	│	├──Fraction: train (1.00) | evaluate ( 1.00)
+[92mINFO [0m:      	│	├──Minimum nodes: train (1) | evaluate (1)
+[92mINFO [0m:      	│	└──Minimum available nodes: 1
+[92mINFO [0m:      	└──> Keys in records:
+[92mINFO [0m:      		├── Weighted by: 'num-examples'
+[92mINFO [0m:      		├── ArrayRecord key: 'arrays'
+[92mINFO [0m:      		└── ConfigRecord key: 'config'
+[92mINFO [0m:      
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).
+<LOCAL_VENV>/lib/python3.11/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+[92mINFO [0m:      Initial global evaluation results: {'accuracy': 0.0999, 'loss': 2.303637112243266}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 1/30]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=165820)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+[36m(ClientAppActor pid=165820)[0m Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 2.2628156098108443, 'client_train_time': 1.4207858459962561, 'client_compute_time': 1.4207876827729504, 'client_partition_id': 9.388888888888888, 'is_malicious': 0.0, 'attack_active': 0.0, 'attack_type_code': 0.0, 'attack_strength': 1.0000000000000002, 'update_norm_before': 3.613810545137584, 'update_norm_after': 3.613810545137584, 'update_cosine_to_original': 1.0, 'update_norm_ratio': 1.0000000000000002, 'noise_l2_norm': 0.0, 'noise_mean': 0.0, 'noise_std_observed': 0.0, 'update_noise_ratio': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.2219215750694272, 'eval_acc': 0.19879999999999998}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.2039, 'loss': 2.2164967935296556}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 2/30]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.3033185862004757, 'eval_acc': 0.10100000000000002}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0999, 'loss': 2.303637112243266}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 3/30]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 2.2628156098108443, 'client_train_time': 1.1290738200008894, 'client_compute_time': 1.1290753340015522, 'client_partition_id': 9.388888888888888, 'is_malicious': 0.0, 'attack_active': 0.0, 'attack_type_code': 0.0, 'attack_strength': 1.0000000000000002, 'update_norm_before': 3.613810545137584, 'update_norm_after': 3.613810545137584, 'update_cosine_to_original': 1.0000000000000002, 'update_norm_ratio': 1.0000000000000002, 'noise_l2_norm': 0.0, 'noise_mean': 0.0, 'noise_std_observed': 0.0, 'update_noise_ratio': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.2219215750694272, 'eval_acc': 0.19880000000000003}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.2039, 'loss': 2.2164967935296556}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 4/30]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.3033185862004757, 'eval_acc': 0.101}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0999, 'loss': 2.303637112243266}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 5/30]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 2.2628156098108443, 'client_train_time': 1.1244613256680571, 'client_compute_time': 1.1244626642227455, 'client_partition_id': 9.38888888888889, 'is_malicious': 0.0, 'attack_active': 0.0, 'attack_type_code': 0.0, 'attack_strength': 1.0000000000000002, 'update_norm_before': 3.613810545137584, 'update_norm_after': 3.613810545137584, 'update_cosine_to_original': 1.0000000000000002, 'update_norm_ratio': 1.0000000000000002, 'noise_l2_norm': 0.0, 'noise_mean': 0.0, 'noise_std_observed': 0.0, 'update_noise_ratio': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.2219215750694272, 'eval_acc': 0.19880000000000003}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.2039, 'loss': 2.2164967935296556}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 6/30]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.3033185862004757, 'eval_acc': 0.10099999999999999}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0999, 'loss': 2.303637112243266}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 7/30]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 2.2628156098108443, 'client_train_time': 1.1382845371085244, 'client_compute_time': 1.138285845222223, 'client_partition_id': 9.38888888888889, 'is_malicious': 0.0, 'attack_active': 0.0, 'attack_type_code': 0.0, 'attack_strength': 1.0000000000000002, 'update_norm_before': 3.613810545137584, 'update_norm_after': 3.613810545137584, 'update_cosine_to_original': 1.0, 'update_norm_ratio': 1.0000000000000002, 'noise_l2_norm': 0.0, 'noise_mean': 0.0, 'noise_std_observed': 0.0, 'update_noise_ratio': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.2219215750694277, 'eval_acc': 0.19879999999999998}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.2039, 'loss': 2.2164967935296556}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 8/30]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.3033185862004757, 'eval_acc': 0.101}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0999, 'loss': 2.303637112243266}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 9/30]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 2.2628156098108443, 'client_train_time': 1.1485312537762284, 'client_compute_time': 1.1485325901659154, 'client_partition_id': 9.388888888888888, 'is_malicious': 0.0, 'attack_active': 0.0, 'attack_type_code': 0.0, 'attack_strength': 1.0000000000000002, 'update_norm_before': 3.6138105451375835, 'update_norm_after': 3.6138105451375835, 'update_cosine_to_original': 1.0000000000000002, 'update_norm_ratio': 1.0000000000000002, 'noise_l2_norm': 0.0, 'noise_mean': 0.0, 'noise_std_observed': 0.0, 'update_noise_ratio': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.2219215750694277, 'eval_acc': 0.19879999999999998}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.2039, 'loss': 2.2164967935296556}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 10/30]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.3033185862004757, 'eval_acc': 0.101}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0999, 'loss': 2.303637112243266}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 11/30]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 2.2628156098108443, 'client_train_time': 1.209929886552143, 'client_compute_time': 1.209931176941609, 'client_partition_id': 9.38888888888889, 'is_malicious': 0.0, 'attack_active': 0.0, 'attack_type_code': 0.0, 'attack_strength': 1.0000000000000002, 'update_norm_before': 3.613810545137584, 'update_norm_after': 3.613810545137584, 'update_cosine_to_original': 1.0, 'update_norm_ratio': 1.0000000000000002, 'noise_l2_norm': 0.0, 'noise_mean': 0.0, 'noise_std_observed': 0.0, 'update_noise_ratio': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.2219215750694272, 'eval_acc': 0.19880000000000003}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.2039, 'loss': 2.2164967935296556}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 12/30]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.3033185862004757, 'eval_acc': 0.10099999999999999}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0999, 'loss': 2.303637112243266}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 13/30]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 2.2628156098108443, 'client_train_time': 1.304278700053045, 'client_compute_time': 1.3042802212164841, 'client_partition_id': 9.38888888888889, 'is_malicious': 0.0, 'attack_active': 0.0, 'attack_type_code': 0.0, 'attack_strength': 1.0000000000000002, 'update_norm_before': 3.6138105451375835, 'update_norm_after': 3.6138105451375835, 'update_cosine_to_original': 1.0000000000000002, 'update_norm_ratio': 1.0000000000000002, 'noise_l2_norm': 0.0, 'noise_mean': 0.0, 'noise_std_observed': 0.0, 'update_noise_ratio': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.2219215750694277, 'eval_acc': 0.19879999999999998}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.2039, 'loss': 2.2164967935296556}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 14/30]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.3033185862004757, 'eval_acc': 0.101}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0999, 'loss': 2.303637112243266}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 15/30]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 2.2628156098108443, 'client_train_time': 1.1388740338346297, 'client_compute_time': 1.1388753122834407, 'client_partition_id': 9.388888888888888, 'is_malicious': 0.0, 'attack_active': 0.0, 'attack_type_code': 0.0, 'attack_strength': 1.0000000000000002, 'update_norm_before': 3.613810545137584, 'update_norm_after': 3.613810545137584, 'update_cosine_to_original': 1.0000000000000002, 'update_norm_ratio': 1.0000000000000002, 'noise_l2_norm': 0.0, 'noise_mean': 0.0, 'noise_std_observed': 0.0, 'update_noise_ratio': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.2219215750694277, 'eval_acc': 0.19880000000000003}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.2039, 'loss': 2.2164967935296556}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 16/30]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.3033185862004757, 'eval_acc': 0.101}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0999, 'loss': 2.303637112243266}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 17/30]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 2.2628156098108443, 'client_train_time': 1.2263950685592135, 'client_compute_time': 1.2263963032245455, 'client_partition_id': 9.38888888888889, 'is_malicious': 0.0, 'attack_active': 0.0, 'attack_type_code': 0.0, 'attack_strength': 1.0000000000000002, 'update_norm_before': 3.6138105451375835, 'update_norm_after': 3.6138105451375835, 'update_cosine_to_original': 1.0000000000000002, 'update_norm_ratio': 1.0000000000000002, 'noise_l2_norm': 0.0, 'noise_mean': 0.0, 'noise_std_observed': 0.0, 'update_noise_ratio': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.2219215750694272, 'eval_acc': 0.19879999999999998}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.2039, 'loss': 2.2164967935296556}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 18/30]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.3033185862004757, 'eval_acc': 0.10100000000000002}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0999, 'loss': 2.303637112243266}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 19/30]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 2.2628156098108443, 'client_train_time': 1.1350362699482097, 'client_compute_time': 1.1350400097225142, 'client_partition_id': 9.38888888888889, 'is_malicious': 0.0, 'attack_active': 0.0, 'attack_type_code': 0.0, 'attack_strength': 1.0000000000000002, 'update_norm_before': 3.613810545137584, 'update_norm_after': 3.613810545137584, 'update_cosine_to_original': 1.0000000000000002, 'update_norm_ratio': 1.0000000000000002, 'noise_l2_norm': 0.0, 'noise_mean': 0.0, 'noise_std_observed': 0.0, 'update_noise_ratio': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.2219215750694272, 'eval_acc': 0.19879999999999998}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.2039, 'loss': 2.2164967935296556}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 20/30]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.3033185862004757, 'eval_acc': 0.101}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0999, 'loss': 2.303637112243266}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 21/30]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 2.2628156098108443, 'client_train_time': 1.1536052981084344, 'client_compute_time': 1.1536065933307527, 'client_partition_id': 9.388888888888888, 'is_malicious': 0.0, 'attack_active': 0.0, 'attack_type_code': 0.0, 'attack_strength': 1.0000000000000002, 'update_norm_before': 3.6138105451375835, 'update_norm_after': 3.6138105451375835, 'update_cosine_to_original': 1.0000000000000002, 'update_norm_ratio': 1.0000000000000002, 'noise_l2_norm': 0.0, 'noise_mean': 0.0, 'noise_std_observed': 0.0, 'update_noise_ratio': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.2219215750694277, 'eval_acc': 0.19879999999999998}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.2039, 'loss': 2.2164967935296556}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 22/30]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.3033185862004752, 'eval_acc': 0.101}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0999, 'loss': 2.303637112243266}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 23/30]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 2.2628156098108443, 'client_train_time': 1.1335087025557486, 'client_compute_time': 1.1335098614411738, 'client_partition_id': 9.388888888888888, 'is_malicious': 0.0, 'attack_active': 0.0, 'attack_type_code': 0.0, 'attack_strength': 1.0000000000000002, 'update_norm_before': 3.613810545137584, 'update_norm_after': 3.613810545137584, 'update_cosine_to_original': 1.0, 'update_norm_ratio': 1.0000000000000002, 'noise_l2_norm': 0.0, 'noise_mean': 0.0, 'noise_std_observed': 0.0, 'update_noise_ratio': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.2219215750694277, 'eval_acc': 0.19880000000000003}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.2039, 'loss': 2.2164967935296556}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 24/30]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.3033185862004752, 'eval_acc': 0.10099999999999999}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0999, 'loss': 2.303637112243266}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 25/30]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 2.2628156098108443, 'client_train_time': 1.1772962174404202, 'client_compute_time': 1.1772973546046863, 'client_partition_id': 9.388888888888888, 'is_malicious': 0.0, 'attack_active': 0.0, 'attack_type_code': 0.0, 'attack_strength': 1.0000000000000002, 'update_norm_before': 3.613810545137584, 'update_norm_after': 3.613810545137584, 'update_cosine_to_original': 1.0000000000000002, 'update_norm_ratio': 1.0000000000000002, 'noise_l2_norm': 0.0, 'noise_mean': 0.0, 'noise_std_observed': 0.0, 'update_noise_ratio': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.2219215750694277, 'eval_acc': 0.19880000000000003}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.2039, 'loss': 2.2164967935296556}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 26/30]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.3033185862004757, 'eval_acc': 0.10100000000000002}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0999, 'loss': 2.303637112243266}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 27/30]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 2.2628156098108443, 'client_train_time': 1.1301333804391713, 'client_compute_time': 1.130134676327644, 'client_partition_id': 9.38888888888889, 'is_malicious': 0.0, 'attack_active': 0.0, 'attack_type_code': 0.0, 'attack_strength': 1.0000000000000002, 'update_norm_before': 3.6138105451375835, 'update_norm_after': 3.6138105451375835, 'update_cosine_to_original': 1.0000000000000002, 'update_norm_ratio': 1.0000000000000002, 'noise_l2_norm': 0.0, 'noise_mean': 0.0, 'noise_std_observed': 0.0, 'update_noise_ratio': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.2219215750694272, 'eval_acc': 0.19880000000000003}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.2039, 'loss': 2.2164967935296556}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 28/30]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.3033185862004757, 'eval_acc': 0.10100000000000002}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0999, 'loss': 2.303637112243266}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 29/30]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 2.2628156098108443, 'client_train_time': 1.434206314055094, 'client_compute_time': 1.4342075397208747, 'client_partition_id': 9.388888888888888, 'is_malicious': 0.0, 'attack_active': 0.0, 'attack_type_code': 0.0, 'attack_strength': 1.0000000000000002, 'update_norm_before': 3.6138105451375835, 'update_norm_after': 3.6138105451375835, 'update_cosine_to_original': 1.0000000000000002, 'update_norm_ratio': 1.0000000000000002, 'noise_l2_norm': 0.0, 'noise_mean': 0.0, 'noise_std_observed': 0.0, 'update_noise_ratio': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.2219215750694272, 'eval_acc': 0.19879999999999998}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.2039, 'loss': 2.2164967935296556}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 30/30]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.3033185862004757, 'eval_acc': 0.101}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0999, 'loss': 2.303637112243266}
+[92mINFO [0m:      
+[92mINFO [0m:      Strategy execution finished in 214.38s
+[92mINFO [0m:      
+[92mINFO [0m:      Final results:
+[92mINFO [0m:      
+[92mINFO [0m:      	Global Arrays:
+[92mINFO [0m:      		ArrayRecord (0.238 MB)
+[92mINFO [0m:      	
+[92mINFO [0m:      	Aggregated ClientApp-side Train Metrics:
+[92mINFO [0m:      	{ 1: { 'attack_active': '0.0000e+00',
+[92mINFO [0m:      	       'attack_strength': '1.0000e+00',
+[92mINFO [0m:      	       'attack_type_code': '0.0000e+00',
+[92mINFO [0m:      	       'client_compute_time': '1.4208e+00',
+[92mINFO [0m:      	       'client_partition_id': '9.3889e+00',
+[92mINFO [0m:      	       'client_train_time': '1.4208e+00',
+[92mINFO [0m:      	       'is_malicious': '0.0000e+00',
+[92mINFO [0m:      	       'noise_l2_norm': '0.0000e+00',
+[92mINFO [0m:      	       'noise_mean': '0.0000e+00',
+[92mINFO [0m:      	       'noise_std_observed': '0.0000e+00',
+[92mINFO [0m:      	       'train_loss': '2.2628e+00',
+[92mINFO [0m:      	       'update_cosine_to_original': '1.0000e+00',
+[92mINFO [0m:      	       'update_noise_ratio': '0.0000e+00',
+[92mINFO [0m:      	       'update_norm_after': '3.6138e+00',
+[92mINFO [0m:      	       'update_norm_before': '3.6138e+00',
+[92mINFO [0m:      	       'update_norm_ratio': '1.0000e+00'},
+[92mINFO [0m:      	  3: { 'attack_active': '0.0000e+00',
+[92mINFO [0m:      	       'attack_strength': '1.0000e+00',
+[92mINFO [0m:      	       'attack_type_code': '0.0000e+00',
+[92mINFO [0m:      	       'client_compute_time': '1.1291e+00',
+[92mINFO [0m:      	       'client_partition_id': '9.3889e+00',
+[92mINFO [0m:      	       'client_train_time': '1.1291e+00',
+[92mINFO [0m:      	       'is_malicious': '0.0000e+00',
+[92mINFO [0m:      	       'noise_l2_norm': '0.0000e+00',
+[92mINFO [0m:      	       'noise_mean': '0.0000e+00',
+[92mINFO [0m:      	       'noise_std_observed': '0.0000e+00',
+[92mINFO [0m:      	       'train_loss': '2.2628e+00',
+[92mINFO [0m:      	       'update_cosine_to_original': '1.0000e+00',
+[92mINFO [0m:      	       'update_noise_ratio': '0.0000e+00',
+[92mINFO [0m:      	       'update_norm_after': '3.6138e+00',
+[92mINFO [0m:      	       'update_norm_before': '3.6138e+00',
+[92mINFO [0m:      	       'update_norm_ratio': '1.0000e+00'},
+[92mINFO [0m:      	  5: { 'attack_active': '0.0000e+00',
+[92mINFO [0m:      	       'attack_strength': '1.0000e+00',
+[92mINFO [0m:      	       'attack_type_code': '0.0000e+00',
+[92mINFO [0m:      	       'client_compute_time': '1.1245e+00',
+[92mINFO [0m:      	       'client_partition_id': '9.3889e+00',
+[92mINFO [0m:      	       'client_train_time': '1.1245e+00',
+[92mINFO [0m:      	       'is_malicious': '0.0000e+00',
+[92mINFO [0m:      	       'noise_l2_norm': '0.0000e+00',
+[92mINFO [0m:      	       'noise_mean': '0.0000e+00',
+[92mINFO [0m:      	       'noise_std_observed': '0.0000e+00',
+[92mINFO [0m:      	       'train_loss': '2.2628e+00',
+[92mINFO [0m:      	       'update_cosine_to_original': '1.0000e+00',
+[92mINFO [0m:      	       'update_noise_ratio': '0.0000e+00',
+[92mINFO [0m:      	       'update_norm_after': '3.6138e+00',
+[92mINFO [0m:      	       'update_norm_before': '3.6138e+00',
+[92mINFO [0m:      	       'update_norm_ratio': '1.0000e+00'},
+[92mINFO [0m:      	  7: { 'attack_active': '0.0000e+00',
+[92mINFO [0m:      	       'attack_strength': '1.0000e+00',
+[92mINFO [0m:      	       'attack_type_code': '0.0000e+00',
+[92mINFO [0m:      	       'client_compute_time': '1.1383e+00',
+[92mINFO [0m:      	       'client_partition_id': '9.3889e+00',
+[92mINFO [0m:      	       'client_train_time': '1.1383e+00',
+[92mINFO [0m:      	       'is_malicious': '0.0000e+00',
+[92mINFO [0m:      	       'noise_l2_norm': '0.0000e+00',
+[92mINFO [0m:      	       'noise_mean': '0.0000e+00',
+[92mINFO [0m:      	       'noise_std_observed': '0.0000e+00',
+[92mINFO [0m:      	       'train_loss': '2.2628e+00',
+[92mINFO [0m:      	       'update_cosine_to_original': '1.0000e+00',
+[92mINFO [0m:      	       'update_noise_ratio': '0.0000e+00',
+[92mINFO [0m:      	       'update_norm_after': '3.6138e+00',
+[92mINFO [0m:      	       'update_norm_before': '3.6138e+00',
+[92mINFO [0m:      	       'update_norm_ratio': '1.0000e+00'},
+[92mINFO [0m:      	  9: { 'attack_active': '0.0000e+00',
+[92mINFO [0m:      	       'attack_strength': '1.0000e+00',
+[92mINFO [0m:      	       'attack_type_code': '0.0000e+00',
+[92mINFO [0m:      	       'client_compute_time': '1.1485e+00',
+[92mINFO [0m:      	       'client_partition_id': '9.3889e+00',
+[92mINFO [0m:      	       'client_train_time': '1.1485e+00',
+[92mINFO [0m:      	       'is_malicious': '0.0000e+00',
+[92mINFO [0m:      	       'noise_l2_norm': '0.0000e+00',
+[92mINFO [0m:      	       'noise_mean': '0.0000e+00',
+[92mINFO [0m:      	       'noise_std_observed': '0.0000e+00',
+[92mINFO [0m:      	       'train_loss': '2.2628e+00',
+[92mINFO [0m:      	       'update_cosine_to_original': '1.0000e+00',
+[92mINFO [0m:      	       'update_noise_ratio': '0.0000e+00',
+[92mINFO [0m:      	       'update_norm_after': '3.6138e+00',
+[92mINFO [0m:      	       'update_norm_before': '3.6138e+00',
+[92mINFO [0m:      	       'update_norm_ratio': '1.0000e+00'},
+[92mINFO [0m:      	  11: { 'attack_active': '0.0000e+00',
+[92mINFO [0m:      	        'attack_strength': '1.0000e+00',
+[92mINFO [0m:      	        'attack_type_code': '0.0000e+00',
+[92mINFO [0m:      	        'client_compute_time': '1.2099e+00',
+[92mINFO [0m:      	        'client_partition_id': '9.3889e+00',
+[92mINFO [0m:      	        'client_train_time': '1.2099e+00',
+[92mINFO [0m:      	        'is_malicious': '0.0000e+00',
+[92mINFO [0m:      	        'noise_l2_norm': '0.0000e+00',
+[92mINFO [0m:      	        'noise_mean': '0.0000e+00',
+[92mINFO [0m:      	        'noise_std_observed': '0.0000e+00',
+[92mINFO [0m:      	        'train_loss': '2.2628e+00',
+[92mINFO [0m:      	        'update_cosine_to_original': '1.0000e+00',
+[92mINFO [0m:      	        'update_noise_ratio': '0.0000e+00',
+[92mINFO [0m:      	        'update_norm_after': '3.6138e+00',
+[92mINFO [0m:      	        'update_norm_before': '3.6138e+00',
+[92mINFO [0m:      	        'update_norm_ratio': '1.0000e+00'},
+[92mINFO [0m:      	  13: { 'attack_active': '0.0000e+00',
+[92mINFO [0m:      	        'attack_strength': '1.0000e+00',
+[92mINFO [0m:      	        'attack_type_code': '0.0000e+00',
+[92mINFO [0m:      	        'client_compute_time': '1.3043e+00',
+[92mINFO [0m:      	        'client_partition_id': '9.3889e+00',
+[92mINFO [0m:      	        'client_train_time': '1.3043e+00',
+[92mINFO [0m:      	        'is_malicious': '0.0000e+00',
+[92mINFO [0m:      	        'noise_l2_norm': '0.0000e+00',
+[92mINFO [0m:      	        'noise_mean': '0.0000e+00',
+[92mINFO [0m:      	        'noise_std_observed': '0.0000e+00',
+[92mINFO [0m:      	        'train_loss': '2.2628e+00',
+[92mINFO [0m:      	        'update_cosine_to_original': '1.0000e+00',
+[92mINFO [0m:      	        'update_noise_ratio': '0.0000e+00',
+[92mINFO [0m:      	        'update_norm_after': '3.6138e+00',
+[92mINFO [0m:      	        'update_norm_before': '3.6138e+00',
+[92mINFO [0m:      	        'update_norm_ratio': '1.0000e+00'},
+[92mINFO [0m:      	  15: { 'attack_active': '0.0000e+00',
+[92mINFO [0m:      	        'attack_strength': '1.0000e+00',
+[92mINFO [0m:      	        'attack_type_code': '0.0000e+00',
+[92mINFO [0m:      	        'client_compute_time': '1.1389e+00',
+[92mINFO [0m:      	        'client_partition_id': '9.3889e+00',
+[92mINFO [0m:      	        'client_train_time': '1.1389e+00',
+[92mINFO [0m:      	        'is_malicious': '0.0000e+00',
+[92mINFO [0m:      	        'noise_l2_norm': '0.0000e+00',
+[92mINFO [0m:      	        'noise_mean': '0.0000e+00',
+[92mINFO [0m:      	        'noise_std_observed': '0.0000e+00',
+[92mINFO [0m:      	        'train_loss': '2.2628e+00',
+[92mINFO [0m:      	        'update_cosine_to_original': '1.0000e+00',
+[92mINFO [0m:      	        'update_noise_ratio': '0.0000e+00',
+[92mINFO [0m:      	        'update_norm_after': '3.6138e+00',
+[92mINFO [0m:      	        'update_norm_before': '3.6138e+00',
+[92mINFO [0m:      	        'update_norm_ratio': '1.0000e+00'},
+[92mINFO [0m:      	  17: { 'attack_active': '0.0000e+00',
+[92mINFO [0m:      	        'attack_strength': '1.0000e+00',
+[92mINFO [0m:      	        'attack_type_code': '0.0000e+00',
+[92mINFO [0m:      	        'client_compute_time': '1.2264e+00',
+[92mINFO [0m:      	        'client_partition_id': '9.3889e+00',
+[92mINFO [0m:      	        'client_train_time': '1.2264e+00',
+[92mINFO [0m:      	        'is_malicious': '0.0000e+00',
+[92mINFO [0m:      	        'noise_l2_norm': '0.0000e+00',
+[92mINFO [0m:      	        'noise_mean': '0.0000e+00',
+[92mINFO [0m:      	        'noise_std_observed': '0.0000e+00',
+[92mINFO [0m:      	        'train_loss': '2.2628e+00',
+[92mINFO [0m:      	        'update_cosine_to_original': '1.0000e+00',
+[92mINFO [0m:      	        'update_noise_ratio': '0.0000e+00',
+[92mINFO [0m:      	        'update_norm_after': '3.6138e+00',
+[92mINFO [0m:      	        'update_norm_before': '3.6138e+00',
+[92mINFO [0m:      	        'update_norm_ratio': '1.0000e+00'},
+[92mINFO [0m:      	  19: { 'attack_active': '0.0000e+00',
+[92mINFO [0m:      	        'attack_strength': '1.0000e+00',
+[92mINFO [0m:      	        'attack_type_code': '0.0000e+00',
+[92mINFO [0m:      	        'client_compute_time': '1.1350e+00',
+[92mINFO [0m:      	        'client_partition_id': '9.3889e+00',
+[92mINFO [0m:      	        'client_train_time': '1.1350e+00',
+[92mINFO [0m:      	        'is_malicious': '0.0000e+00',
+[92mINFO [0m:      	        'noise_l2_norm': '0.0000e+00',
+[92mINFO [0m:      	        'noise_mean': '0.0000e+00',
+[92mINFO [0m:      	        'noise_std_observed': '0.0000e+00',
+[92mINFO [0m:      	        'train_loss': '2.2628e+00',
+[92mINFO [0m:      	        'update_cosine_to_original': '1.0000e+00',
+[92mINFO [0m:      	        'update_noise_ratio': '0.0000e+00',
+[92mINFO [0m:      	        'update_norm_after': '3.6138e+00',
+[92mINFO [0m:      	        'update_norm_before': '3.6138e+00',
+[92mINFO [0m:      	        'update_norm_ratio': '1.0000e+00'},
+[92mINFO [0m:      	  21: { 'attack_active': '0.0000e+00',
+[92mINFO [0m:      	        'attack_strength': '1.0000e+00',
+[92mINFO [0m:      	        'attack_type_code': '0.0000e+00',
+[92mINFO [0m:      	        'client_compute_time': '1.1536e+00',
+[92mINFO [0m:      	        'client_partition_id': '9.3889e+00',
+[92mINFO [0m:      	        'client_train_time': '1.1536e+00',
+[92mINFO [0m:      	        'is_malicious': '0.0000e+00',
+[92mINFO [0m:      	        'noise_l2_norm': '0.0000e+00',
+[92mINFO [0m:      	        'noise_mean': '0.0000e+00',
+[92mINFO [0m:      	        'noise_std_observed': '0.0000e+00',
+[92mINFO [0m:      	        'train_loss': '2.2628e+00',
+[92mINFO [0m:      	        'update_cosine_to_original': '1.0000e+00',
+[92mINFO [0m:      	        'update_noise_ratio': '0.0000e+00',
+[92mINFO [0m:      	        'update_norm_after': '3.6138e+00',
+[92mINFO [0m:      	        'update_norm_before': '3.6138e+00',
+[92mINFO [0m:      	        'update_norm_ratio': '1.0000e+00'},
+[92mINFO [0m:      	  23: { 'attack_active': '0.0000e+00',
+[92mINFO [0m:      	        'attack_strength': '1.0000e+00',
+[92mINFO [0m:      	        'attack_type_code': '0.0000e+00',
+[92mINFO [0m:      	        'client_compute_time': '1.1335e+00',
+[92mINFO [0m:      	        'client_partition_id': '9.3889e+00',
+[92mINFO [0m:      	        'client_train_time': '1.1335e+00',
+[92mINFO [0m:      	        'is_malicious': '0.0000e+00',
+[92mINFO [0m:      	        'noise_l2_norm': '0.0000e+00',
+[92mINFO [0m:      	        'noise_mean': '0.0000e+00',
+[92mINFO [0m:      	        'noise_std_observed': '0.0000e+00',
+[92mINFO [0m:      	        'train_loss': '2.2628e+00',
+[92mINFO [0m:      	        'update_cosine_to_original': '1.0000e+00',
+[92mINFO [0m:      	        'update_noise_ratio': '0.0000e+00',
+[92mINFO [0m:      	        'update_norm_after': '3.6138e+00',
+[92mINFO [0m:      	        'update_norm_before': '3.6138e+00',
+[92mINFO [0m:      	        'update_norm_ratio': '1.0000e+00'},
+[92mINFO [0m:      	  25: { 'attack_active': '0.0000e+00',
+[92mINFO [0m:      	        'attack_strength': '1.0000e+00',
+[92mINFO [0m:      	        'attack_type_code': '0.0000e+00',
+[92mINFO [0m:      	        'client_compute_time': '1.1773e+00',
+[92mINFO [0m:      	        'client_partition_id': '9.3889e+00',
+[92mINFO [0m:      	        'client_train_time': '1.1773e+00',
+[92mINFO [0m:      	        'is_malicious': '0.0000e+00',
+[92mINFO [0m:      	        'noise_l2_norm': '0.0000e+00',
+[92mINFO [0m:      	        'noise_mean': '0.0000e+00',
+[92mINFO [0m:      	        'noise_std_observed': '0.0000e+00',
+[92mINFO [0m:      	        'train_loss': '2.2628e+00',
+[92mINFO [0m:      	        'update_cosine_to_original': '1.0000e+00',
+[92mINFO [0m:      	        'update_noise_ratio': '0.0000e+00',
+[92mINFO [0m:      	        'update_norm_after': '3.6138e+00',
+[92mINFO [0m:      	        'update_norm_before': '3.6138e+00',
+[92mINFO [0m:      	        'update_norm_ratio': '1.0000e+00'},
+[92mINFO [0m:      	  27: { 'attack_active': '0.0000e+00',
+[92mINFO [0m:      	        'attack_strength': '1.0000e+00',
+[92mINFO [0m:      	        'attack_type_code': '0.0000e+00',
+[92mINFO [0m:      	        'client_compute_time': '1.1301e+00',
+[92mINFO [0m:      	        'client_partition_id': '9.3889e+00',
+[92mINFO [0m:      	        'client_train_time': '1.1301e+00',
+[92mINFO [0m:      	        'is_malicious': '0.0000e+00',
+[92mINFO [0m:      	        'noise_l2_norm': '0.0000e+00',
+[92mINFO [0m:      	        'noise_mean': '0.0000e+00',
+[92mINFO [0m:      	        'noise_std_observed': '0.0000e+00',
+[92mINFO [0m:      	        'train_loss': '2.2628e+00',
+[92mINFO [0m:      	        'update_cosine_to_original': '1.0000e+00',
+[92mINFO [0m:      	        'update_noise_ratio': '0.0000e+00',
+[92mINFO [0m:      	        'update_norm_after': '3.6138e+00',
+[92mINFO [0m:      	        'update_norm_before': '3.6138e+00',
+[92mINFO [0m:      	        'update_norm_ratio': '1.0000e+00'},
+[92mINFO [0m:      	  29: { 'attack_active': '0.0000e+00',
+[92mINFO [0m:      	        'attack_strength': '1.0000e+00',
+[92mINFO [0m:      	        'attack_type_code': '0.0000e+00',
+[92mINFO [0m:      	        'client_compute_time': '1.4342e+00',
+[92mINFO [0m:      	        'client_partition_id': '9.3889e+00',
+[92mINFO [0m:      	        'client_train_time': '1.4342e+00',
+[92mINFO [0m:      	        'is_malicious': '0.0000e+00',
+[92mINFO [0m:      	        'noise_l2_norm': '0.0000e+00',
+[92mINFO [0m:      	        'noise_mean': '0.0000e+00',
+[92mINFO [0m:      	        'noise_std_observed': '0.0000e+00',
+[92mINFO [0m:      	        'train_loss': '2.2628e+00',
+[92mINFO [0m:      	        'update_cosine_to_original': '1.0000e+00',
+[92mINFO [0m:      	        'update_noise_ratio': '0.0000e+00',
+[92mINFO [0m:      	        'update_norm_after': '3.6138e+00',
+[92mINFO [0m:      	        'update_norm_before': '3.6138e+00',
+[92mINFO [0m:      	        'update_norm_ratio': '1.0000e+00'}}
+[92mINFO [0m:      	
+[92mINFO [0m:      	Aggregated ClientApp-side Evaluate Metrics:
+[92mINFO [0m:      	{ 1: {'eval_acc': '1.9880e-01', 'eval_loss': '2.2219e+00'},
+[92mINFO [0m:      	  2: {'eval_acc': '1.0100e-01', 'eval_loss': '2.3033e+00'},
+[92mINFO [0m:      	  3: {'eval_acc': '1.9880e-01', 'eval_loss': '2.2219e+00'},
+[92mINFO [0m:      	  4: {'eval_acc': '1.0100e-01', 'eval_loss': '2.3033e+00'},
+[92mINFO [0m:      	  5: {'eval_acc': '1.9880e-01', 'eval_loss': '2.2219e+00'},
+[92mINFO [0m:      	  6: {'eval_acc': '1.0100e-01', 'eval_loss': '2.3033e+00'},
+[92mINFO [0m:      	  7: {'eval_acc': '1.9880e-01', 'eval_loss': '2.2219e+00'},
+[92mINFO [0m:      	  8: {'eval_acc': '1.0100e-01', 'eval_loss': '2.3033e+00'},
+[92mINFO [0m:      	  9: {'eval_acc': '1.9880e-01', 'eval_loss': '2.2219e+00'},
+[92mINFO [0m:      	  10: {'eval_acc': '1.0100e-01', 'eval_loss': '2.3033e+00'},
+[92mINFO [0m:      	  11: {'eval_acc': '1.9880e-01', 'eval_loss': '2.2219e+00'},
+[92mINFO [0m:      	  12: {'eval_acc': '1.0100e-01', 'eval_loss': '2.3033e+00'},
+[92mINFO [0m:      	  13: {'eval_acc': '1.9880e-01', 'eval_loss': '2.2219e+00'},
+[92mINFO [0m:      	  14: {'eval_acc': '1.0100e-01', 'eval_loss': '2.3033e+00'},
+[92mINFO [0m:      	  15: {'eval_acc': '1.9880e-01', 'eval_loss': '2.2219e+00'},
+[92mINFO [0m:      	  16: {'eval_acc': '1.0100e-01', 'eval_loss': '2.3033e+00'},
+[92mINFO [0m:      	  17: {'eval_acc': '1.9880e-01', 'eval_loss': '2.2219e+00'},
+[92mINFO [0m:      	  18: {'eval_acc': '1.0100e-01', 'eval_loss': '2.3033e+00'},
+[92mINFO [0m:      	  19: {'eval_acc': '1.9880e-01', 'eval_loss': '2.2219e+00'},
+[92mINFO [0m:      	  20: {'eval_acc': '1.0100e-01', 'eval_loss': '2.3033e+00'},
+[92mINFO [0m:      	  21: {'eval_acc': '1.9880e-01', 'eval_loss': '2.2219e+00'},
+[92mINFO [0m:      	  22: {'eval_acc': '1.0100e-01', 'eval_loss': '2.3033e+00'},
+[92mINFO [0m:      	  23: {'eval_acc': '1.9880e-01', 'eval_loss': '2.2219e+00'},
+[92mINFO [0m:      	  24: {'eval_acc': '1.0100e-01', 'eval_loss': '2.3033e+00'},
+[92mINFO [0m:      	  25: {'eval_acc': '1.9880e-01', 'eval_loss': '2.2219e+00'},
+[92mINFO [0m:      	  26: {'eval_acc': '1.0100e-01', 'eval_loss': '2.3033e+00'},
+[92mINFO [0m:      	  27: {'eval_acc': '1.9880e-01', 'eval_loss': '2.2219e+00'},
+[92mINFO [0m:      	  28: {'eval_acc': '1.0100e-01', 'eval_loss': '2.3033e+00'},
+[92mINFO [0m:      	  29: {'eval_acc': '1.9880e-01', 'eval_loss': '2.2219e+00'},
+[92mINFO [0m:      	  30: {'eval_acc': '1.0100e-01', 'eval_loss': '2.3033e+00'}}
+[92mINFO [0m:      	
+[92mINFO [0m:      	ServerApp-side Evaluate Metrics:
+[92mINFO [0m:      	{ 0: {'accuracy': '9.9900e-02', 'loss': '2.3036e+00'},
+[92mINFO [0m:      	  1: {'accuracy': '2.0390e-01', 'loss': '2.2165e+00'},
+[92mINFO [0m:      	  2: {'accuracy': '9.9900e-02', 'loss': '2.3036e+00'},
+[92mINFO [0m:      	  3: {'accuracy': '2.0390e-01', 'loss': '2.2165e+00'},
+[92mINFO [0m:      	  4: {'accuracy': '9.9900e-02', 'loss': '2.3036e+00'},
+[92mINFO [0m:      	  5: {'accuracy': '2.0390e-01', 'loss': '2.2165e+00'},
+[92mINFO [0m:      	  6: {'accuracy': '9.9900e-02', 'loss': '2.3036e+00'},
+[92mINFO [0m:      	  7: {'accuracy': '2.0390e-01', 'loss': '2.2165e+00'},
+[92mINFO [0m:      	  8: {'accuracy': '9.9900e-02', 'loss': '2.3036e+00'},
+[92mINFO [0m:      	  9: {'accuracy': '2.0390e-01', 'loss': '2.2165e+00'},
+[92mINFO [0m:      	  10: {'accuracy': '9.9900e-02', 'loss': '2.3036e+00'},
+[92mINFO [0m:      	  11: {'accuracy': '2.0390e-01', 'loss': '2.2165e+00'},
+[92mINFO [0m:      	  12: {'accuracy': '9.9900e-02', 'loss': '2.3036e+00'},
+[92mINFO [0m:      	  13: {'accuracy': '2.0390e-01', 'loss': '2.2165e+00'},
+[92mINFO [0m:      	  14: {'accuracy': '9.9900e-02', 'loss': '2.3036e+00'},
+[92mINFO [0m:      	  15: {'accuracy': '2.0390e-01', 'loss': '2.2165e+00'},
+[92mINFO [0m:      	  16: {'accuracy': '9.9900e-02', 'loss': '2.3036e+00'},
+[92mINFO [0m:      	  17: {'accuracy': '2.0390e-01', 'loss': '2.2165e+00'},
+[92mINFO [0m:      	  18: {'accuracy': '9.9900e-02', 'loss': '2.3036e+00'},
+[92mINFO [0m:      	  19: {'accuracy': '2.0390e-01', 'loss': '2.2165e+00'},
+[92mINFO [0m:      	  20: {'accuracy': '9.9900e-02', 'loss': '2.3036e+00'},
+[92mINFO [0m:      	  21: {'accuracy': '2.0390e-01', 'loss': '2.2165e+00'},
+[92mINFO [0m:      	  22: {'accuracy': '9.9900e-02', 'loss': '2.3036e+00'},
+[92mINFO [0m:      	  23: {'accuracy': '2.0390e-01', 'loss': '2.2165e+00'},
+[92mINFO [0m:      	  24: {'accuracy': '9.9900e-02', 'loss': '2.3036e+00'},
+[92mINFO [0m:      	  25: {'accuracy': '2.0390e-01', 'loss': '2.2165e+00'},
+[92mINFO [0m:      	  26: {'accuracy': '9.9900e-02', 'loss': '2.3036e+00'},
+[92mINFO [0m:      	  27: {'accuracy': '2.0390e-01', 'loss': '2.2165e+00'},
+[92mINFO [0m:      	  28: {'accuracy': '9.9900e-02', 'loss': '2.3036e+00'},
+[92mINFO [0m:      	  29: {'accuracy': '2.0390e-01', 'loss': '2.2165e+00'},
+[92mINFO [0m:      	  30: {'accuracy': '9.9900e-02', 'loss': '2.3036e+00'}}
+[92mINFO [0m:      
+[36m(ClientAppActor pid=165820)[0m [93mWARNING [0m:   Manually terminating ClientAppActor
+[36m(ClientAppActor pid=165818)[0m Using the latest cached version of the dataset since uoft-cs/cifar10 couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 5x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(ClientAppActor pid=165818)[0m Found the latest cached dataset configuration 'plain_text' at /root/hf_cache/datasets/uoft-cs___cifar10/plain_text/0.0.0/0b2714987fa478483af9968de7c934580d0bb9a2 (last modified on Wed Sep 23 19:29:05 2026).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=165818)[0m [93mWARNING [0m:   Manually terminating ClientAppActor[32m [repeated 5x across cluster][0m
+== result files ==
+  <PROJECT_ROOT>/results/vl_formal_20260924/seed7_normal/config.json
+  <PROJECT_ROOT>/results/vl_formal_20260924/seed7_normal/results.csv
+  <PROJECT_ROOT>/results/vl_formal_20260924/seed7_normal/summary.json
+final_accuracy=0.099900 final_loss=2.303637 total_time=214.39s

@@ -1,0 +1,16 @@
+dataset,scenario,method,seed,final_accuracy,recovery_attempts,recovery_successes,detection_recall,detection_fpr,detection_precision,applied_tamper_rounds,rejection_rounds,rollback_rounds
+MNIST,nonIID_alpha0.5_signflip20_dropout0_20_40_tamper20_40_59,VeraShield-FL,7,0.9865,220,220,0.9954,0.0602,0.8052,20|40|59,21|41|60,21|41|60
+MNIST,nonIID_alpha0.5_signflip20_dropout0_20_40_tamper20_40_59,VeraShield-FL,21,0.9861,220,220,0.9537,0.0324,0.8803,20|40|59,21|41|60,21|41|60
+MNIST,nonIID_alpha0.5_signflip20_dropout0_20_40_tamper20_40_59,VeraShield-FL,42,0.9848,220,220,0.8843,0.0255,0.8967,20|40|59,21|41|60,21|41|60
+MNIST,nonIID_alpha0.5_signflip20_dropout0_20_40_tamper20_40_59,FedAvg,7,0.0980,,,,,,,
+MNIST,nonIID_alpha0.5_signflip20_dropout0_20_40_tamper20_40_59,FedAvg,21,0.0984,,,,,,,
+MNIST,nonIID_alpha0.5_signflip20_dropout0_20_40_tamper20_40_59,FedAvg,42,0.1134,,,,,,,
+MNIST,nonIID_alpha0.5_signflip20_dropout0_20_40_tamper20_40_59,Krum,7,0.1009,,,,,,20|40|59,,
+MNIST,nonIID_alpha0.5_signflip20_dropout0_20_40_tamper20_40_59,Krum,21,0.0958,,,,,,20|40|59,,
+MNIST,nonIID_alpha0.5_signflip20_dropout0_20_40_tamper20_40_59,Krum,42,0.9465,,,,,,20|40|59,,
+MNIST,nonIID_alpha0.5_signflip20_dropout0_20_40_tamper20_40_59,Trimmed Mean,7,0.0980,,,,,,,
+MNIST,nonIID_alpha0.5_signflip20_dropout0_20_40_tamper20_40_59,Trimmed Mean,21,0.1028,,,,,,20,,
+MNIST,nonIID_alpha0.5_signflip20_dropout0_20_40_tamper20_40_59,Trimmed Mean,42,0.1010,,,,,,20|40,,
+MNIST,nonIID_alpha0.5_signflip20_dropout0_20_40_tamper20_40_59,FedDMC,7,0.1135,,,,,,,
+MNIST,nonIID_alpha0.5_signflip20_dropout0_20_40_tamper20_40_59,FedDMC,21,0.0958,,,,,,,
+MNIST,nonIID_alpha0.5_signflip20_dropout0_20_40_tamper20_40_59,FedDMC,42,0.0974,,,,,,,

@@ -1,0 +1,27 @@
+{
+  "status": "COMPLETED",
+  "started_utc": "2026-10-15T10:22:17.666771+00:00",
+  "total": 1,
+  "completed": 1,
+  "pid": 150382,
+  "current": null,
+  "report": {
+    "status": "PASS",
+    "final_accuracy": 0.5164,
+    "tamper_applied_rounds": [
+      20,
+      40,
+      59
+    ],
+    "precommit_rejection_rounds": [
+      20,
+      40,
+      59
+    ],
+    "committed_rounds": 57,
+    "seed": 7,
+    "dataset": "cifar10",
+    "boundary": "logical prototype; no remote client confirmation certificate"
+  },
+  "completed_utc": "2026-10-15T10:43:43.879725+00:00"
+}

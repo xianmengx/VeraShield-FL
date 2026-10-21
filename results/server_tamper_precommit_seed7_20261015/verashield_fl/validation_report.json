@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "final_accuracy": 0.5164,
+  "tamper_applied_rounds": [
+    20,
+    40,
+    59
+  ],
+  "precommit_rejection_rounds": [
+    20,
+    40,
+    59
+  ],
+  "committed_rounds": 57,
+  "seed": 7,
+  "dataset": "cifar10",
+  "boundary": "logical prototype; no remote client confirmation certificate"
+}

@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "final_accuracy": 0.9852,
+  "rejected_rounds": [
+    20,
+    40,
+    59
+  ],
+  "scope": "automatic completion checks; full mechanism audit required",
+  "seed": 42
+}

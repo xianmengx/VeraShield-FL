@@ -1,0 +1,2 @@
+attack_ratio,method,final_accuracy,final_loss,convergence_round,convergence_definition,removed_clients,removed_definition
+0.0,dynamic_weight,0.5309,1.3898228859599633,52,first round r>=1 with |accuracy_r - final_accuracy| <= 0.005; else the last round.,1,total client-rounds removed (SSDF filter or post-share recovery failure) across training rounds.

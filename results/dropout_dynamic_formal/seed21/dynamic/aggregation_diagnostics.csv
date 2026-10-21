@@ -1,0 +1,5 @@
+round,method,num_clients,krum_f,krum_valid,krum_selected_client,krum_score,krum_validity_warning,trim_ratio,num_removed_low,num_removed_high,client_ids,total_clients,available_clients,dropped_clients,unavailable_ids,aggregation_status,effective_clients,weights_source,recovery_status,verification_status,verification_policy,rollback_applied,verification_failure_reason
+1,fedavg,17,,,,,,,,,"[2, 3, 4, 5, 1, 9, 7, 10, 8, 11, 16, 14, 13, 17, 12, 19, 18]",20,20,0,[],ok,17,uniform,success,not_enabled,observe,0,
+2,fedavg,20,,,,,,,,,"[1, 4, 2, 3, 5, 0, 6, 7, 8, 9, 11, 10, 12, 14, 17, 16, 13, 15, 18, 19]",20,16,4,"[1, 4, 10, 18]",ok,20,uniform,success,not_enabled,observe,0,
+3,fedavg,20,,,,,,,,,"[2, 5, 4, 0, 1, 3, 7, 6, 10, 9, 8, 11, 12, 15, 14, 16, 13, 17, 19, 18]",20,14,6,"[1, 4, 7, 10, 15, 18]",ok,20,uniform,success,not_enabled,observe,0,
+4,fedavg,20,,,,,,,,,"[4, 5, 0, 3, 2, 1, 7, 9, 8, 6, 10, 11, 15, 13, 12, 14, 16, 17, 19, 18]",20,12,8,"[1, 3, 4, 7, 10, 12, 15, 18]",ok,20,uniform,success,not_enabled,observe,0,

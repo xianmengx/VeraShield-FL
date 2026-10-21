@@ -1,0 +1,2 @@
+round,method,num_clients,krum_f,krum_valid,krum_selected_client,krum_score,krum_validity_warning,trim_ratio,num_removed_low,num_removed_high,client_ids,total_clients,available_clients,dropped_clients,unavailable_ids,aggregation_status,effective_clients,weights_source,recovery_status,verification_status,verification_policy,rollback_applied,verification_failure_reason
+1,fedavg,11,,,,,,,,,"[9, 10, 11, 13, 12, 15, 16, 14, 17, 18, 19]",20,11,9,"[0, 1, 2, 3, 4, 5, 6, 7, 8]",ok,11,uniform,failed,not_enabled,observe,0,

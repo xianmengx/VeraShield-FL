@@ -1,0 +1,2 @@
+round,available_clients,available_shares,threshold_mode,active_share_set,active_threshold,switch_event,recovery_attempted,recovery_success,recovery_time,B_distribution_bytes,A_pre_distribution_payload,B_pre_distribution_payload,setup_share_payload_total,b_redistributed,decision_equal,accuracy,loss
+1,11,11,failure,,,0,1,0,0.0,0,0,0,0,0,1,0.1056,2.2919844494590276

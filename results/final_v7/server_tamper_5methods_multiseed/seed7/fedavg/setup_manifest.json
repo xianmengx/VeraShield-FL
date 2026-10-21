@@ -1,0 +1,57 @@
+{
+  "run_id": "run_1791798387_a67a4da7",
+  "protocol_name": "VL-SSDF-UAVFL",
+  "protocol_version": "prototype-flow-v2",
+  "seed": 7,
+  "num_clients": 20,
+  "model_size_bytes": 249304,
+  "share_n": 10,
+  "share_t": 6,
+  "normal_threshold": 8,
+  "emergency_threshold": 6,
+  "quantization_scale": 65536,
+  "crypto_vl_setup_id": "",
+  "hash_setup": "experiment_seed",
+  "backends": {
+    "secjudge": "raw_norm_robust_plaintext_core",
+    "seccos": "round_reference_temporal_plaintext_core",
+    "recovery": "logical_shamir",
+    "aggregation_proof": "linear_accumulator"
+  },
+  "trust_model": {
+    "ta": "offline_logical_initialization_only",
+    "ta_in_experiment": false,
+    "ta_per_round_cost_measured": false,
+    "aggregation_servers": "logical_roles_in_single_process",
+    "server_topology": "logical_two_server",
+    "server_names": [
+      "C1",
+      "C2"
+    ],
+    "independent_server_processes": false,
+    "server_to_server_wire_measurement": false,
+    "independent_server_deployment": false
+  },
+  "implementation_boundary": {
+    "ssdf": "v2_full-plaintext-core",
+    "ssdf_backend": "plaintext",
+    "ssdf_backend_boundary": "single_process_plaintext_detector",
+    "recovery": "logical_fixed_point_shamir_update_reconstruction",
+    "verification": "client_visible_scalar_transcript_consistency_diagnostic",
+    "verification_backend": "linear",
+    "cryptographic_proof": false,
+    "cryptographic_key_lifecycle": false,
+    "malicious_server_security": false,
+    "candidate_set_completeness": false
+  },
+  "environment": {
+    "python": "3.11.9",
+    "flwr": "1.31.0",
+    "torch": "2.5.1+cu121",
+    "torchvision": "0.20.1+cu121",
+    "ray": "2.55.1",
+    "flwr-datasets": "0.6.0",
+    "datasets": "4.8.5",
+    "numpy": "2.4.6"
+  }
+}

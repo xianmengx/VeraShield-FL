@@ -1,0 +1,2575 @@
+{
+  "scenario_id": "mnist_precommit_joint_s7_noniid20_signflip_tamper_drop",
+  "seed": 7,
+  "num_clients": 20,
+  "num_rounds": 60,
+  "dataset": "MNIST",
+  "partitioner": "dirichlet",
+  "alpha": 0.5,
+  "partition_seed": 7,
+  "model_seed": 7,
+  "attack_enabled": 1,
+  "attack_type": "sign_flip",
+  "attack_strength": 5.0,
+  "attack_start_round": 4,
+  "attack_ratio": 0.2,
+  "malicious_selection_seed": 42,
+  "malicious_ids": [
+    1,
+    8,
+    12,
+    13
+  ],
+  "dropout_timing": "post_share",
+  "dropout_schedule": "0% rounds 1-20; 20% rounds 21-40; 40% rounds 41-60",
+  "per_round": [
+    {
+      "round": 1,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [],
+      "dropped_clients": [],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 2,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [],
+      "dropped_clients": [],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 3,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [],
+      "dropped_clients": [],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 4,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [],
+      "dropped_clients": [],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 5,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [],
+      "dropped_clients": [],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 6,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [],
+      "dropped_clients": [],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 7,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [],
+      "dropped_clients": [],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 8,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [],
+      "dropped_clients": [],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 9,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [],
+      "dropped_clients": [],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 10,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [],
+      "dropped_clients": [],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 11,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [],
+      "dropped_clients": [],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 12,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [],
+      "dropped_clients": [],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 13,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [],
+      "dropped_clients": [],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 14,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [],
+      "dropped_clients": [],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 15,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [],
+      "dropped_clients": [],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 16,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [],
+      "dropped_clients": [],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 17,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [],
+      "dropped_clients": [],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 18,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [],
+      "dropped_clients": [],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 19,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [],
+      "dropped_clients": [],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 20,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [],
+      "dropped_clients": [],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 21,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 22,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 23,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 24,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 25,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 26,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 27,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 28,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 29,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 30,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 31,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 32,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 33,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 34,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 35,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 36,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 37,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 38,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 39,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 40,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 41,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 42,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 43,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 44,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 45,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 46,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 47,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 48,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 49,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 50,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 51,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 52,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 53,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 54,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 55,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 56,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 57,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 58,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 59,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    },
+    {
+      "round": 60,
+      "selected_clients": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unavailable_ids": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "dropped_clients": [
+        16,
+        17,
+        18,
+        19,
+        12,
+        13,
+        14,
+        15
+      ],
+      "malicious_clients": [
+        1,
+        8,
+        12,
+        13
+      ]
+    }
+  ],
+  "training_config": {
+    "local_epochs": 1,
+    "learning_rate": 0.1,
+    "batch_size": 32,
+    "lr_schedule": "cosine",
+    "lr_min": 0.001
+  },
+  "formal_experiment": true
+}

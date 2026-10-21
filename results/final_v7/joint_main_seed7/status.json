@@ -1,0 +1,48 @@
+{
+  "status": "COMPLETED",
+  "total": 5,
+  "completed": 5,
+  "results": [
+    {
+      "method": "verashield_fl",
+      "final_accuracy": 0.4558,
+      "tamper_applied": [
+        20,
+        40,
+        59
+      ],
+      "tamper_detected": true,
+      "verification_failure_rounds": [
+        21,
+        41,
+        60
+      ],
+      "recovery_attempts": 220,
+      "recovery_successes": 220,
+      "threshold_modes": {
+        "normal": 39,
+        "emergency": 18,
+        "failure": 0
+      }
+    },
+    {
+      "method": "fedavg",
+      "final_accuracy": 0.1
+    },
+    {
+      "method": "krum",
+      "final_accuracy": 0.1
+    },
+    {
+      "method": "trimmed_mean",
+      "final_accuracy": 0.1
+    },
+    {
+      "method": "feddmc",
+      "final_accuracy": 0.1
+    }
+  ],
+  "current": null,
+  "started_utc": "2026-10-13T03:34:25.305064+00:00",
+  "completed_utc": "2026-10-13T06:31:50.587522+00:00"
+}

@@ -1,0 +1,26 @@
+Preflight PASS: eight jobs, one reused v2 run, 36 baseline runs.
+START sign_flip seed=7
+DONE sign_flip seed=7 gate=True
+START sign_flip seed=42
+Traceback (most recent call last):
+  File "<PROJECT_ROOT>/scripts/run_unified_v2_noniid20_gapfill.py", line 190, in <module>
+    main()
+  File "<PROJECT_ROOT>/scripts/run_unified_v2_noniid20_gapfill.py", line 170, in main
+    raise RuntimeError(f'{attack} seed={seed}: exit={result.returncode}')
+RuntimeError: sign_flip seed=42: exit=1
+Preflight PASS: eight jobs, one reused v2 run, 36 baseline runs.
+DONE sign_flip seed=7 gate=True
+START sign_flip seed=42
+DONE sign_flip seed=42 gate=True
+START random_gradient seed=7
+DONE random_gradient seed=7 gate=True
+START random_gradient seed=21
+DONE random_gradient seed=21 gate=True
+START random_gradient seed=42
+DONE random_gradient seed=42 gate=True
+START scaling seed=7
+DONE scaling seed=7 gate=True
+START scaling seed=21
+DONE scaling seed=21 gate=True
+START scaling seed=42
+DONE scaling seed=42 gate=True

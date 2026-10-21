@@ -1,0 +1,82 @@
+{
+  "status": "COMPLETED",
+  "total": 6,
+  "completed": 6,
+  "current": null,
+  "started_utc": "2026-10-12T19:08:55.835740+00:00",
+  "results": [
+    {
+      "seed": 7,
+      "method": "verashield_fl",
+      "final_accuracy": 0.487,
+      "rounds": 60,
+      "normal_threshold": 16,
+      "emergency_threshold": 12,
+      "share_n": 20,
+      "share_t": 16,
+      "threshold_mode_counts": {
+        "normal": 0,
+        "emergency": 0,
+        "failure": 0,
+        "": 1200
+      },
+      "recovery_failed_rows": 0,
+      "empty_accepted_rounds": 0
+    },
+    {
+      "seed": 7,
+      "method": "without_recovery",
+      "final_accuracy": 0.4683,
+      "rounds": 60
+    },
+    {
+      "seed": 21,
+      "method": "verashield_fl",
+      "final_accuracy": 0.4948,
+      "rounds": 60,
+      "normal_threshold": 16,
+      "emergency_threshold": 12,
+      "share_n": 20,
+      "share_t": 16,
+      "threshold_mode_counts": {
+        "normal": 0,
+        "emergency": 0,
+        "failure": 0,
+        "": 1200
+      },
+      "recovery_failed_rows": 0,
+      "empty_accepted_rounds": 0
+    },
+    {
+      "seed": 21,
+      "method": "without_recovery",
+      "final_accuracy": 0.4637,
+      "rounds": 60
+    },
+    {
+      "seed": 42,
+      "method": "verashield_fl",
+      "final_accuracy": 0.496,
+      "rounds": 60,
+      "normal_threshold": 16,
+      "emergency_threshold": 12,
+      "share_n": 20,
+      "share_t": 16,
+      "threshold_mode_counts": {
+        "normal": 0,
+        "emergency": 0,
+        "failure": 0,
+        "": 1200
+      },
+      "recovery_failed_rows": 0,
+      "empty_accepted_rounds": 0
+    },
+    {
+      "seed": 42,
+      "method": "without_recovery",
+      "final_accuracy": 0.4525,
+      "rounds": 60
+    }
+  ],
+  "completed_utc": "2026-10-13T00:33:55.718184+00:00"
+}

@@ -1,0 +1,12 @@
+DONE seed=21 method=verashield_fl accuracy=0.4828
+DONE seed=21 method=fedavg accuracy=0.1
+DONE seed=21 method=krum accuracy=0.1003
+DONE seed=21 method=trimmed_mean accuracy=0.084
+DONE seed=21 method=feddmc accuracy=0.1001
+Audit completed: <PROJECT_ROOT>/results/final_v7/joint_main_multiseed_extension/seed21/AUDIT.md
+DONE seed=42 method=verashield_fl accuracy=0.4789
+DONE seed=42 method=fedavg accuracy=0.0996
+DONE seed=42 method=krum accuracy=0.2064
+DONE seed=42 method=trimmed_mean accuracy=0.1
+DONE seed=42 method=feddmc accuracy=0.1
+Audit completed: <PROJECT_ROOT>/results/final_v7/joint_main_multiseed_extension/seed42/AUDIT.md

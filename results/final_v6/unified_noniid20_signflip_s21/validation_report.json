@@ -1,0 +1,27 @@
+{
+  "status": "COMPLETED",
+  "gate_pass": true,
+  "metrics": {
+    "attack_mode": "persistent",
+    "burst_round": 3,
+    "n_detection_instances": 1140,
+    "server_model": "logical_dual_server_in_single_simulation",
+    "timing_mode": "sequential_logical_roles",
+    "TP": 214,
+    "TN": 912,
+    "FP": 0,
+    "FN": 14,
+    "precision": 1.0,
+    "recall": 0.9385964912280702,
+    "f1": 0.9683257918552036,
+    "detection_accuracy": 0.987719298245614,
+    "fpr": 0.0,
+    "fnr": 0.06140350877192982
+  },
+  "rounds": 60,
+  "empty_accepted_rounds": 0,
+  "crypto_failures": 0,
+  "contaminated_anchor_rows": [],
+  "replay_returncode": 0,
+  "completed_utc": "2026-10-11T14:32:17.939839+00:00"
+}

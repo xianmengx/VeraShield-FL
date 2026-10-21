@@ -1,0 +1,6 @@
+{
+  "seed": 42,
+  "method": "without_recovery",
+  "final_accuracy": 0.4525,
+  "rounds": 60
+}

@@ -1,0 +1,18 @@
+{
+  "status": "COMPLETED",
+  "seed": 21,
+  "started_utc": "2026-10-15T16:12:20.002600+00:00",
+  "completed_utc": "2026-10-16T03:14:36.880372+00:00",
+  "report": {
+    "status": "PASS",
+    "seed": 21,
+    "final_accuracy": 0.4807,
+    "rejected_rounds": [
+      20,
+      40,
+      59
+    ],
+    "scope": "automatic completion checks; full mechanism audit required"
+  },
+  "reused_completed_training": true
+}

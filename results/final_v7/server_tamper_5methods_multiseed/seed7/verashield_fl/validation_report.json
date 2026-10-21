@@ -1,0 +1,44 @@
+{
+  "seed": 7,
+  "method": "verashield_fl",
+  "final_accuracy": 0.5157,
+  "rounds": 60,
+  "tamper_rounds": [
+    20,
+    40,
+    59
+  ],
+  "detection_rounds": [
+    21,
+    41,
+    60
+  ],
+  "tamper_verification_success": [
+    0,
+    0,
+    0
+  ],
+  "tamper_rollback_applied": [
+    1,
+    1,
+    1
+  ],
+  "tamper_detected": true,
+  "unexpected_verification_failures": [],
+  "crypto_failures": 3,
+  "scheduled_tamper_rounds": [
+    20,
+    40,
+    59
+  ],
+  "applied_tamper_rounds": [
+    20,
+    40,
+    59
+  ],
+  "skipped_tamper_rounds": [],
+  "scheduled_tamper_count": 3,
+  "applied_tamper_count": 3,
+  "all_scheduled_tampers_applied": true,
+  "config_tamper_rounds": "20,40,59"
+}

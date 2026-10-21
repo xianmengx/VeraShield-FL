@@ -1,0 +1,99 @@
+tier,scenario_id,N,rounds,seed,dataset,partitioner,attack,attack_ratio,dropout,dropout_timing,method,priority,reason,estimated_runtime
+MAIN,N20_D00_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.2,0,post_share,FedAvg,P0,dropout robustness,~35 min
+MAIN,N20_D00_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.2,0,post_share,Krum,P0,dropout robustness,~35 min
+MAIN,N20_D00_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.2,0,post_share,TrimmedMean,P0,dropout robustness,~35 min
+MAIN,N20_D00_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.2,0,post_share,VL-SSDF-UAVFL,P0,dropout robustness,~35 min
+MAIN,N20_D00_seed2024,20,30,2024,CIFAR-10,iid,sign_flip,0.2,0,post_share,FedAvg,P0,dropout robustness,~35 min
+MAIN,N20_D00_seed2024,20,30,2024,CIFAR-10,iid,sign_flip,0.2,0,post_share,Krum,P0,dropout robustness,~35 min
+MAIN,N20_D00_seed2024,20,30,2024,CIFAR-10,iid,sign_flip,0.2,0,post_share,TrimmedMean,P0,dropout robustness,~35 min
+MAIN,N20_D00_seed2024,20,30,2024,CIFAR-10,iid,sign_flip,0.2,0,post_share,VL-SSDF-UAVFL,P0,dropout robustness,~35 min
+MAIN,N20_D02_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.2,0.2,post_share,FedAvg,P0,dropout robustness,~35 min
+MAIN,N20_D02_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.2,0.2,post_share,Krum,P0,dropout robustness,~35 min
+MAIN,N20_D02_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.2,0.2,post_share,TrimmedMean,P0,dropout robustness,~35 min
+MAIN,N20_D02_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.2,0.2,post_share,VL-SSDF-UAVFL,P0,dropout robustness,~35 min
+MAIN,N20_D02_seed2024,20,30,2024,CIFAR-10,iid,sign_flip,0.2,0.2,post_share,FedAvg,P0,dropout robustness,~35 min
+MAIN,N20_D02_seed2024,20,30,2024,CIFAR-10,iid,sign_flip,0.2,0.2,post_share,Krum,P0,dropout robustness,~35 min
+MAIN,N20_D02_seed2024,20,30,2024,CIFAR-10,iid,sign_flip,0.2,0.2,post_share,TrimmedMean,P0,dropout robustness,~35 min
+MAIN,N20_D02_seed2024,20,30,2024,CIFAR-10,iid,sign_flip,0.2,0.2,post_share,VL-SSDF-UAVFL,P0,dropout robustness,~35 min
+MAIN,N20_D03_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,FedAvg,P0,dropout robustness,~35 min
+MAIN,N20_D03_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,Krum,P0,dropout robustness,~35 min
+MAIN,N20_D03_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,TrimmedMean,P0,dropout robustness,~35 min
+MAIN,N20_D03_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,VL-SSDF-UAVFL,P0,dropout robustness,~35 min
+MAIN,N20_D03_seed2024,20,30,2024,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,FedAvg,P0,dropout robustness,~35 min
+MAIN,N20_D03_seed2024,20,30,2024,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,Krum,P0,dropout robustness,~35 min
+MAIN,N20_D03_seed2024,20,30,2024,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,TrimmedMean,P0,dropout robustness,~35 min
+MAIN,N20_D03_seed2024,20,30,2024,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,VL-SSDF-UAVFL,P0,dropout robustness,~35 min
+MAIN,N20_D04_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.2,0.4,post_share,FedAvg,P0,dropout robustness,~35 min
+MAIN,N20_D04_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.2,0.4,post_share,Krum,P0,dropout robustness,~35 min
+MAIN,N20_D04_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.2,0.4,post_share,TrimmedMean,P0,dropout robustness,~35 min
+MAIN,N20_D04_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.2,0.4,post_share,VL-SSDF-UAVFL,P0,dropout robustness,~35 min
+MAIN,N20_D04_seed2024,20,30,2024,CIFAR-10,iid,sign_flip,0.2,0.4,post_share,FedAvg,P0,dropout robustness,~35 min
+MAIN,N20_D04_seed2024,20,30,2024,CIFAR-10,iid,sign_flip,0.2,0.4,post_share,Krum,P0,dropout robustness,~35 min
+MAIN,N20_D04_seed2024,20,30,2024,CIFAR-10,iid,sign_flip,0.2,0.4,post_share,TrimmedMean,P0,dropout robustness,~35 min
+MAIN,N20_D04_seed2024,20,30,2024,CIFAR-10,iid,sign_flip,0.2,0.4,post_share,VL-SSDF-UAVFL,P0,dropout robustness,~35 min
+MAIN,N20_highsign_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.4,0,post_share,FedAvg,P0,high attack,~35 min
+MAIN,N20_highsign_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.4,0,post_share,Krum,P0,high attack,~35 min
+MAIN,N20_highsign_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.4,0,post_share,TrimmedMean,P0,high attack,~35 min
+MAIN,N20_highsign_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.4,0,post_share,VL-SSDF-UAVFL,P0,high attack,~35 min
+MAIN,N20_D03_sign_flip_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,FedAvg,P0,attack diversity,~35 min
+MAIN,N20_D03_sign_flip_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,Krum,P0,attack diversity,~35 min
+MAIN,N20_D03_sign_flip_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,TrimmedMean,P0,attack diversity,~35 min
+MAIN,N20_D03_sign_flip_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,VL-SSDF-UAVFL,P0,attack diversity,~35 min
+MAIN,N20_D03_scaling_seed42,20,30,42,CIFAR-10,iid,scaling,0.2,0.3,post_share,FedAvg,P0,attack diversity,~35 min
+MAIN,N20_D03_scaling_seed42,20,30,42,CIFAR-10,iid,scaling,0.2,0.3,post_share,Krum,P0,attack diversity,~35 min
+MAIN,N20_D03_scaling_seed42,20,30,42,CIFAR-10,iid,scaling,0.2,0.3,post_share,TrimmedMean,P0,attack diversity,~35 min
+MAIN,N20_D03_scaling_seed42,20,30,42,CIFAR-10,iid,scaling,0.2,0.3,post_share,VL-SSDF-UAVFL,P0,attack diversity,~35 min
+MAIN,N20_D03_dirichlet1.0_seed42,20,30,42,CIFAR-10,dirichlet,sign_flip,0.2,0.3,post_share,FedAvg,P0,non-IID robustness,~35 min
+MAIN,N20_D03_dirichlet1.0_seed42,20,30,42,CIFAR-10,dirichlet,sign_flip,0.2,0.3,post_share,Krum,P0,non-IID robustness,~35 min
+MAIN,N20_D03_dirichlet1.0_seed42,20,30,42,CIFAR-10,dirichlet,sign_flip,0.2,0.3,post_share,TrimmedMean,P0,non-IID robustness,~35 min
+MAIN,N20_D03_dirichlet1.0_seed42,20,30,42,CIFAR-10,dirichlet,sign_flip,0.2,0.3,post_share,VL-SSDF-UAVFL,P0,non-IID robustness,~35 min
+MAIN,N20_D03_dirichlet0.5_seed42,20,30,42,CIFAR-10,dirichlet,sign_flip,0.2,0.3,post_share,FedAvg,P0,non-IID robustness,~35 min
+MAIN,N20_D03_dirichlet0.5_seed42,20,30,42,CIFAR-10,dirichlet,sign_flip,0.2,0.3,post_share,Krum,P0,non-IID robustness,~35 min
+MAIN,N20_D03_dirichlet0.5_seed42,20,30,42,CIFAR-10,dirichlet,sign_flip,0.2,0.3,post_share,TrimmedMean,P0,non-IID robustness,~35 min
+MAIN,N20_D03_dirichlet0.5_seed42,20,30,42,CIFAR-10,dirichlet,sign_flip,0.2,0.3,post_share,VL-SSDF-UAVFL,P0,non-IID robustness,~35 min
+MAIN,N20_highsign_seed2024,20,30,2024,CIFAR-10,iid,sign_flip,0.4,0,post_share,FedAvg,P0,high attack,~35 min
+MAIN,N20_highsign_seed2024,20,30,2024,CIFAR-10,iid,sign_flip,0.4,0,post_share,Krum,P0,high attack,~35 min
+MAIN,N20_highsign_seed2024,20,30,2024,CIFAR-10,iid,sign_flip,0.4,0,post_share,TrimmedMean,P0,high attack,~35 min
+MAIN,N20_highsign_seed2024,20,30,2024,CIFAR-10,iid,sign_flip,0.4,0,post_share,VL-SSDF-UAVFL,P0,high attack,~35 min
+MAIN,N20_D03_sign_flip_seed2024,20,30,2024,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,FedAvg,P0,attack diversity,~35 min
+MAIN,N20_D03_sign_flip_seed2024,20,30,2024,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,Krum,P0,attack diversity,~35 min
+MAIN,N20_D03_sign_flip_seed2024,20,30,2024,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,TrimmedMean,P0,attack diversity,~35 min
+MAIN,N20_D03_sign_flip_seed2024,20,30,2024,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,VL-SSDF-UAVFL,P0,attack diversity,~35 min
+MAIN,N20_D03_scaling_seed2024,20,30,2024,CIFAR-10,iid,scaling,0.2,0.3,post_share,FedAvg,P0,attack diversity,~35 min
+MAIN,N20_D03_scaling_seed2024,20,30,2024,CIFAR-10,iid,scaling,0.2,0.3,post_share,Krum,P0,attack diversity,~35 min
+MAIN,N20_D03_scaling_seed2024,20,30,2024,CIFAR-10,iid,scaling,0.2,0.3,post_share,TrimmedMean,P0,attack diversity,~35 min
+MAIN,N20_D03_scaling_seed2024,20,30,2024,CIFAR-10,iid,scaling,0.2,0.3,post_share,VL-SSDF-UAVFL,P0,attack diversity,~35 min
+MAIN,N20_D03_dirichlet1.0_seed2024,20,30,2024,CIFAR-10,dirichlet,sign_flip,0.2,0.3,post_share,FedAvg,P0,non-IID robustness,~35 min
+MAIN,N20_D03_dirichlet1.0_seed2024,20,30,2024,CIFAR-10,dirichlet,sign_flip,0.2,0.3,post_share,Krum,P0,non-IID robustness,~35 min
+MAIN,N20_D03_dirichlet1.0_seed2024,20,30,2024,CIFAR-10,dirichlet,sign_flip,0.2,0.3,post_share,TrimmedMean,P0,non-IID robustness,~35 min
+MAIN,N20_D03_dirichlet1.0_seed2024,20,30,2024,CIFAR-10,dirichlet,sign_flip,0.2,0.3,post_share,VL-SSDF-UAVFL,P0,non-IID robustness,~35 min
+MAIN,N20_D03_dirichlet0.5_seed2024,20,30,2024,CIFAR-10,dirichlet,sign_flip,0.2,0.3,post_share,FedAvg,P0,non-IID robustness,~35 min
+MAIN,N20_D03_dirichlet0.5_seed2024,20,30,2024,CIFAR-10,dirichlet,sign_flip,0.2,0.3,post_share,Krum,P0,non-IID robustness,~35 min
+MAIN,N20_D03_dirichlet0.5_seed2024,20,30,2024,CIFAR-10,dirichlet,sign_flip,0.2,0.3,post_share,TrimmedMean,P0,non-IID robustness,~35 min
+MAIN,N20_D03_dirichlet0.5_seed2024,20,30,2024,CIFAR-10,dirichlet,sign_flip,0.2,0.3,post_share,VL-SSDF-UAVFL,P0,non-IID robustness,~35 min
+SECONDARY,N20_D03_gaussian_seed42,20,30,42,CIFAR-10,iid,gaussian,0.2,0.3,post_share,FedAvg,P1,noise diversity,~35 min
+SECONDARY,N20_D03_gaussian_seed42,20,30,42,CIFAR-10,iid,gaussian,0.2,0.3,post_share,Krum,P1,noise diversity,~35 min
+SECONDARY,N20_D03_gaussian_seed42,20,30,42,CIFAR-10,iid,gaussian,0.2,0.3,post_share,TrimmedMean,P1,noise diversity,~35 min
+SECONDARY,N20_D03_gaussian_seed42,20,30,42,CIFAR-10,iid,gaussian,0.2,0.3,post_share,VL-SSDF-UAVFL,P1,noise diversity,~35 min
+SECONDARY,N20_D03_gaussian_seed2024,20,30,2024,CIFAR-10,iid,gaussian,0.2,0.3,post_share,FedAvg,P1,noise diversity,~35 min
+SECONDARY,N20_D03_gaussian_seed2024,20,30,2024,CIFAR-10,iid,gaussian,0.2,0.3,post_share,Krum,P1,noise diversity,~35 min
+SECONDARY,N20_D03_gaussian_seed2024,20,30,2024,CIFAR-10,iid,gaussian,0.2,0.3,post_share,TrimmedMean,P1,noise diversity,~35 min
+SECONDARY,N20_D03_gaussian_seed2024,20,30,2024,CIFAR-10,iid,gaussian,0.2,0.3,post_share,VL-SSDF-UAVFL,P1,noise diversity,~35 min
+SUPPLEMENTARY,N10_D03_scaling_seed42,10,30,42,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,FedAvg,P2,scaling,variable
+SUPPLEMENTARY,N10_D03_scaling_seed42,10,30,42,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,Krum,P2,scaling,variable
+SUPPLEMENTARY,N10_D03_scaling_seed42,10,30,42,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,TrimmedMean,P2,scaling,variable
+SUPPLEMENTARY,N10_D03_scaling_seed42,10,30,42,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,VL-SSDF-UAVFL,P2,scaling,variable
+SUPPLEMENTARY,N20_D03_scaling_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,FedAvg,P2,scaling,variable
+SUPPLEMENTARY,N20_D03_scaling_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,Krum,P2,scaling,variable
+SUPPLEMENTARY,N20_D03_scaling_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,TrimmedMean,P2,scaling,variable
+SUPPLEMENTARY,N20_D03_scaling_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,VL-SSDF-UAVFL,P2,scaling,variable
+SUPPLEMENTARY,N50_D03_scaling_seed42,50,30,42,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,FedAvg,P2,scaling,variable
+SUPPLEMENTARY,N50_D03_scaling_seed42,50,30,42,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,Krum,P2,scaling,variable
+SUPPLEMENTARY,N50_D03_scaling_seed42,50,30,42,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,TrimmedMean,P2,scaling,variable
+SUPPLEMENTARY,N50_D03_scaling_seed42,50,30,42,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,VL-SSDF-UAVFL,P2,scaling,variable
+SUPPLEMENTARY,N20_D03_ablation_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,FedAvg,P2,ablation,~35 min
+SUPPLEMENTARY,N20_D03_ablation_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,FedAvg+SSDF,P2,ablation,~35 min
+SUPPLEMENTARY,N20_D03_ablation_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,FedAvg+SSDF+DynamicThreshold,P2,ablation,~35 min
+SUPPLEMENTARY,N20_D03_ablation_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,FedAvg+SSDF+DynamicThreshold+DynamicWeight,P2,ablation,~35 min
+SUPPLEMENTARY,N20_D03_ablation_seed42,20,30,42,CIFAR-10,iid,sign_flip,0.2,0.3,post_share,VL-SSDF-UAVFL,P2,ablation,~35 min
+OPTIONAL,N20_D0_fedulite_smoke,20,30,42,CIFAR-10,iid,none,0,0,post_share,FedULite,P3,candidate integration smoke,~5 min

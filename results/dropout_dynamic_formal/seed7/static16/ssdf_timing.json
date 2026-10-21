@@ -1,0 +1,57 @@
+{
+  "preprocess_time": {
+    "mean": 0.0011018151872121962,
+    "max": 0.026845318003324792,
+    "total": 0.0881452149769757,
+    "n": 80
+  },
+  "sec_judge_time": {
+    "mean": 0.0,
+    "max": 0.0,
+    "total": 0.0,
+    "n": 80
+  },
+  "sec_cos_time": {
+    "mean": 0.0,
+    "max": 0.0,
+    "total": 0.0,
+    "n": 80
+  },
+  "threshold_time": {
+    "mean": 0.0,
+    "max": 0.0,
+    "total": 0.0,
+    "n": 80
+  },
+  "decision_time": {
+    "mean": 0.0009368429593450856,
+    "max": 0.013080936012556776,
+    "total": 0.07494743674760684,
+    "n": 80
+  },
+  "detection_time": {
+    "mean": 0.0009368429593450856,
+    "max": 0.013080936012556776,
+    "total": 0.07494743674760684,
+    "n": 80
+  },
+  "total_ssdf_time": {
+    "mean": 0.0020386581465572816,
+    "max": 0.03992625401588157,
+    "total": 0.16309265172458254,
+    "n": 80
+  },
+  "logical_as1_time": {
+    "mean": 0.0011018151872121962,
+    "max": 0.026845318003324792,
+    "total": 0.0881452149769757,
+    "n": 80
+  },
+  "logical_as2_time": {
+    "mean": 0.0009368429593450856,
+    "max": 0.013080936012556776,
+    "total": 0.07494743674760684,
+    "n": 80
+  },
+  "_notes": "server-side plaintext-core timing (logical AS1/AS2 roles, sequential); NOT physical dual-server parallel timing."
+}

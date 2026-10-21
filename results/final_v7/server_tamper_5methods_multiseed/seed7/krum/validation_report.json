@@ -1,0 +1,58 @@
+{
+  "seed": 7,
+  "method": "krum",
+  "final_accuracy": 0.1,
+  "rounds": 60,
+  "tamper_rounds": [
+    20,
+    40,
+    59
+  ],
+  "missing_aggregation_diagnostic_rounds": [
+    22,
+    24,
+    25,
+    27,
+    30,
+    31,
+    32
+  ],
+  "tamper_verification_success": null,
+  "tamper_detected": false,
+  "aggregation_failure_rounds": [
+    21,
+    23,
+    26,
+    28,
+    29,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40
+  ],
+  "scheduled_tamper_rounds": [
+    20,
+    40,
+    59
+  ],
+  "applied_tamper_rounds": [
+    20,
+    59
+  ],
+  "skipped_tamper_rounds": [
+    {
+      "round": 40,
+      "reason": "aggregation_failed_due_to_insufficient_clients",
+      "effective_clients": "6",
+      "available_clients": "6"
+    }
+  ],
+  "scheduled_tamper_count": 3,
+  "applied_tamper_count": 2,
+  "all_scheduled_tampers_applied": false,
+  "config_tamper_rounds": "20,40,59"
+}

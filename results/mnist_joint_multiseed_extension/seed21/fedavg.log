@@ -1,0 +1,1362 @@
+== env_check ==
+{
+  "venv_scripts": "<LOCAL_VENV>/bin",
+  "python": {
+    "expected": "<LOCAL_VENV>/bin/python",
+    "resolved": "<LOCAL_VENV>/bin/python",
+    "ok": true
+  },
+  "executables": {
+    "flwr": {
+      "expected": "<LOCAL_VENV>/bin/flwr",
+      "resolved": "<LOCAL_VENV>/bin/flwr",
+      "source": "FLOWER_VENV",
+      "ok": true
+    },
+    "flower-superlink": {
+      "expected": "<LOCAL_VENV>/bin/flower-superlink",
+      "resolved": "<LOCAL_VENV>/bin/flower-superlink",
+      "source": "FLOWER_VENV",
+      "ok": true
+    },
+    "flower-superexec": {
+      "expected": "<LOCAL_VENV>/bin/flower-superexec",
+      "resolved": "<LOCAL_VENV>/bin/flower-superexec",
+      "source": "FLOWER_VENV",
+      "ok": true
+    },
+    "flwr-simulation": {
+      "expected": "<LOCAL_VENV>/bin/flwr-simulation",
+      "resolved": "<LOCAL_VENV>/bin/flwr-simulation",
+      "source": "FLOWER_VENV",
+      "ok": true
+    }
+  },
+  "versions": {
+    "flwr": "1.31.0",
+    "python": "3.11.9"
+  },
+  "all_ok": true
+}
+== scenario manifest == <PROJECT_ROOT>/results/mnist_joint_multiseed_extension/seed21/scenario.json
+== output dir == <PROJECT_ROOT>/results/mnist_joint_multiseed_extension/seed21/fedavg
+== flwr command ==
+  <LOCAL_VENV>/bin/flwr run /tmp/quickstart-flower-app-82aym5lr --stream --run-config num-server-rounds=60 num-clients=20 dataset="mnist" local-epochs=1 learning-rate=0.1 lr-schedule="cosine" lr-min=0.001 seed=21 fraction-train=1.0 dropout-rate=0.0 partitioner="dirichlet" alpha=0.5 compute-fast-factor=1.0 compute-medium-factor=1.0 compute-slow-factor=1.0 work-units=0 attack-enabled=1 attack-type="sign_flip" attack-ratio=0.2 attack-strength=5.0 attack-sigma=0.05 backdoor-poison-rate=0.3 backdoor-target-label=0 backdoor-trigger-size=3 malicious-selection-seed=42 attack-mode="persistent" attack-start-round=4 burst-round=3 ssdf-enabled=0 ssdf-backend="plaintext" ssdf-detector-mode="v2_full" ssdf-reference-k=2.5 ssdf-reference-floor=-0.25 ssdf-norm-k=2.7 ssdf-evidence-policy="legacy" ssdf-history-limit=20 ema-beta=0.9 threshold-k=2.0 warmup-rounds=2 norm-tol=0.001 dropout-timing="post_share" share-n=10 share-t=6 holder-outage="full" threshold-controller-enabled=0 secret-recovery-enabled=0 normal-threshold=8 emergency-threshold=6 runtime-available-schedule="" static-threshold=0 dynamic-weight=0 dynamic-weight-blend=0.25 vl-verification=0 vl-enforce=0 vl-backend="linear" vl-update-scale=65536 vl-tamper=0 vl-tamper-rounds="20,40,59" vl-client-tamper-rounds="" control-run-id="" paired-run-id="" aggregation-method="fedavg" krum-f=2 trim-ratio=0.2 scenario-id="mnist_joint_seed21_noniid20_signflip_tamper_drop" output-dir="<PROJECT_ROOT>/results/mnist_joint_multiseed_extension/seed21/fedavg" experiment="mnist_joint_fedavg_s21" scenario-manifest="<PROJECT_ROOT>/results/mnist_joint_multiseed_extension/seed21/scenario.json" --federation-config num-supernodes=20 client-resources-num-cpus=2 client-resources-num-gpus=0.0 init-args-num-gpus=0
+🎊 Successfully started run 10532095938053343167
+[92mINFO [0m:      Starting logstream for run_id `10532095938053343167`
+[92mINFO [0m:      Starting Flower Simulation
+[92mINFO [0m:      Starting AggregationStrategy strategy:
+[92mINFO [0m:      	├── Number of rounds: 60
+[92mINFO [0m:      	├── ArrayRecord (0.17 MB)
+[92mINFO [0m:      	├── ConfigRecord (train): {'lr': 0.1}
+[92mINFO [0m:      	├── ConfigRecord (evaluate): (empty!)
+[92mINFO [0m:      	├──> Sampling:
+[92mINFO [0m:      	│	├──Fraction: train (1.00) | evaluate ( 1.00)
+[92mINFO [0m:      	│	├──Minimum nodes: train (2) | evaluate (2)
+[92mINFO [0m:      	│	└──Minimum available nodes: 2
+[92mINFO [0m:      	└──> Keys in records:
+[92mINFO [0m:      		├── Weighted by: 'num-examples'
+[92mINFO [0m:      		├── ArrayRecord key: 'arrays'
+[92mINFO [0m:      		└── ConfigRecord key: 'config'
+[92mINFO [0m:      
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+<LOCAL_VENV>/lib/python3.11/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+[92mINFO [0m:      Initial global evaluation results: {'accuracy': 0.1202, 'loss': 2.301006736634653}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 1/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 7x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 7x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.1523183549734286, 'client_train_time': 1.025553400041195, 'client_compute_time': 1.0255551390182014, 'client_partition_id': 9.020211701950323, 'is_malicious': 0.29077762960493414, 'attack_active': 0.0, 'attack_type_code': 1.0, 'attack_strength': 5.000000000000001, 'update_norm_before': 13.492484329673667, 'update_norm_after': 13.492484329673667, 'update_cosine_to_original': 1.0000000000000002, 'update_norm_ratio': 1.0, 'noise_l2_norm': 0.0, 'noise_mean': 0.0, 'noise_std_observed': 0.0, 'update_noise_ratio': 0.0, 'backdoor_poisoned_examples': 0.0, 'backdoor_poison_rate_observed': 0.0, 'invalid_update': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 5x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.3172032224292454, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.1135, 'loss': 2.3192589796042142}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 2/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 7x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 7x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 0.9234917594036589, 'client_train_time': 1.0705451841793403, 'client_compute_time': 1.070546834020818, 'client_partition_id': 9.020211701950323, 'is_malicious': 0.29077762960493414, 'attack_active': 0.0, 'attack_type_code': 1.0, 'attack_strength': 5.000000000000001, 'update_norm_before': 11.975406570706934, 'update_norm_after': 11.975406570706934, 'update_cosine_to_original': 1.0, 'update_norm_ratio': 1.0, 'noise_l2_norm': 0.0, 'noise_mean': 0.0, 'noise_std_observed': 0.0, 'update_noise_ratio': 0.0, 'backdoor_poisoned_examples': 0.0, 'backdoor_poison_rate_observed': 0.0, 'invalid_update': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 11x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.5419631676269676, 'eval_acc': 0.5463857428381079}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.5563, 'loss': 1.530734658241272}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 3/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 7x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 7x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 0.5448233284295149, 'client_train_time': 1.011476036004712, 'client_compute_time': 1.0114774334813135, 'client_partition_id': 9.020211701950323, 'is_malicious': 0.29077762960493414, 'attack_active': 0.0, 'attack_type_code': 1.0, 'attack_strength': 5.0, 'update_norm_before': 12.071891613948821, 'update_norm_after': 12.071891613948821, 'update_cosine_to_original': 1.0, 'update_norm_ratio': 1.0, 'noise_l2_norm': 0.0, 'noise_mean': 0.0, 'noise_std_observed': 0.0, 'update_noise_ratio': 0.0, 'backdoor_poisoned_examples': 0.0, 'backdoor_poison_rate_observed': 0.0, 'invalid_update': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 11x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 0.9920309969647263, 'eval_acc': 0.8192038640906061}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.8254, 'loss': 0.9775937010970297}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 4/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 9x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 9x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 7x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 7x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 0.4854929068581456, 'client_train_time': 1.0130269464731076, 'client_compute_time': 1.0130281892842405, 'client_partition_id': 9.020211701950323, 'is_malicious': 0.29077762960493414, 'attack_active': 0.29077762960493414, 'attack_type_code': 1.0, 'attack_strength': 5.000000000000001, 'update_norm_before': 23.856327280198325, 'update_norm_after': 89.96887788361254, 'update_cosine_to_original': 0.4184447410019333, 'update_norm_ratio': 2.1631104811346344, 'noise_l2_norm': 99.16882980040964, 'noise_mean': 0.021263405181762732, 'noise_std_observed': 0.4698270459853921, 'update_noise_ratio': 1.7446657667951593, 'backdoor_poisoned_examples': 0.0, 'backdoor_poison_rate_observed': 0.0, 'invalid_update': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1455195.7153032322, 'eval_acc': 0.08844103930712859}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0892, 'loss': 1521439.507120253}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 5/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60614)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 5x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': inf, 'client_train_time': 1.0195703516765073, 'client_compute_time': 1.0195715576169266, 'client_partition_id': 7.443263403263403, 'is_malicious': 0.0, 'attack_active': 0.0, 'attack_type_code': 1.0, 'attack_strength': 5.0, 'update_norm_before': inf, 'update_norm_after': inf, 'update_cosine_to_original': nan, 'update_norm_ratio': nan, 'noise_l2_norm': 0.0, 'noise_mean': 0.0, 'noise_std_observed': 0.0, 'update_noise_ratio': 0.0, 'backdoor_poisoned_examples': 0.0, 'backdoor_poison_rate_observed': 0.0, 'invalid_update': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 9x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 9x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 5.616254041231746e+30, 'eval_acc': 0.10517988007994669}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0997, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 6/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 7.192422244161108e+28, 'client_train_time': 1.0222428635526608, 'client_compute_time': 1.0222440984477403, 'client_partition_id': 9.020211701950323, 'is_malicious': 0.29077762960493414, 'attack_active': 0.29077762960493414, 'attack_type_code': 1.0, 'attack_strength': 5.000000000000001, 'update_norm_before': inf, 'update_norm_after': inf, 'update_cosine_to_original': nan, 'update_norm_ratio': nan, 'noise_l2_norm': inf, 'noise_mean': 6.751992884543125e+21, 'noise_std_observed': 1.4231043572505793e+24, 'update_noise_ratio': nan, 'backdoor_poisoned_examples': 0.0, 'backdoor_poison_rate_observed': 0.0, 'invalid_update': 0.0}
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60614)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 10x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 10x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871417}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 7/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 6x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 6x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 11x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 8/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 5x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 11x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871417}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 9/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 5x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 11x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 10/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 5x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60614)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 11/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60614)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 11x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 12/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 5x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 9x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 9x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 13/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 7x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 7x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 11x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871417}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 14/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 5x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60613)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 15/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60613)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 11x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 16/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 5x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 17/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 11x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871417}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 18/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 5x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60613)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 11x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 19/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 5x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 11x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 20/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 5x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 11x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 21/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 5x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 11x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 22/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 5x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 23/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60613)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 11x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 24/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 5x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60613)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 11x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 25/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 5x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 26/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 11x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 27/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 5x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 28/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871417}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 29/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 30/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 11x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871417}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 31/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 5x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871417}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 32/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 33/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 9x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 9x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 34/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 7x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 7x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871417}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 35/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60614)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 10x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 10x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 36/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 6x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 6x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 37/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 11x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 38/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 5x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 39/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 10x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 10x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871417}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 40/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 6x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 6x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 11x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 41/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 5x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 42/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60614)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 43/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 9x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 9x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 44/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 7x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 7x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 45/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60613)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 10x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 10x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 46/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 6x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 6x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60614)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871417}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 47/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 12x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 12x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871417}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 48/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60614)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 49/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 50/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60614)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 10x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 51/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 6x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 11x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 52/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 5x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 11x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 53/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 5x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60613)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 11x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 54/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 5x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60613)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 11x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871417}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 55/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 5x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 5x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 10x across cluster][0m
+[36m(ClientAppActor pid=60614)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 10x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 56/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 6x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 6x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 57/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 58/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871417}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 59/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60613)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60613)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871419}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 60/60]
+[92mINFO [0m:      configure_train: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_train: Received 20 results and 0 failures
+[92mINFO [0m:      configure_evaluate: Sampled 20 nodes (out of 20)
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=60615)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 8x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: Received 20 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': nan, 'eval_acc': 0.11558960692871417}
+[92mINFO [0m:      Global evaluation
+Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).
+[92mINFO [0m:      	└──> MetricRecord: {'accuracy': 0.0984, 'loss': nan}
+[92mINFO [0m:      
+[92mINFO [0m:      Strategy execution finished in 1304.27s
+[92mINFO [0m:      
+[92mINFO [0m:      Final results:
+[92mINFO [0m:      
+[92mINFO [0m:      	Global Arrays:
+[92mINFO [0m:      		ArrayRecord (0.171 MB)
+[92mINFO [0m:      	
+[92mINFO [0m:      	Aggregated ClientApp-side Train Metrics:
+[92mINFO [0m:      	{ 1: { 'attack_active': '0.0000e+00',
+[92mINFO [0m:      	       'attack_strength': '5.0000e+00',
+[92mINFO [0m:      	       'attack_type_code': '1.0000e+00',
+[92mINFO [0m:      	       'backdoor_poison_rate_observed': '0.0000e+00',
+[92mINFO [0m:      	       'backdoor_poisoned_examples': '0.0000e+00',
+[92mINFO [0m:      	       'client_compute_time': '1.0256e+00',
+[92mINFO [0m:      	       'client_partition_id': '9.0202e+00',
+[92mINFO [0m:      	       'client_train_time': '1.0256e+00',
+[92mINFO [0m:      	       'invalid_update': '0.0000e+00',
+[92mINFO [0m:      	       'is_malicious': '2.9078e-01',
+[92mINFO [0m:      	       'noise_l2_norm': '0.0000e+00',
+[92mINFO [0m:      	       'noise_mean': '0.0000e+00',
+[92mINFO [0m:      	       'noise_std_observed': '0.0000e+00',
+[92mINFO [0m:      	       'train_loss': '1.1523e+00',
+[92mINFO [0m:      	       'update_cosine_to_original': '1.0000e+00',
+[92mINFO [0m:      	       'update_noise_ratio': '0.0000e+00',
+[92mINFO [0m:      	       'update_norm_after': '1.3492e+01',
+[92mINFO [0m:      	       'update_norm_before': '1.3492e+01',
+[92mINFO [0m:      	       'update_norm_ratio': '1.0000e+00'},
+[92mINFO [0m:      	  2: { 'attack_active': '0.0000e+00',
+[92mINFO [0m:      	       'attack_strength': '5.0000e+00',
+[92mINFO [0m:      	       'attack_type_code': '1.0000e+00',
+[92mINFO [0m:      	       'backdoor_poison_rate_observed': '0.0000e+00',
+[92mINFO [0m:      	       'backdoor_poisoned_examples': '0.0000e+00',
+[92mINFO [0m:      	       'client_compute_time': '1.0705e+00',
+[92mINFO [0m:      	       'client_partition_id': '9.0202e+00',
+[92mINFO [0m:      	       'client_train_time': '1.0705e+00',
+[92mINFO [0m:      	       'invalid_update': '0.0000e+00',
+[92mINFO [0m:      	       'is_malicious': '2.9078e-01',
+[92mINFO [0m:      	       'noise_l2_norm': '0.0000e+00',
+[92mINFO [0m:      	       'noise_mean': '0.0000e+00',
+[92mINFO [0m:      	       'noise_std_observed': '0.0000e+00',
+[92mINFO [0m:      	       'train_loss': '9.2349e-01',
+[92mINFO [0m:      	       'update_cosine_to_original': '1.0000e+00',
+[92mINFO [0m:      	       'update_noise_ratio': '0.0000e+00',
+[92mINFO [0m:      	       'update_norm_after': '1.1975e+01',
+[92mINFO [0m:      	       'update_norm_before': '1.1975e+01',
+[92mINFO [0m:      	       'update_norm_ratio': '1.0000e+00'},
+[92mINFO [0m:      	  3: { 'attack_active': '0.0000e+00',
+[92mINFO [0m:      	       'attack_strength': '5.0000e+00',
+[92mINFO [0m:      	       'attack_type_code': '1.0000e+00',
+[92mINFO [0m:      	       'backdoor_poison_rate_observed': '0.0000e+00',
+[92mINFO [0m:      	       'backdoor_poisoned_examples': '0.0000e+00',
+[92mINFO [0m:      	       'client_compute_time': '1.0115e+00',
+[92mINFO [0m:      	       'client_partition_id': '9.0202e+00',
+[92mINFO [0m:      	       'client_train_time': '1.0115e+00',
+[92mINFO [0m:      	       'invalid_update': '0.0000e+00',
+[92mINFO [0m:      	       'is_malicious': '2.9078e-01',
+[92mINFO [0m:      	       'noise_l2_norm': '0.0000e+00',
+[92mINFO [0m:      	       'noise_mean': '0.0000e+00',
+[92mINFO [0m:      	       'noise_std_observed': '0.0000e+00',
+[92mINFO [0m:      	       'train_loss': '5.4482e-01',
+[92mINFO [0m:      	       'update_cosine_to_original': '1.0000e+00',
+[92mINFO [0m:      	       'update_noise_ratio': '0.0000e+00',
+[92mINFO [0m:      	       'update_norm_after': '1.2072e+01',
+[92mINFO [0m:      	       'update_norm_before': '1.2072e+01',
+[92mINFO [0m:      	       'update_norm_ratio': '1.0000e+00'},
+[92mINFO [0m:      	  4: { 'attack_active': '2.9078e-01',
+[92mINFO [0m:      	       'attack_strength': '5.0000e+00',
+[92mINFO [0m:      	       'attack_type_code': '1.0000e+00',
+[92mINFO [0m:      	       'backdoor_poison_rate_observed': '0.0000e+00',
+[92mINFO [0m:      	       'backdoor_poisoned_examples': '0.0000e+00',
+[92mINFO [0m:      	       'client_compute_time': '1.0130e+00',
+[92mINFO [0m:      	       'client_partition_id': '9.0202e+00',
+[92mINFO [0m:      	       'client_train_time': '1.0130e+00',
+[92mINFO [0m:      	       'invalid_update': '0.0000e+00',
+[92mINFO [0m:      	       'is_malicious': '2.9078e-01',
+[92mINFO [0m:      	       'noise_l2_norm': '9.9169e+01',
+[92mINFO [0m:      	       'noise_mean': '2.1263e-02',
+[92mINFO [0m:      	       'noise_std_observed': '4.6983e-01',
+[92mINFO [0m:      	       'train_loss': '4.8549e-01',
+[92mINFO [0m:      	       'update_cosine_to_original': '4.1844e-01',
+[92mINFO [0m:      	       'update_noise_ratio': '1.7447e+00',
+[92mINFO [0m:      	       'update_norm_after': '8.9969e+01',
+[92mINFO [0m:      	       'update_norm_before': '2.3856e+01',
+[92mINFO [0m:      	       'update_norm_ratio': '2.1631e+00'},
+[92mINFO [0m:      	  5: { 'attack_active': '0.0000e+00',
+[92mINFO [0m:      	       'attack_strength': '5.0000e+00',
+[92mINFO [0m:      	       'attack_type_code': '1.0000e+00',
+[92mINFO [0m:      	       'backdoor_poison_rate_observed': '0.0000e+00',
+[92mINFO [0m:      	       'backdoor_poisoned_examples': '0.0000e+00',
+[92mINFO [0m:      	       'client_compute_time': '1.0196e+00',
+[92mINFO [0m:      	       'client_partition_id': '7.4433e+00',
+[92mINFO [0m:      	       'client_train_time': '1.0196e+00',
+[92mINFO [0m:      	       'invalid_update': '0.0000e+00',
+[92mINFO [0m:      	       'is_malicious': '0.0000e+00',
+[92mINFO [0m:      	       'noise_l2_norm': '0.0000e+00',
+[92mINFO [0m:      	       'noise_mean': '0.0000e+00',
+[92mINFO [0m:      	       'noise_std_observed': '0.0000e+00',
+[92mINFO [0m:      	       'train_loss': 'inf',
+[92mINFO [0m:      	       'update_cosine_to_original': 'nan',
+[92mINFO [0m:      	       'update_noise_ratio': '0.0000e+00',
+[92mINFO [0m:      	       'update_norm_after': 'inf',
+[92mINFO [0m:      	       'update_norm_before': 'inf',
+[92mINFO [0m:      	       'update_norm_ratio': 'nan'},
+[92mINFO [0m:      	  6: { 'attack_active': '2.9078e-01',
+[92mINFO [0m:      	       'attack_strength': '5.0000e+00',
+[92mINFO [0m:      	       'attack_type_code': '1.0000e+00',
+[92mINFO [0m:      	       'backdoor_poison_rate_observed': '0.0000e+00',
+[92mINFO [0m:      	       'backdoor_poisoned_examples': '0.0000e+00',
+[92mINFO [0m:      	       'client_compute_time': '1.0222e+00',
+[92mINFO [0m:      	       'client_partition_id': '9.0202e+00',
+[92mINFO [0m:      	       'client_train_time': '1.0222e+00',
+[92mINFO [0m:      	       'invalid_update': '0.0000e+00',
+[92mINFO [0m:      	       'is_malicious': '2.9078e-01',
+[92mINFO [0m:      	       'noise_l2_norm': 'inf',
+[92mINFO [0m:      	       'noise_mean': '6.7520e+21',
+[92mINFO [0m:      	       'noise_std_observed': '1.4231e+24',
+[92mINFO [0m:      	       'train_loss': '7.1924e+28',
+[92mINFO [0m:      	       'update_cosine_to_original': 'nan',
+[92mINFO [0m:      	       'update_noise_ratio': 'nan',
+[92mINFO [0m:      	       'update_norm_after': 'inf',
+[92mINFO [0m:      	       'update_norm_before': 'inf',
+[92mINFO [0m:      	       'update_norm_ratio': 'nan'}}
+[92mINFO [0m:      	
+[92mINFO [0m:      	Aggregated ClientApp-side Evaluate Metrics:
+[92mINFO [0m:      	{ 1: {'eval_acc': '1.1559e-01', 'eval_loss': '2.3172e+00'},
+[92mINFO [0m:      	  2: {'eval_acc': '5.4639e-01', 'eval_loss': '1.5420e+00'},
+[92mINFO [0m:      	  3: {'eval_acc': '8.1920e-01', 'eval_loss': '9.9203e-01'},
+[92mINFO [0m:      	  4: {'eval_acc': '8.8441e-02', 'eval_loss': '1.4552e+06'},
+[92mINFO [0m:      	  5: {'eval_acc': '1.0518e-01', 'eval_loss': '5.6163e+30'},
+[92mINFO [0m:      	  6: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  7: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  8: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  9: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  10: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  11: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  12: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  13: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  14: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  15: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  16: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  17: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  18: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  19: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  20: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  21: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  22: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  23: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  24: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  25: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  26: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  27: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  28: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  29: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  30: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  31: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  32: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  33: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  34: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  35: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  36: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  37: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  38: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  39: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  40: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  41: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  42: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  43: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  44: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  45: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  46: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  47: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  48: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  49: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  50: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  51: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  52: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  53: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  54: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  55: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  56: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  57: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  58: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  59: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'},
+[92mINFO [0m:      	  60: {'eval_acc': '1.1559e-01', 'eval_loss': 'nan'}}
+[92mINFO [0m:      	
+[92mINFO [0m:      	ServerApp-side Evaluate Metrics:
+[92mINFO [0m:      	{ 0: {'accuracy': '1.2020e-01', 'loss': '2.3010e+00'},
+[92mINFO [0m:      	  1: {'accuracy': '1.1350e-01', 'loss': '2.3193e+00'},
+[92mINFO [0m:      	  2: {'accuracy': '5.5630e-01', 'loss': '1.5307e+00'},
+[92mINFO [0m:      	  3: {'accuracy': '8.2540e-01', 'loss': '9.7759e-01'},
+[92mINFO [0m:      	  4: {'accuracy': '8.9200e-02', 'loss': '1.5214e+06'},
+[92mINFO [0m:      	  5: {'accuracy': '9.9700e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  6: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  7: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  8: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  9: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  10: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  11: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  12: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  13: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  14: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  15: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  16: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  17: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  18: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  19: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  20: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  21: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  22: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  23: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  24: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  25: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  26: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  27: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  28: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  29: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  30: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  31: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  32: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  33: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  34: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  35: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  36: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  37: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  38: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  39: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  40: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  41: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  42: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  43: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  44: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  45: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  46: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  47: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  48: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  49: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  50: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  51: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  52: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  53: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  54: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  55: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  56: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  57: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  58: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  59: {'accuracy': '9.8400e-02', 'loss': 'nan'},
+[92mINFO [0m:      	  60: {'accuracy': '9.8400e-02', 'loss': 'nan'}}
+[92mINFO [0m:      
+[36m(ClientAppActor pid=60616)[0m Using the latest cached version of the dataset since ylecun/mnist couldn't be found on the Hugging Face Hub (offline mode is enabled).[32m [repeated 7x across cluster][0m
+[36m(ClientAppActor pid=60616)[0m Found the latest cached dataset configuration 'mnist' at /root/hf_cache/datasets/ylecun___mnist/mnist/0.0.0/77f3279092a1c1579b2250db8eafed0ad422088c (last modified on Wed Oct 14 20:01:13 2026).[32m [repeated 7x across cluster][0m
+could not read summary.json: must be real number, not NoneType
+== result files ==
+  <PROJECT_ROOT>/results/mnist_joint_multiseed_extension/seed21/fedavg/config.json
+  <PROJECT_ROOT>/results/mnist_joint_multiseed_extension/seed21/fedavg/results.csv
+  <PROJECT_ROOT>/results/mnist_joint_multiseed_extension/seed21/fedavg/summary.json
+  <PROJECT_ROOT>/results/mnist_joint_multiseed_extension/seed21/fedavg/scenario.json
+  <PROJECT_ROOT>/results/mnist_joint_multiseed_extension/seed21/fedavg/scenario.sha256

@@ -1,0 +1,6 @@
+{
+  "seed": 21,
+  "method": "trimmed_mean",
+  "final_accuracy": 0.084,
+  "nonfinite_loss_rounds": []
+}
