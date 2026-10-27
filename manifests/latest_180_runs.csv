@@ -8,7 +8,7 @@ results/final_v2/attack20_iid_runs_s21/scaling20_iid_s21/fedavg/results.csv,61,6
 results/final_v2/attack20_iid_runs_s21/scaling20_iid_s21/feddmc/results.csv,61,60,60,0.2745,True,True,4d09077e2879a25a008eb79cd4324fe68b218ba888d39a790bd5e407710a4f05,,True
 results/final_v2/attack20_iid_runs_s21/scaling20_iid_s21/krum/results.csv,61,60,60,0.4131,True,True,8f532f82688ccbfb7527ee7e15c2bb8647b07716abb153ba061d76ded336b0b1,,True
 results/final_v2/attack20_iid_runs_s21/scaling20_iid_s21/trimmed_mean/results.csv,61,60,60,0.5011,True,True,bad740e24891cad5920f7429bfb52d2e922e0382a3ba41d822642fb0da85af3c,,True
-results/final_v2/attack20_iid_runs_s21/scaling20_iid_s21/verashield_fl/results.csv,61,60,60,0.4958,True,True,9999f7cf1b22b76465fc34ebb0101eef30a9b5b5cd93ee13927ce5c66ead4c98,,True
+results/final_v2/attack20_iid_runs_s21/scaling20_iid_s21/verashield_fl/results.csv,61,60,60,0.51,True,True,226342be49f33dc04d93812bdea1324c42a3e39258995df860ed13a1df210fb2,,True
 results/final_v2/attack20_iid_runs_s21/signflip20_iid_s21/fedavg/results.csv,61,60,60,0.1,True,True,2c4430c9e4c6f3cf7ef75b7551719e52475ccd84453a2b44536dd6bc66e543d4,,True
 results/final_v2/attack20_iid_runs_s21/signflip20_iid_s21/feddmc/results.csv,61,60,60,0.1,True,True,cdccaa3ef208ad754633dc3827cc11f09ba8db3ac3724e7dff944219ebc237f1,,True
 results/final_v2/attack20_iid_runs_s21/signflip20_iid_s21/krum/results.csv,61,60,60,0.3594,True,True,94ed9a27debe7ab653c6bcefe0b6c4ec5e613ef79caec0f7ed1ee505377ca5dd,,True
@@ -23,7 +23,7 @@ results/final_v2/attack20_iid_runs_s42/scaling20_iid_s42/fedavg/results.csv,61,6
 results/final_v2/attack20_iid_runs_s42/scaling20_iid_s42/feddmc/results.csv,61,60,60,0.1,True,True,3d435c52c04e875d55c7bd21d561651914486ff6822580169660042af761ba41,,True
 results/final_v2/attack20_iid_runs_s42/scaling20_iid_s42/krum/results.csv,61,60,60,0.4392,True,True,266f1d7eaacc85bae9c3cf95e9882e61bbd8e092f9e5d9f9a4fc52c36b2583e4,,True
 results/final_v2/attack20_iid_runs_s42/scaling20_iid_s42/trimmed_mean/results.csv,61,60,60,0.5108,True,True,77c9f66f7a077292436f4aa3ef3306af8489e60114dc574d9f5acca1a874a5d9,,True
-results/final_v2/attack20_iid_runs_s42/scaling20_iid_s42/verashield_fl/results.csv,61,60,60,0.5005,True,True,f8fd684842a762311cac1bfb27c924d4bebf7bd443b5a89dbde66fa9d6bf66ce,,True
+results/final_v2/attack20_iid_runs_s42/scaling20_iid_s42/verashield_fl/results.csv,61,60,60,0.4954,True,True,7632fd3bdeb48939e457744954d1e42e678db29921b5ad17fe9ad267321ed23c,,True
 results/final_v2/attack20_iid_runs_s42/signflip20_iid_s42/fedavg/results.csv,61,60,60,0.1,True,True,d6dd66a0982ef34f436524c0a1d92e96f58861a18b00ee5416bc8afb011cfa35,,True
 results/final_v2/attack20_iid_runs_s42/signflip20_iid_s42/feddmc/results.csv,61,60,60,0.1,True,True,2698e14e71bbb2971a98b4da66ca4b896f70f21a0f48a352fd0bbb81303a59b6,,True
 results/final_v2/attack20_iid_runs_s42/signflip20_iid_s42/krum/results.csv,61,60,60,0.3451,True,True,f7c7bca0aa4f664db8583e8227df680e07fe2f52cf098eb7a19be69e58280f30,,True
@@ -123,7 +123,7 @@ results/final_v2/pressure40_runs_s7/signflip40_s7/krum/results.csv,61,60,60,0.31
 results/final_v2/pressure40_runs_s7/signflip40_s7/trimmed_mean/results.csv,61,60,60,0.1,True,True,626e443d59a5b9bcf6b1932b348fa2538bb8c5b600dbaf271bd26f088a7da841,,True
 results/final_v2/pressure40_runs_s7/signflip40_s7/verashield_fl/results.csv,61,60,60,0.4754,True,True,17d88d46ba532ffe61416a0c150b6387cd5e38ff95618de26463baa56da1dba4,,True
 results/final_v2/runs/random_gradient_s7/verashield_fl/results.csv,61,60,60,0.5001,True,True,56182817df05652047e590ef2b69f043229b95fd94507f70da97a6c572f2906d,,True
-results/final_v2/runs/scaling_s7/verashield_fl/results.csv,61,60,60,0.4929,True,True,d81d2da7e36d3655636eda94e1e56be41b00307aba1d9aac72e23537e9f257d9,,True
+results/final_v2/runs/scaling_s7/verashield_fl/results.csv,61,60,60,0.4945,True,True,2a7eb0175fe453ec78fe6cc82f2cc8aa4f74c2d6ea7a38f93e39562c55117c1f,,True
 results/final_v2/runs/signflip_s7/verashield_fl/results.csv,61,60,60,0.503,True,True,0c4e44b06dd3cf6905305ab47eb7c5d9c25b02dff91f174250e1cdbcd3062538,,True
 results/final_v6/noniid20_unified_v2_gapfill/random_gradient_s21/verashield_fl/results.csv,61,60,60,0.4865,True,True,d4a9b21e34300da78ce9cb864552a2d0a62f52bcfcffc1775b8ec4776dfeab97,,True
 results/final_v6/noniid20_unified_v2_gapfill/random_gradient_s42/verashield_fl/results.csv,61,60,60,0.4918,True,True,318d93299e65c7671500bab47f0ec13ec4a63231ff0bf577c30590d1b86409b9,,True

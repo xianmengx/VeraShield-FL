@@ -1,6 +1,6 @@
 # VeraShield-FL: code and experiment artifacts
 
-本目录是独立的本地GitHub发布候选包；尚未创建远程仓库、提交或上传。保留原实验目录结构，便于逐项追溯图表数据。
+本仓库保存 VeraShield-FL 原型代码、选定实验结果及其图表来源记录。保留原实验目录结构，便于逐项追溯图表数据。
 
 ## 实现范围
 
@@ -17,7 +17,7 @@ Flower/PyTorch逻辑双服务器联邦学习原型，包含PoisonGuard、Dynamic
 | 单独服务器篡改 | 15 | CIFAR-10 IID × 五方法 × 三seed |
 | 恢复、开销及修复审计 | 另列 | 保留恢复门限边界、分阶段掉线、客户端微基准及必要审计 |
 
-180项是六张主要准确率图的来源数量，并非本包全部支持实验数量。四种基线与部分攻击场景复用历史运行；当前代码不是所有历史数据的原始源码快照。原registration中的source_sha256属于运行时记录，不应误认为发布代码哈希。
+180项是六张主要准确率图的来源数量，并非本包全部支持实验数量。四种基线与部分攻击场景复用历史运行；IID 20% scaling 的 VeraShield-FL 三个 seed 已更新为当前 `unified_v2_candidate`/`precommit` 配置，其余 IID 20% 攻击运行保持原选定结果。当前代码不是所有历史数据的原始源码快照。原registration中的source_sha256属于运行时记录，不应误认为发布代码哈希。
 
 ## 六张主要图
 
@@ -72,15 +72,15 @@ python scripts/replay_run.py --run results/joint_precommit_cifar10_seed7_2026101
 
 - 联合主实验：20客户端、60轮、Dirichlet α=0.5、20% Sign-flip，第20/40/59轮篡改，分阶段0/20/40%共享后掉线，门限16/12。
 - Non-IID单独投毒使用完整九项新版主方法；IID场景检测策略不同，不能把跨图差异全部归因于划分。
-- Krum在MNIST seed42达到94.65%，不声称每个seed均绝对优于全部基线；IID scaling下Trimmed Mean均值亦可能略高。
+- Krum在MNIST seed42达到94.65%；IID scaling下VeraShield-FL均值为50.00%，Trimmed Mean为49.87%，逐seed结果见 `results/final_v2/ATTACK20_IID_FINAL_ANALYSIS.md`。
 - 单独篡改45个预设事件只有44个实际执行，原因见图包审计；曲线不是完全相同实际暴露下的检测率排名。
 - 掉线对照还关闭检测与加权，不是恢复单模块消融。
 - 开销数据属于逻辑原型；通信为逻辑载荷，部分方法成功工作量不同，不作等工作量的速度排名或客户端通信轻量结论。
 
 发布时对机器路径进行了去标识，未改180份results.csv的原始字节。manifests/source_to_release.csv分别记录原文件及发布副本哈希；figures中source_manifest按发布副本更新。旧审计报告中的历史配置哈希、签名或源码哈希仍属于原运行，不应用来验证经过路径转换的元数据。原始来源身份另见manifests/original_figure_hashes.csv。
 
-## 上传GitHub前
+## GitHub资产
 
-本包对大型vl_verification_results.csv配置Git LFS，请先安装并运行git lfs install，再git add；其他文件均应低于GitHub的100 MiB单文件限制。尚未绑定远程仓库，未创建commit或push。历史归档、私钥、虚拟环境、数据集缓存及论文草稿均不应加入仓库。公开前确认实验资产确实允许发布，并核对manifests/VALIDATION.md中的验证范围。
+大型 `vl_verification_results.csv` 使用Git LFS管理；新增或替换此类文件前先运行 `git lfs install`。历史归档、私钥、虚拟环境、数据集缓存及论文草稿不属于发布内容。实验结果完整性与来源核对记录见 `manifests/VALIDATION.md`。
 
 LICENSE保留原项目Apache-2.0许可文本；相关文献仅作为方法背景，不包含Li或zkFL的第三方实现。

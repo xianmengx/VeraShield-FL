@@ -9,7 +9,7 @@ random_gradient,FedAvg,7,0.3649,0.3649,60,1.7038902300822585,755.031314453001,re
 random_gradient,Krum,7,0.3854,0.3888,58,1.8426199879827379,775.4917915080041,results/final_v2/baseline_runs_s7_corrected/random_gradient_s7/krum,N/A,N/A,N/A,N/A,N/A,N/A
 random_gradient,Trimmed Mean,7,0.5065,0.507,59,1.4816593535338776,787.115733998995,results/final_v2/baseline_runs_s7_corrected/random_gradient_s7/trimmed_mean,N/A,N/A,N/A,N/A,N/A,N/A
 random_gradient,FedDMC,7,0.5008,0.5029,50,1.5271469264090816,794.0612164539998,results/final_v2/baseline_runs_s7/random_gradient_s7/feddmc,N/A,N/A,N/A,N/A,N/A,N/A
-scaling,VeraShield-FL,7,0.4929,0.4929,60,1.6015264897406856,1151.9020077429996,results/final_v2/runs/scaling_s7/verashield_fl,1.0,0.00102880658436214,0.9956331877729258,228,1,0
+scaling,VeraShield-FL,7,0.4945,0.4945,60,1.555498501922511,1314.3273733179994,results/final_v2/runs/scaling_s7/verashield_fl,1.0,0.0,1.0,228,0,0
 scaling,FedAvg,7,0.1,0.2284,4,2.302861705611024,766.7687197839987,results/final_v2/baseline_runs_s7/scaling_s7/fedavg,N/A,N/A,N/A,N/A,N/A,N/A
 scaling,Krum,7,0.3854,0.3888,58,1.8426199879827379,789.4773614399965,results/final_v2/baseline_runs_s7_corrected/scaling_s7/krum,N/A,N/A,N/A,N/A,N/A,N/A
 scaling,Trimmed Mean,7,0.5233,0.5233,60,1.422470527359202,792.7565066680036,results/final_v2/baseline_runs_s7_corrected/scaling_s7/trimmed_mean,N/A,N/A,N/A,N/A,N/A,N/A

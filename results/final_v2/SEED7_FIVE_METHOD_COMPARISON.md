@@ -14,7 +14,7 @@ Protocol: 20 clients, 60 rounds, IID CIFAR-10, full participation, 20% persisten
 | random_gradient | Krum | 0.3854 | 0.3888 | 58 | 1.8426 | 775.4918 | N/A | N/A | N/A |
 | random_gradient | Trimmed Mean | 0.5065 | 0.5070 | 59 | 1.4817 | 787.1157 | N/A | N/A | N/A |
 | random_gradient | FedDMC | 0.5008 | 0.5029 | 50 | 1.5271 | 794.0612 | N/A | N/A | N/A |
-| scaling | VeraShield-FL | 0.4929 | 0.4929 | 60 | 1.6015 | 1151.9020 | 1.0000 | 0.0010 | 0.9956 |
+| scaling | VeraShield-FL | 0.4945 | 0.4945 | 60 | 1.5555 | 1314.3274 | 1.0000 | 0.0000 | 1.0000 |
 | scaling | FedAvg | 0.1000 | 0.2284 | 4 | 2.3029 | 766.7687 | N/A | N/A | N/A |
 | scaling | Krum | 0.3854 | 0.3888 | 58 | 1.8426 | 789.4774 | N/A | N/A | N/A |
 | scaling | Trimmed Mean | 0.5233 | 0.5233 | 60 | 1.4225 | 792.7565 | N/A | N/A | N/A |

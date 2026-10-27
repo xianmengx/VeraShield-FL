@@ -1,4 +1,4 @@
-scenario,attack,method,seed,rows,config_pass,matched_ids,matched_training,training_settings,scenario_partitioner,actual_partitioner,manifest_partition_warning
+﻿scenario,attack,method,seed,rows,config_pass,matched_ids,matched_training,training_settings,scenario_partitioner,actual_partitioner,manifest_partition_warning
 iid20,sign_flip,verashield_fl,7,61,True,True,True,"{""batch-size"": 32, ""fraction-train"": 1.0, ""learning-rate"": 0.1, ""local-epochs"": 1, ""lr-min"": 0.001, ""lr-schedule"": ""cosine"", ""num-clients"": 20, ""num-server-rounds"": 60}",iid,iid,False
 iid20,sign_flip,fedavg,7,61,True,True,True,"{""batch-size"": 32, ""fraction-train"": 1.0, ""learning-rate"": 0.1, ""local-epochs"": 1, ""lr-min"": 0.001, ""lr-schedule"": ""cosine"", ""num-clients"": 20, ""num-server-rounds"": 60}",iid,iid,False
 iid20,sign_flip,krum,7,61,True,True,True,"{""batch-size"": 32, ""fraction-train"": 1.0, ""learning-rate"": 0.1, ""local-epochs"": 1, ""lr-min"": 0.001, ""lr-schedule"": ""cosine"", ""num-clients"": 20, ""num-server-rounds"": 60}",iid,iid,False

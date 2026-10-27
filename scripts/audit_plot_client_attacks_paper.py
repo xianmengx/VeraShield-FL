@@ -41,6 +41,7 @@ def read_json(path):
     return json.loads(path.read_text(encoding='utf-8'))
 
 def read_csv(path):
+    csv.field_size_limit(64 * 1024 * 1024)
     with path.open(encoding='utf-8', newline='') as f:
         return list(csv.DictReader(f))
 
@@ -51,6 +52,10 @@ def write_csv(name, rows):
         writer.writerows(rows)
 
 def source(scenario, attack, method, seed):
+    if scenario == 'iid20' and attack == 'scaling' and method == 'verashield_fl':
+        if seed == 7:
+            return ROOT / 'results/final_v2/runs/scaling_s7/verashield_fl'
+        return ROOT / f'results/final_v2/attack20_iid_runs_s{seed}/scaling20_iid_s{seed}/verashield_fl'
     if scenario != 'noniid20':
         return historical_dir(scenario, attack, method, seed)
     if method != 'verashield_fl':
@@ -178,7 +183,8 @@ def report(final, detection, checks):
              '数据集 CIFAR-10，20 客户端，全部参与，攻击从第 4 轮开始且持续；符号翻转强度 5，随机梯度替换和幅值缩放强度 10。无掉线、无服务器篡改。', '',
              '## 版本与排除规则', '',
              '- Non-IID 20% 主方法采用全部九项 unified_v2_candidate 结果，替代旧的单项替换混合版本。四种基线复用对应 Non-IID 结果。',
-             '- IID 20% 与 IID 40% 保留各自完整历史固定配置矩阵。它们与 Non-IID 使用的检测策略不同，因此三张图分别呈现，不能把跨图差异全部归因于数据划分。',
+             '- IID 20% 的 scaling 攻击下，VeraShield-FL 三个 seed 使用 unified_v2_candidate 与 precommit 配置；其 sign-flip、random-gradient 及四种基线仍采用原选定运行。IID 40% 保留原选定配置。',
+             '- IID 20% scaling 的 VeraShield-FL 结果更新后，三个攻击场景中的方法配置并非完全相同；图表按攻击场景分别汇报。',
              '- Non-IID 40% 仅有已知失败的 seed 7 诊断批次，不作为正式压力对照，不补数、不合并。',
              '- 修正版策略曾参考已观察到的失败案例；这些结果不属于未见数据上的独立验证。',
              '- IID 40% Krum f=4，20% 场景 f=2；Trimmed Mean 的总裁剪比例均为 0.2。压力测试的基线参数变化需在正文说明。',

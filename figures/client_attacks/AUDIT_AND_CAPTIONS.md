@@ -6,7 +6,8 @@
 ## 版本与排除规则
 
 - Non-IID 20% 主方法采用全部九项 unified_v2_candidate 结果，替代旧的单项替换混合版本。四种基线复用对应 Non-IID 结果。
-- IID 20% 与 IID 40% 保留各自完整历史固定配置矩阵。它们与 Non-IID 使用的检测策略不同，因此三张图分别呈现，不能把跨图差异全部归因于数据划分。
+- IID 20% 的 scaling 攻击下，VeraShield-FL 三个 seed 使用 unified_v2_candidate 与 precommit 配置；其 sign-flip、random-gradient 及四种基线仍采用原选定运行。IID 40% 保留原选定配置。
+- IID 20% scaling 的 VeraShield-FL 结果更新后，三个攻击场景中的方法配置并非完全相同；图表按攻击场景分别汇报。
 - Non-IID 40% 仅有已知失败的 seed 7 诊断批次，不作为正式压力对照，不补数、不合并。
 - 修正版策略曾参考已观察到的失败案例；这些结果不属于未见数据上的独立验证。
 - IID 40% Krum f=4，20% 场景 f=2；Trimmed Mean 的总裁剪比例均为 0.2。压力测试的基线参数变化需在正文说明。
@@ -26,7 +27,7 @@
 | iid20 | random_gradient | Krum | 37.81 | 38.61 | 39.66 | 38.69 ± 0.93 |
 | iid20 | random_gradient | Trimmed Mean | 42.67 | 43.47 | 42.15 | 42.76 ± 0.66 |
 | iid20 | random_gradient | FedDMC | 50.08 | 47.33 | 48.24 | 48.55 ± 1.40 |
-| iid20 | scaling | VeraShield-FL | 49.29 | 49.58 | 50.05 | 49.64 ± 0.38 |
+| iid20 | scaling | VeraShield-FL | 49.45 | 51.00 | 49.54 | 50.00 ± 0.87 |
 | iid20 | scaling | FedAvg | 10.00 | 10.00 | 10.00 | 10.00 ± 0.00 |
 | iid20 | scaling | Krum | 44.84 | 41.31 | 43.92 | 43.36 ± 1.83 |
 | iid20 | scaling | Trimmed Mean | 48.41 | 50.11 | 51.08 | 49.87 ± 1.35 |
@@ -70,7 +71,7 @@
 |---|---|---:|---:|---:|---:|
 | iid20 | sign_flip | 100.00 ± 0.00 | 0.51 ± 0.79 | 98.06 ± 3.00 | 0 |
 | iid20 | random_gradient | 100.00 ± 0.00 | 0.00 ± 0.00 | 100.00 ± 0.00 | 0 |
-| iid20 | scaling | 100.00 ± 0.00 | 0.04 ± 0.06 | 99.85 ± 0.25 | 0 |
+| iid20 | scaling | 100.00 ± 0.00 | 0.00 ± 0.00 | 100.00 ± 0.00 | 0 |
 | noniid20 | sign_flip | 97.95 ± 3.55 | 1.61 ± 2.42 | 94.45 ± 8.17 | 0 |
 | noniid20 | random_gradient | 100.00 ± 0.00 | 0.51 ± 0.62 | 98.03 ± 2.37 | 0 |
 | noniid20 | scaling | 100.00 ± 0.00 | 0.33 ± 0.57 | 98.73 ± 2.19 | 0 |

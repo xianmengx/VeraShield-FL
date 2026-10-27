@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "seed": 7,
+  "final_accuracy_percent": 49.45,
+  "original_accuracy_percent": 49.29,
+  "difference_percentage_points": 0.15999999999999903,
+  "full_60_rounds": true,
+  "current_profile_verified": true,
+  "original_artifacts_preserved": true,
+  "successful_verification_rounds": 60,
+  "detection_rounds": "4-60",
+  "detection_client_rounds": 1140,
+  "true_positive": 228,
+  "false_positive": 0,
+  "true_negative": 912,
+  "false_negative": 0,
+  "recall_percent": 100.0,
+  "fpr_percent": 0.0,
+  "precision_percent": 100.0,
+  "total_time_seconds": 1314.3273733179994,
+  "completed_utc": "2026-10-27T13:10:26.690196+00:00"
+}
